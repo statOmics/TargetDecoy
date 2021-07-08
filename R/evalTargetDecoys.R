@@ -39,14 +39,6 @@ evalTargetDecoys <- function(object,
     score = NULL,
     log10 = NULL,
     nBins = 50) {
-    # require some packages
-    # require(mzID)
-    # require(mzR)
-    # require(dplyr)
-    # require(ggplot2)
-    # require(graphics)
-    # require(ggpubr)
-    # require(shiny)
 
     # check object class
     if (is(object, "mzID")) {
@@ -59,7 +51,8 @@ evalTargetDecoys <- function(object,
         "object should be of the class mzID, mzRident or dataframe"
     }
 
-    # if one or more arguments in the function are missing, .select() is called, a pop-up window opens and the variables must be chosen manually.
+    # if one or more arguments in the function are missing, .select() is called,
+    # a pop-up window opens and the variables must be chosen manually.
     if (missing(decoy) | missing(score) | missing(log10)) {
         if (missing(log10)) log10 <- TRUE
         out <- .select(df, decoy, score, log10, nBins)
@@ -72,7 +65,7 @@ evalTargetDecoys <- function(object,
     # subset of dataframe
     data <- df[, c(decoy, score)]
     names(data) <- c("decoy", "score")
-    data <- na.exclude(data)
+    data <- stats::na.exclude(data)
     data$score <- as.double(data$score)
 
     # if variable 'score' is a character, change to continuous
@@ -111,14 +104,20 @@ evalTargetDecoys <- function(object,
             axis.title.y = element_text(angle = 0)
         )
 
+    ppPlotZoom <- p1$ppPlot + ylim(p1$yLim[1], p1$yLim[2])
+    histogramZoom <- p2 +
+        coord_cartesian(
+            xlim = c(min(data$score), max(data$score[data$decoy])),
+            expand = TRUE
+        )
 
     out <- list(
         ppPlot = p1$ppPlot,
         histogram = p2,
-        ppPlotZoom = p1$ppPlot + ylim(p1$yLim[1], p1$yLim[2]),
-        histogramZoom = p2 + coord_cartesian(xlim = c(min(data$score), max(data$score[data$decoy])), expand = TRUE)
+        ppPlotZoom = ppPlotZoom,
+        histogramZoom = histogramZoom
     )
-    out$together <- ggarrange(plotlist = out, ncol = 2, nrow = 2)
+    out$together <- ggpubr::ggarrange(plotlist = out, ncol = 2, nrow = 2)
     return(out)
 }
 
