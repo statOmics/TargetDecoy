@@ -1,69 +1,73 @@
 # Function for preprocessing mzIDfiles
 # returns a table with decoys (TRUE/FALSE) and scores from a given mzID file
 
-decoyScoreTable <- function(object, decoy = NULL, score = NULL, log10 = TRUE) {
+# FIXME: this function seems redundant with decoyScoreTable in R/createPPlotObject.R
+# It also uses an undefined function `.selectMini()`
+# Can this be removed?
 
-    # dataFrame <- flatten(mzID(paste0(homepath,file))) # ! functie maakt nog gebruik van homepath !
-    # dataFrame <- flatten(mzID(file))
-    if (is(object, "mzID")) {
-        dataFrame <- mzID::flatten(object)
-    } else if (is(object, "data.frame")) {
-        dataFrame <- object
-    } else if (is(object, "mzRident")) {
-        dataFrame <- cbind(psms(object), score(object)[, -1])
-    } else {
-        "object should be of the class mzID, mzRident or dataframe"
-    }
-
-
-    if (is.null(decoy) | is.null(score) | is.null(log10)) {
-        if (missing(log10)) log10 <- TRUE
-        out <- .selectMini(dataFrame, decoy, score, log10)
-        decoy <- out$selDecoy # categorical
-        score <- out$selScore # continu
-        log10 <- out$log
-    }
-
-    # if("isDecoy" %in% colnames(dataFrame)){
-    #   decoy <- "isDecoy"
-    # } else if ("isdecoy" %in% colnames(dataFrame)){
-
-    # decoy <- "isdecoy"
-    # } else
-    # {
-    #   out <- .selectMiniDecoy(dataFrame,decoy,score,log10)
-    #   decoy <- out$selDecoy #categorical
-    #   score <- out$selScore #continu
-    #   log10 <- out$log
-    # }
-    #
-    # if("x!tandem:expect" %in% colnames(dataFrame)){
-    #   score <- "x!tandem:expect"
-    # } else  if("ms-gf:specevalue" %in% colnames(dataFrame)){
-    #   score <- "ms-gf:specevalue"
-    # } else   {
-    #   out <- .selectMiniScore(dataFrame,decoy,score,log10)
-    #   decoy <- out$selDecoy #categorical
-    #   score <- out$selScore #continu
-    #   log10 <- out$log
-    # }
-    table <- dataFrame[, c(decoy, score)]
-    names(table) <- c("decoy", "score")
-    table <- na.exclude(table)
-    table$score <- as.double(table$score)
-
-    # if variable 'score' is a character, change to continuous
-    if (is(table$score, "character")) {
-        table$score <- as.numeric(as.character(table$score))
-    }
-
-    # perform log10-transformation on variable 'score' if so indicated
-    if (log10) {
-        table$score <- -log10(as.numeric(table$score))
-    }
-
-    return(table)
-}
+# decoyScoreTable <- function(object, decoy = NULL, score = NULL, log10 = TRUE) {
+#
+#     # dataFrame <- flatten(mzID(paste0(homepath,file))) # ! functie maakt nog gebruik van homepath !
+#     # dataFrame <- flatten(mzID(file))
+#     if (is(object, "mzID")) {
+#         dataFrame <- mzID::flatten(object)
+#     } else if (is.data.frame(object)) {
+#         dataFrame <- object
+#     } else if (is(object, "mzRident")) {
+#         dataFrame <- cbind(psms(object), score(object)[, -1])
+#     } else {
+#         "object should be of the class mzID, mzRident or dataframe"
+#     }
+#
+#
+#     if (is.null(decoy) | is.null(score) | is.null(log10)) {
+#         if (missing(log10)) log10 <- TRUE
+#         out <- .selectMini(dataFrame, decoy, score, log10)
+#         decoy <- out$selDecoy # categorical
+#         score <- out$selScore # continu
+#         log10 <- out$log
+#     }
+#
+#     # if("isDecoy" %in% colnames(dataFrame)){
+#     #   decoy <- "isDecoy"
+#     # } else if ("isdecoy" %in% colnames(dataFrame)){
+#
+#     # decoy <- "isdecoy"
+#     # } else
+#     # {
+#     #   out <- .selectMiniDecoy(dataFrame,decoy,score,log10)
+#     #   decoy <- out$selDecoy #categorical
+#     #   score <- out$selScore #continu
+#     #   log10 <- out$log
+#     # }
+#     #
+#     # if("x!tandem:expect" %in% colnames(dataFrame)){
+#     #   score <- "x!tandem:expect"
+#     # } else  if("ms-gf:specevalue" %in% colnames(dataFrame)){
+#     #   score <- "ms-gf:specevalue"
+#     # } else   {
+#     #   out <- .selectMiniScore(dataFrame,decoy,score,log10)
+#     #   decoy <- out$selDecoy #categorical
+#     #   score <- out$selScore #continu
+#     #   log10 <- out$log
+#     # }
+#     table <- dataFrame[, c(decoy, score)]
+#     names(table) <- c("decoy", "score")
+#     table <- na.exclude(table)
+#     table$score <- as.double(table$score)
+#
+#     # if variable 'score' is a character, change to continuous
+#     if (is(table$score, "character")) {
+#         table$score <- as.numeric(as.character(table$score))
+#     }
+#
+#     # perform log10-transformation on variable 'score' if so indicated
+#     if (log10) {
+#         table$score <- -log10(as.numeric(table$score))
+#     }
+#
+#     return(table)
+# }
 
 
 # Function to make a list of the processed mzIDFiles
