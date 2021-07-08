@@ -18,6 +18,8 @@ You can install the development version of **TargetDecoy** from
 [GitHub](https://github.com/statOmics/TargetDecoy) with:
 
 ``` r
+if (!requireNamespace("remotes"))
+    install.packages("remotes")
 remotes::install("statOmics/TargetDecoy")
 ```
 
@@ -27,3 +29,16 @@ remotes::install("statOmics/TargetDecoy")
 <!-- library(TargetDecoy) -->
 <!-- ## basic example code -->
 <!-- ``` -->
+
+## Development
+
+You can use [renv](https://rstudio.github.io/renv/index.html) to install
+a development environment for this package:
+
+``` r
+if (!requireNamespace("renv"))
+    install.packages("renv")
+
+## Within the TargetDecoy directory
+renv::restore()
+```
