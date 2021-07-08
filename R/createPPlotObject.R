@@ -13,7 +13,7 @@
 decoyScoreTable <- function(object, decoy = NULL, score = NULL, log10 = TRUE) {
     if (class(object) == "mzID") {
         dataFrame <- flatten(object)
-    } else if (class(object) == "data.frame") {
+    } else if (is.data.frame(object)) {
         dataFrame <- object
     } else if (class(object) == "mzRident") {
         dataFrame <- cbind(psms(object), score(object)[, -1])
@@ -36,7 +36,7 @@ decoyScoreTable <- function(object, decoy = NULL, score = NULL, log10 = TRUE) {
     table$score <- as.double(table$score)
 
     # if variable 'score' is a character, change to continuous
-    if (class(table$score) == "character") {
+    if (is.character(table$score)) {
         table$score <- as.numeric(as.character(table$score))
     }
 
@@ -135,7 +135,7 @@ createPPlotObjects <- function(mzObjects, decoy = NULL, score = NULL, log10 = TR
         object <- mzObjects[[1]]
         if (class(object) == "mzID") {
             dataFrame <- flatten(object)
-        } else if (class(object) == "data.frame") {
+        } else if (is.data.frame(object)) {
             dataFrame <- object
         } else if (class(object) == "mzRident") {
             dataFrame <- cbind(psms(object), score(object)[, -1])

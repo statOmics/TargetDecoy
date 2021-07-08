@@ -51,7 +51,7 @@ evalTargetDecoys <- function(object,
     # check object class
     if (is(object, "mzID")) {
         df <- mzID::flatten(object)
-    } else if (is(object, "data.frame")) {
+    } else if (is.data.frame(object)) {
         df <- object
     } else if (is(object, "mzRident")) {
         df <- cbind(psms(object), score(object)[, -1])
@@ -76,13 +76,13 @@ evalTargetDecoys <- function(object,
     data$score <- as.double(data$score)
 
     # if variable 'score' is a character, change to continuous
-    if (is(data$score, "character")) {
+    if (is.character(data$score)) {
         data$score <- as.numeric(as.character(data$score))
     }
 
     # check whether the selected variables are of the correct class
-    if (!is(data$score, "numeric")) stop("Score is not numeric")
-    if (!is(data$decoy, "logical")) stop("Decoy is not logical")
+    if (!is.numeric(data$score)) stop("Score is not numeric")
+    if (!is.logical(data$decoy)) stop("Decoy is not logical")
 
     # perform log10-transformation on variable 'score' if so indicated
     if (log10) {
