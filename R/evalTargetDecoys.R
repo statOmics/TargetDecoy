@@ -1,57 +1,26 @@
-#' Create PP-plot
-
-.ppPlot <- function(data, ylim = NULL) {
-    pi0 <- sum(data$decoy) / sum(!data$decoy)
-    ppPlot <- ggplot() +
-        geom_abline(slope = pi0, color = "black") +
-        labs(title = "PP plot") +
-        coord_cartesian(xlim = c(0, 1), ylim = ylim, expand = TRUE) +
-        theme_bw() +
-        theme(
-            plot.title = element_text(size = rel(1.5)),
-            axis.title = element_text(size = rel(1.2)),
-            axis.text = element_text(size = rel(1.2)),
-            axis.title.y = element_text(angle = 0)
-        )
-    x <- data$score[!data$decoy]
-    Ft <- ecdf(x)
-    Fd <- ecdf(data$score[data$decoy])
-    df <- data_frame(Fdp = Fd(x), Ftp = Ft(x))
-    ylimHlp <- mean(Fd(x) == 1)
-
-    return(list(
-        ppPlot = ppPlot + geom_point(data = df, aes(Fdp, Ftp), color = "dark gray"),
-        yLim = c(0, (1 - ylimHlp)),
-        Fd = Fd,
-        Ft = Ft
-    ))
-}
-
-#' Function to evaluate assumptions of the Target Decoys Approach
+#' Evaluate assumptions of the Target Decoys approach
 #'
-#' @description Function to create diagnostic plots to evalutate the TDA assumptions.
+#' Create diagnostic plots to evaluate the TDA assumptions.
 #' A histogram and PP plot allow to check both necessary assumptions.
 #'
-#' @param object A `dataframe`, `mzID` or `mzR` file.
-#'
-#' @param decoy `boolean` to indicate if the peptide matches to a target or to a decoy.
-#'
-#' @param score `numeric` indicating the score of the peptide match, obtained by the search engine.
-#'
-#' @param log10 `boolean` to indicate if the score should be -log10-transformed.
-#'
+#' @param object A `data.frame`, \linkS4class{mzID} or \linkS4class{mzR} object.
+#' @param decoy `logical`, to indicate if the peptide matches to a target or to
+#'   a decoy.
+#' @param score `numeric`, indicating the score of the peptide match, obtained
+#'   by the search engine.
+#' @param log10 `logical` to indicate if the score should be
+#'   `-log10`-transformed.
 #' @param nBins `numeric` indicating the number of bins in the histogram.
 #'
-#' @return PP-plot and histogram, a zoom of both plots and an overview of all four plots.
+#' @return
+#' A list containing the PP-plot and histogram, a zoom of both plots and an
+#' overview of all four plots.
 #'
 #' @author Elke Debrie, Lieven Clement
 #'
 #' @export
 #'
-#'
-#'
-#' @example
-#'
+#' @examples
 #' exampleFiles <- list.files(system.file('extdata', package = 'mzID'),
 #'                           pattern = '*.mzid', full.names = TRUE)
 #' mzIDexample <- mzID(exampleFiles[[2]])
@@ -71,13 +40,13 @@ evalTargetDecoys <- function(object,
     log10 = NULL,
     nBins = 50) {
     # require some packages
-    require(mzID)
-    require(mzR)
-    require(dplyr)
-    require(ggplot2)
-    require(graphics)
-    require(ggpubr)
-    require(shiny)
+    # require(mzID)
+    # require(mzR)
+    # require(dplyr)
+    # require(ggplot2)
+    # require(graphics)
+    # require(ggpubr)
+    # require(shiny)
 
     # check object class
     if (is(object, "mzID")) {
@@ -151,4 +120,36 @@ evalTargetDecoys <- function(object,
     )
     out$together <- ggarrange(plotlist = out, ncol = 2, nrow = 2)
     return(out)
+}
+
+
+## Create PP-plot
+.ppPlot <- function(data, ylim = NULL) {
+    pi0 <- sum(data$decoy) / sum(!data$decoy)
+
+    x <- data$score[!data$decoy]
+    Ft <- ecdf(x)
+    Fd <- ecdf(data$score[data$decoy])
+    df <- data_frame(Fdp = Fd(x), Ftp = Ft(x))
+    ylimHlp <- mean(Fd(x) == 1)
+
+    ppPlot <- ggplot(df) +
+        geom_point(aes(Fdp, Ftp), color = "dark gray") +
+        geom_abline(slope = pi0, color = "black") +
+        labs(title = "PP plot") +
+        coord_cartesian(xlim = c(0, 1), ylim = ylim, expand = TRUE) +
+        theme_bw() +
+        theme(
+            plot.title = element_text(size = rel(1.5)),
+            axis.title = element_text(size = rel(1.2)),
+            axis.text = element_text(size = rel(1.2)),
+            axis.title.y = element_text(angle = 0)
+        )
+
+   list(
+        ppPlot = ppPlot,
+        yLim = c(0, (1 - ylimHlp)),
+        Fd = Fd,
+        Ft = Ft
+    )
 }
