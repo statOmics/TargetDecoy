@@ -30,6 +30,7 @@ A histogram and PP plot allow to check both necessary assumptions.
 }
 \examples{
 library(mzID)
+
 ## Use one of the example files in the mzID package
 exampleFile <- system.file('extdata', '55merge_tandem.mzid', package = 'mzID')
 mzIDexample <- mzID(exampleFile)

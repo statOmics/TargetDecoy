@@ -3,14 +3,7 @@
 #' Create diagnostic plots to evaluate the TDA assumptions.
 #' A histogram and PP plot allow to check both necessary assumptions.
 #'
-#' @param object A `data.frame`, \linkS4class{mzID} or \linkS4class{mzR} object.
-#' @param decoy `logical`, to indicate if the peptide matches to a target or to
-#'   a decoy.
-#' @param score `numeric`, indicating the score of the peptide match, obtained
-#'   by the search engine.
-#' @param log10 `logical` to indicate if the score should be
-#'   `-log10`-transformed.
-#' @param nBins `numeric` indicating the number of bins in the histogram.
+#' @inheritParams decoyScoreTable
 #'
 #' @return
 #' A list containing the PP-plot and histogram, a zoom of both plots and an
