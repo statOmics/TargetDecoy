@@ -71,32 +71,6 @@ processObjects <- function(mzObjects, decoy = NULL, score = NULL, log10 = TRUE) 
 
 
 #################################################################################
-# FUNCTION 3
-#################################################################################
-### Function to make the basic plot that is used to plot one ore more ppPlots ###
-#################################################################################
-# basic plot to which all other points will be added
-# startplot: basic plot to start with (typical an empty plot)
-# title: title for the plot
-# ylab: label on the y-axis
-
-initializePlotDeco <- function(startplot, title = NULL, ylab = NULL) {
-    return(startplot +
-        labs(title = title) +
-        coord_cartesian(xlim = c(0, 1), ylim = NULL, expand = TRUE) +
-        xlab(expression(paste("FDecoy"))) +
-        ylab(ylab) +
-        theme_bw() +
-        theme(
-            plot.title = element_text(size = rel(1.5)),
-            axis.title = element_text(size = rel(1.2)),
-            axis.text = element_text(size = rel(1.2)),
-            axis.title.y = element_text(angle = 0)
-        ))
-}
-
-
-#################################################################################
 # FUNCTION 4
 #################################################################################
 ############## Function for ggplot2-like colour scale in HCL space ##############
