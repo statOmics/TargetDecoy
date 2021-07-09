@@ -21,10 +21,15 @@
 #' @export
 #'
 #' @examples
-#' exampleFiles <- list.files(system.file('extdata', package = 'mzID'),
-#'                           pattern = '*.mzid', full.names = TRUE)
-#' mzIDexample <- mzID(exampleFiles[[2]])
-#' decoyPlots<-evalTargetDecoys(object = mzIDexample, decoy = "isdecoy", score = "x!tandem:expect", log10 =T RUE, nBins = 30)
+#' library(mzID)
+#' ## Use one of the example files in the mzID package
+#' exampleFile <- system.file('extdata', '55merge_tandem.mzid', package = 'mzID')
+#' mzIDexample <- mzID(exampleFile)
+#'
+#' decoyPlots <- evalTargetDecoys(mzIDexample,
+#'     decoy = "isdecoy", score = "x\\!tandem:expect", log10 = TRUE
+#' )
+#'
 #' # Plot only the overview of the four plots
 #' decoyPlots$together
 #'
@@ -119,7 +124,7 @@ evalTargetDecoys <- function(object,
     x <- data$score[!data$decoy]
     Ft <- ecdf(x)
     Fd <- ecdf(data$score[data$decoy])
-    df <- data_frame(Fdp = Fd(x), Ftp = Ft(x))
+    df <- data.frame(Fdp = Fd(x), Ftp = Ft(x))
     ylimHlp <- mean(Fd(x) == 1)
 
     ppPlot <- ggplot(df) +

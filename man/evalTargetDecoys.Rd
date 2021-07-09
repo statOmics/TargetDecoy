@@ -29,10 +29,15 @@ Create diagnostic plots to evaluate the TDA assumptions.
 A histogram and PP plot allow to check both necessary assumptions.
 }
 \examples{
-exampleFiles <- list.files(system.file('extdata', package = 'mzID'),
-                          pattern = '*.mzid', full.names = TRUE)
-mzIDexample <- mzID(exampleFiles[[2]])
-decoyPlots<-evalTargetDecoys(object = mzIDexample, decoy = "isdecoy", score = "x!tandem:expect", log10 =T RUE, nBins = 30)
+library(mzID)
+## Use one of the example files in the mzID package
+exampleFile <- system.file('extdata', '55merge_tandem.mzid', package = 'mzID')
+mzIDexample <- mzID(exampleFile)
+
+decoyPlots <- evalTargetDecoys(mzIDexample,
+    decoy = "isdecoy", score = "x\\\\!tandem:expect", log10 = TRUE
+)
+
 # Plot only the overview of the four plots
 decoyPlots$together
 
