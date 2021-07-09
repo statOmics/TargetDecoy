@@ -81,6 +81,7 @@ evalTargetDecoys <- function(object,
 
 
 ## Create PP-plot
+#' @importFrom stats ecdf
 .ppPlot <- function(data, ylim = NULL) {
     pi0 <- sum(data$decoy) / sum(!data$decoy)
 
