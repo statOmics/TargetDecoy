@@ -35,21 +35,11 @@
 #'
 #' # evalTargetDecoys(mzIDexample)
 evalTargetDecoys <- function(object,
-    decoy = NULL,
-    score = NULL,
-    log10 = NULL,
-    nBins = 50) {
-
-    # check object class
-    if (is(object, "mzID")) {
-        df <- mzID::flatten(object)
-    } else if (is.data.frame(object)) {
-        df <- object
-    } else if (is(object, "mzRident")) {
-        df <- cbind(psms(object), score(object)[, -1])
-    } else {
-        "object should be of the class mzID, mzRident or dataframe"
-    }
+                             decoy = NULL,
+                             score = NULL,
+                             log10 = NULL,
+                             nBins = 50) {
+    df <- .getDF(object)
 
     # if one or more arguments in the function are missing, .select() is called,
     # a pop-up window opens and the variables must be chosen manually.

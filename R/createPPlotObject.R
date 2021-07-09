@@ -11,26 +11,17 @@
 # log10: boolean, TRUE if the scores from the mzID are returned log10 transformed
 
 decoyScoreTable <- function(object, decoy = NULL, score = NULL, log10 = TRUE) {
-    if (class(object) == "mzID") {
-        dataFrame <- flatten(object)
-    } else if (is.data.frame(object)) {
-        dataFrame <- object
-    } else if (class(object) == "mzRident") {
-        dataFrame <- cbind(psms(object), score(object)[, -1])
-    } else {
-        "object should be of the class mzID, mzRident or dataframe"
-    }
-
+    df <- .getDF(object)
 
     if (is.null(decoy) | is.null(score) | is.null(log10)) {
         if (missing(log10)) log10 <- TRUE
-        out <- .select(dataFrame, decoy, score, log10)
+        out <- .select(df, decoy, score, log10)
         decoy <- out$selDecoy # categorical
         score <- out$selScore # continu
         log10 <- out$log
     }
 
-    table <- dataFrame[, c(decoy, score)]
+    table <- df[, c(decoy, score)]
     names(table) <- c("decoy", "score")
     table <- na.exclude(table)
     table$score <- as.double(table$score)
@@ -133,17 +124,9 @@ createPPlotObjects <- function(mzObjects, decoy = NULL, score = NULL, log10 = TR
 
     if ((is.null(decoy) | is.null(score) | is.null(log10)) & sameSearchEngine) {
         object <- mzObjects[[1]]
-        if (class(object) == "mzID") {
-            dataFrame <- flatten(object)
-        } else if (is.data.frame(object)) {
-            dataFrame <- object
-        } else if (class(object) == "mzRident") {
-            dataFrame <- cbind(psms(object), score(object)[, -1])
-        } else {
-            "object should be of the class mzID, mzRident or dataframe"
-        }
+        df <- .getDF(object)
         if (missing(log10)) log10 <- TRUE
-        out <- .select(dataFrame, decoy, score, log10)
+        out <- .select(df, decoy, score, log10)
         decoy <- out$selDecoy # categorical
         score <- out$selScore # continu
         log10 <- out$log
