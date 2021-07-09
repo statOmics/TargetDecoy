@@ -1,24 +1,92 @@
-#' Select variables
+#' Prepare score table for decoys
 #'
-#' @title Select variables of interest
+#' Takes an input object and returns a score table for the decoys. If one of the
+#' arguments besides `object` is missing, will open a Shiny app to interactively
+#' select the variables.
 #'
-#' @param object A `dataframe`, `mzID` or `mzR` file.
-#'
-#' @param decoy `boolean` to indicate if the peptide matches to a target or to a decoy.
-#'
-#' @param score `numeric` indicating the score of the peptide match, obtained by the search engine.
-#'
-#' @param log10 `boolean` to indicate if the score should be -log10-transformed.
-#'
+#' @param object A `data.frame`, \linkS4class{mzID} or \linkS4class{mzR} object.
+#' @param decoy `logical`, to indicate if the peptide matches to a target or to
+#'   a decoy.
+#' @param score `numeric`, indicating the score of the peptide match, obtained
+#'   by the search engine.
+#' @param log10 `logical` to indicate if the score should be
+#'   `-log10`-transformed.
 #' @param nBins `numeric` indicating the number of bins in the histogram.
 #'
-#' @return Diagnostic plots to check the TDA assumptions.
+#' @return
+#' A `data.frame` with a logical `"decoy"` column and numeric `"scores"`.
 #'
-#' @author
+#' @author Elke Debrie, Lieven Clement
+#' @keywords internal
+#'
+#' @examples
+#' library(mzID)
+#'
+#' ## Use one of the example files in the mzID package
+#' exampleFile <- system.file('extdata', '55merge_tandem.mzid', package = 'mzID')
+#' mzIDexample <- mzID(exampleFile)
+#' score_table <- decoyScoreTable(mzIDexample,
+#'     decoy = "isdecoy", score = "x\\!tandem:expect", log10 = TRUE
+#' )
+decoyScoreTable <- function(object, decoy = NULL, score = NULL, log10 = TRUE) {
+    df <- .getDF(object)
+
+    if (is.null(decoy) || is.null(score) || is.null(log10)) {
+        if (missing(log10)) log10 <- TRUE
+        out <- .select(df, decoy, score, log10)
+        decoy <- out$selDecoy # categorical
+        score <- out$selScore # continu
+        log10 <- out$log
+    }
+
+    stopifnot(decoy %in% colnames(df))
+    stopifnot(score %in% colnames(df))
+
+    table <- df[, c(decoy, score)]
+    names(table) <- c("decoy", "score")
+    table <- stats::na.exclude(table)
+    table$score <- as.double(table$score)
+
+    # if variable 'score' is a character, change to continuous
+    if (is.character(table$score)) {
+        table$score <- as.numeric(as.character(table$score))
+    }
+
+    # check whether the selected variables are of the correct class
+    if (!is.numeric(table$score)) stop("`score` is not numeric.", call. = FALSE)
+    if (!is.logical(table$decoy)) stop("`decoy` is not logical.", call. = FALSE)
+
+    # perform log10-transformation on variable 'score' if so indicated
+    if (log10) {
+        table$score <- -log10(as.numeric(table$score))
+    }
+
+    return(table)
+}
+
+#' @importFrom mzID flatten
+#' @importFrom mzR psms score
+.getDF <- function(object) {
+    # check object class
+    if (is.data.frame(object)) {
+        return(object)
+    } else if (is(object, "mzID")) {
+        df <- flatten(object)
+    } else if (is(object, "mzRident")) {
+        df <- cbind(psms(object), score(object)[, -1])
+    } else {
+        stop(
+            "`object` should be of class 'mzID', 'mzRident' or 'data.frame',",
+            "\n  not '", class(object), "'.", call. = FALSE
+        )
+    }
+    df
+}
+
+
+# Shiny app ---------------------------------------------------------------
 
 .select <- function(object, decoy = NULL, score = NULL, log = TRUE, nBins = 50) {
-    require(shiny)
-    require(ggplot2)
     out <- list(selDecoy = decoy, selScore = score, log = log, nBins = nBins)
     fv <- colnames(object)
     on.exit(return(out))

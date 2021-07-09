@@ -22,6 +22,7 @@
 #'
 #' @examples
 #' library(mzID)
+#'
 #' ## Use one of the example files in the mzID package
 #' exampleFile <- system.file('extdata', '55merge_tandem.mzid', package = 'mzID')
 #' mzIDexample <- mzID(exampleFile)
@@ -44,42 +45,11 @@ evalTargetDecoys <- function(object,
                              score = NULL,
                              log10 = NULL,
                              nBins = 50) {
-    df <- .getDF(object)
-
-    # if one or more arguments in the function are missing, .select() is called,
-    # a pop-up window opens and the variables must be chosen manually.
-    if (missing(decoy) | missing(score) | missing(log10)) {
-        if (missing(log10)) log10 <- TRUE
-        out <- .select(df, decoy, score, log10, nBins)
-        decoy <- out$selDecoy # categorical
-        score <- out$selScore # continu
-        log10 <- out$log
-        nBins <- out$nBins
-    }
-
-    # subset of dataframe
-    data <- df[, c(decoy, score)]
-    names(data) <- c("decoy", "score")
-    data <- stats::na.exclude(data)
-    data$score <- as.double(data$score)
-
-    # if variable 'score' is a character, change to continuous
-    if (is.character(data$score)) {
-        data$score <- as.numeric(as.character(data$score))
-    }
-
-    # check whether the selected variables are of the correct class
-    if (!is.numeric(data$score)) stop("Score is not numeric")
-    if (!is.logical(data$decoy)) stop("Decoy is not logical")
-
-    # perform log10-transformation on variable 'score' if so indicated
-    if (log10) {
-        data$score <- -log10(as.numeric(data$score))
-    }
-
-    #############
-    ### Plots ###
-    #############
+    ## Prepare score table
+    data <- decoyScoreTable(
+        object = object,
+        decoy = decoy, score = score, log10 = log10
+    )
 
     # create PP-plot
     p1 <- .ppPlot(data)
