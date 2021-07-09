@@ -64,6 +64,7 @@ decoyScoreTable <- function(object, decoy = NULL, score = NULL, log10 = TRUE) {
     return(table)
 }
 
+
 #' @importFrom mzID flatten
 #' @importFrom mzR psms score
 .getDF <- function(object) {
@@ -86,27 +87,28 @@ decoyScoreTable <- function(object, decoy = NULL, score = NULL, log10 = TRUE) {
 
 # Shiny app ---------------------------------------------------------------
 
+#' @import shiny
 .select <- function(object, decoy = NULL, score = NULL, log = TRUE, nBins = 50) {
     out <- list(selDecoy = decoy, selScore = score, log = log, nBins = nBins)
     fv <- colnames(object)
     on.exit(return(out))
-    ui <- shiny::fluidPage(
+    ui <- fluidPage(
         title = "Evaluate Decoys",
-        shiny::sidebarLayout(
-            shiny::sidebarPanel(
-                shiny::actionButton("stop", "Stop app"),
+        sidebarLayout(
+            sidebarPanel(
+                actionButton("stop", "Stop app"),
                 checkboxInput("log", "-log10 transform variable?", out$log),
-                shiny::selectInput("decoyVar", "Select Decoy",
+                selectInput("decoyVar", "Select Decoy",
                     as.list(fv),
                     selected = out$selDecoy
                 ),
-                shiny::selectInput("scoreVar", "Select Score",
+                selectInput("scoreVar", "Select Score",
                     as.list(fv),
                     selected = out$selScore
                 ),
-                shiny::numericInput("nBins", "Number of bins in histogram", value = out$nBins, min = 2, max = 1000)
+                numericInput("nBins", "Number of bins in histogram", value = out$nBins, min = 2, max = 1000)
             ),
-            shiny::mainPanel(
+            mainPanel(
                 tabsetPanel(
                     type = "tabs",
                     tabPanel(
@@ -129,10 +131,10 @@ decoyScoreTable <- function(object, decoy = NULL, score = NULL, log10 = TRUE) {
                             )
                         ),
                         h4("Data table with selected variables"),
-                        shiny::dataTableOutput("fd")
+                        dataTableOutput("fd")
                     ),
                     tabPanel(
-                        "Histogram", shiny::plotOutput("histPlot",
+                        "Histogram", plotOutput("histPlot",
                             dblclick = "hist_dblclick",
                             brush = brushOpts(id = "hist_brush", resetOnNew = TRUE)
                         ),
@@ -140,7 +142,7 @@ decoyScoreTable <- function(object, decoy = NULL, score = NULL, log10 = TRUE) {
                                Double click outside a selected area to zoom out")
                     ),
                     tabPanel(
-                        "PP-Plot", shiny::plotOutput("PPplot",
+                        "PP-Plot", plotOutput("PPplot",
                             dblclick = "PPplot_dblclick",
                             brush = brushOpts(id = "PPplot_brush", resetOnNew = TRUE)
                         ),
@@ -154,12 +156,12 @@ decoyScoreTable <- function(object, decoy = NULL, score = NULL, log10 = TRUE) {
 
     server <- function(input, output) {
         # Terminate app
-        shiny::observeEvent(input$stop, {
-            shiny::stopApp(returnValue = out)
+        observeEvent(input$stop, {
+            stopApp(returnValue = out)
         })
 
         # Make Data Table
-        output$fd <- shiny::renderDataTable({
+        output$fd <- renderDataTable({
             out$selDecoy <<- input$decoyVar
             out$selScore <<- input$scoreVar
             out$log <<- input$log
@@ -239,5 +241,5 @@ decoyScoreTable <- function(object, decoy = NULL, score = NULL, log10 = TRUE) {
         ##########
     }
     app <- list(ui = ui, server = server)
-    shiny::runApp(app)
+    runApp(app)
 }

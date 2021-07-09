@@ -23,4 +23,5 @@ Imports:
     methods,
     mzID,
     mzR,
+    shiny,
     stats
