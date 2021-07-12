@@ -1,4 +1,5 @@
 ## Helper to compute data for PP-plot
+#' @importFrom stats ecdf
 .ppData <- function(data) {
     pi0 <- sum(data$decoy) / sum(!data$decoy)
 
@@ -14,7 +15,6 @@
 
 
 ## Create PP-plot
-#' @importFrom stats ecdf
 .ppPlot <- function(data, ylim = NULL) {
     ppData <- .ppData(data)
     df <- ppData$df
@@ -41,5 +41,5 @@
 # Function for ggplot2-like colour scale in HCL space
 gg_color_hue <- function(n) {
     hues <- seq(15, 375, length = n + 1)
-    hcl(h = hues, l = 65, c = 100)[1:n]
+    hcl(h = hues, l = 65, c = 100)[seq_len(n)]
 }

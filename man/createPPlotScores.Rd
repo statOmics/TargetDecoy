@@ -32,7 +32,6 @@ each of the sub-engines and the overall itself.
 library(mzID)
 
 ## Use one of the example files in the mzID package
-exampleFile <- system.file('extdata', '55merge_tandem.mzid', package = 'mzID')
 mzIDexample <- mzID(exampleFile)
 
 plots <- createPPlotScores(mzIDexample,
