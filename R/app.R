@@ -39,8 +39,12 @@ decoyScoreTable <- function(object, decoy = NULL, score = NULL, log10 = TRUE) {
         log10 <- out$log
     }
 
-    stopifnot(decoy %in% colnames(df))
-    stopifnot(score %in% colnames(df))
+    if (!(decoy %in% colnames(df))) {
+       stop("`decoy = '", decoy, "'` not found in input object.", call. = FALSE)
+    }
+    if (!(score %in% colnames(df))) {
+       stop("`score = '", score, "'` not found in input object.", call. = FALSE)
+    }
 
     table <- df[, c(decoy, score)]
     names(table) <- c("decoy", "score")
