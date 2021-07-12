@@ -78,36 +78,3 @@ evalTargetDecoys <- function(object,
     out$together <- ggpubr::ggarrange(plotlist = out, ncol = 2, nrow = 2)
     return(out)
 }
-
-
-## Create PP-plot
-#' @importFrom stats ecdf
-.ppPlot <- function(data, ylim = NULL) {
-    pi0 <- sum(data$decoy) / sum(!data$decoy)
-
-    x <- data$score[!data$decoy]
-    Ft <- ecdf(x)
-    Fd <- ecdf(data$score[data$decoy])
-    df <- data.frame(Fdp = Fd(x), Ftp = Ft(x))
-    ylimHlp <- mean(Fd(x) == 1)
-
-    ppPlot <- ggplot(df) +
-        geom_point(aes(Fdp, Ftp), color = "dark gray") +
-        geom_abline(slope = pi0, color = "black") +
-        labs(title = "PP plot") +
-        coord_cartesian(xlim = c(0, 1), ylim = ylim, expand = TRUE) +
-        theme_bw() +
-        theme(
-            plot.title = element_text(size = rel(1.5)),
-            axis.title = element_text(size = rel(1.2)),
-            axis.text = element_text(size = rel(1.2)),
-            axis.title.y = element_text(angle = 0)
-        )
-
-   list(
-        ppPlot = ppPlot,
-        yLim = c(0, (1 - ylimHlp)),
-        Fd = Fd,
-        Ft = Ft
-    )
-}
