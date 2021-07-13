@@ -93,34 +93,26 @@ createPPlotObjects <- function(object_list, decoy = NULL, score = NULL, log10 = 
 }
 
 
-
-##########################################################
-# FUNCTION 2a
-##########################################################
-### Function to make a list of the processed mzIDFiles ###
-##########################################################
-# returns a list of tables with decoys (TRUE/FALSE) and scores
-# mzObjects: list of read mzID files
-# decoy: string,  name of the variable isdecoy in this mzID file (typical "isdecoy" or "isDecoy")
-# score: string, name of the variabele score in this mzID file
-# log10: boolean, TRUE if the scores from the mzID are returned log10 transformed
-
-processObjects <- function(object_list, decoy = NULL, score = NULL, log10 = TRUE) {
-    if (length(decoy) == 1) decoy <- rep(decoy, length(object_list))
-    if (length(score) == 1) score <- rep(score, length(object_list))
-    if (length(log10) == 1) log10 <- rep(log10, length(object_list))
-
-    decoyScoreTables <- lapply(
-        1:length(object_list),
-        function(i, decoy, score, log10, mzObjects) {
-            decoyScoreTable(mzObjects[[i]], decoy[i], score[i], log10[i])
-        },
-        decoy = decoy,
-        score = score,
-        log10 = log10,
-        mzObjects = object_list
+# Helper to make decoy score tables from multiple mzID objects
+processObjects <- function(object_list, decoy, score, log10) {
+    arg_list <- .check_args(
+        object_list = object_list,
+        decoy = decoy, score = score, log10 = log10
     )
-    names(decoyScoreTables) <- names(object_list)
-    return(decoyScoreTables)
-}
+    object_list <- arg_list$object_list
+    decoy <- arg_list$decoy
+    score <- arg_list$score
+    log10 <- arg_list$log10
 
+    out <- vector("list", length = length(object_list))
+    for (i in seq_along(object_list)) {
+        out[[i]] <- decoyScoreTable(
+            object = object_list[[i]],
+            decoy = decoy[[i]],
+            score = score[[i]],
+            log10 = log10[[i]]
+        )
+    }
+    names(out) <- names(object_list)
+    out
+}

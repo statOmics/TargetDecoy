@@ -21,7 +21,7 @@
 #' library(mzID)
 #'
 #' ## Use one of the example files in the mzID package
-#" exampleFile <- system.file("extdata", "55merge_tandem.mzid", package = "mzID")
+#' exampleFile <- system.file("extdata", "55merge_tandem.mzid", package = "mzID")
 #' mzIDexample <- mzID(exampleFile)
 #'
 #' plots <- createPPlotScores(mzIDexample,
@@ -40,13 +40,20 @@ createPPlotScores <- function(object, scores, decoy = NULL, log10 = TRUE) {
 
 # Helper to make decoy score tables from a single mzID object for multiple
 # scores.
-processScores <- function(object, scores, decoy = NULL, log10 = TRUE) {
-    out <- lapply(scores, function(score) {
-        decoyScoreTable(
+processScores <- function(object, scores, decoy, log10) {
+    arg_list <- .check_args(scores = scores, log10 = log10)
+    scores <- arg_list$scores
+    log10 <- arg_list$log10
+
+    out <- vector("list", length = length(scores))
+    for (i in seq_along(scores)) {
+        out[[i]] <- decoyScoreTable(
             object = object,
-            decoy = decoy, score = score, log10 = log10
+            decoy = decoy,
+            score = scores[[i]],
+            log10 = log10[[i]]
         )
-    })
+    }
     names(out) <- scores
     out
 }
