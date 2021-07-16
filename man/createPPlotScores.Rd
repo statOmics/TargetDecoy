@@ -8,7 +8,7 @@ engines}
 createPPlotScores(object, scores, decoy = NULL, log10 = TRUE)
 }
 \arguments{
-\item{object}{A \code{data.frame}, \linkS4class{mzID} or \linkS4class{mzR} object.}
+\item{object}{A \code{data.frame}, \linkS4class{mzID} or \linkS4class{mzRident} object.}
 
 \item{scores}{A \code{character} vector of multiple score names from the input
 object. Typically from different search engines.}
@@ -32,6 +32,7 @@ each of the sub-engines and the overall itself.
 library(mzID)
 
 ## Use one of the example files in the mzID package
+exampleFile <- system.file("extdata", "55merge_tandem.mzid", package = "mzID")
 mzIDexample <- mzID(exampleFile)
 
 plots <- createPPlotScores(mzIDexample,

@@ -7,7 +7,7 @@
 decoyScoreTable(object, decoy = NULL, score = NULL, log10 = TRUE)
 }
 \arguments{
-\item{object}{A \code{data.frame}, \linkS4class{mzID} or \linkS4class{mzR} object.}
+\item{object}{A \code{data.frame}, \linkS4class{mzID} or \linkS4class{mzRident} object.}
 
 \item{decoy}{\code{logical}, to indicate if the peptide matches to a target or to
 a decoy.}

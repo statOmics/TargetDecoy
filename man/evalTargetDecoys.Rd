@@ -7,7 +7,7 @@
 evalTargetDecoys(object, decoy = NULL, score = NULL, log10 = NULL, nBins = 50)
 }
 \arguments{
-\item{object}{A \code{data.frame}, \linkS4class{mzID} or \linkS4class{mzR} object.}
+\item{object}{A \code{data.frame}, \linkS4class{mzID} or \linkS4class{mzRident} object.}
 
 \item{decoy}{\code{logical}, to indicate if the peptide matches to a target or to
 a decoy.}
@@ -48,6 +48,20 @@ decoyPlots$together
 # specifying the mzID object
 
 # evalTargetDecoys(mzIDexample)
+
+
+## mzRident objects can also be used
+library(mzR)
+
+if (requireNamespace("msdata", quietly = TRUE)) {
+   ## Using example file from msdata
+   file <- system.file("mzid", "Tandem.mzid.gz", package="msdata")
+   mzid <- openIDfile(file)
+}
+decoyPlots2 <- evalTargetDecoys(mzid,
+    decoy = "isDecoy", score = "X.Tandem.expect", log10 = TRUE
+)
+decoyPlots2$together
 }
 \author{
 Elke Debrie, Lieven Clement
