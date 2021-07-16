@@ -3,5 +3,6 @@
 ^TargetDecoy\.Rproj$
 ^\.Rproj\.user$
 ^dev$
+^doc$
 ^README\.Rmd$
 ^\.renvignore$

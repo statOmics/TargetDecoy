@@ -21,6 +21,9 @@
     pi0 <- ppData$pi0
     ylimHlp <- ppData$ylimHlp
 
+    ## Avoid R CMD check "no visible binding" warnings
+    Fdp <- Ftp <- NULL
+
     ppPlot <- ggplot(df) +
         geom_point(aes(Fdp, Ftp), color = "dark gray") +
         geom_abline(slope = pi0, color = "black") +
@@ -41,5 +44,5 @@
 # Function for ggplot2-like colour scale in HCL space
 gg_color_hue <- function(n) {
     hues <- seq(15, 375, length = n + 1)
-    hcl(h = hues, l = 65, c = 100)[seq_len(n)]
+    grDevices::hcl(h = hues, l = 65, c = 100)[seq_len(n)]
 }

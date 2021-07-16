@@ -166,7 +166,7 @@ decoyScoreTable <- function(object, decoy = NULL, score = NULL, log10 = TRUE) {
         # Select Data
         data <- reactive({
             data <- object[, c(input$decoyVar, input$scoreVar)]
-            data <- na.exclude(data)
+            data <- stats::na.exclude(data)
             names(data) <- c("decoy", "score")
             data$score <- as.double(data$score)
             if (input$log) data$score <- -log10(data$score)

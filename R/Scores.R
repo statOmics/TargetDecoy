@@ -81,6 +81,9 @@ ppScoresPlots <- function(ppData) {
         xlab("FDecoy") +
         theme_bw()
 
+    ## Avoid R CMD check "no visible binding" warnings
+    Fdp <- Ftp <- id <- z <- NULL
+
     p1 <- base_plot +
         geom_point(aes(Fdp, Ftp, color = id)) +
         ggtitle("PP plot") +

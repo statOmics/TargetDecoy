@@ -65,7 +65,7 @@ evalTargetDecoys <- function(object,
     p2 <- ggplot(data, aes(score, fill = decoy, col = I("black"))) +
         geom_histogram(alpha = 0.5, bins = nBins, position = "identity") +
         labs(
-            x = head(score), y = "",
+            x = utils::head(score), y = "",
             title = "Histogram of targets and decoys"
         ) +
         theme_bw() +
