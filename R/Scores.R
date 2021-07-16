@@ -61,9 +61,13 @@ processScores <- function(object, scores, decoy, log10) {
 
 ppScoresData <- function(tables) {
     tmp <- lapply(tables, .ppData)
-    df <- do.call(rbind, lapply(tmp, `[[`, "df"))
-    # Extract 'search' info from rownames
-    df$search <- sub("\\.\\d+$", "", rownames(df))
+    dfs <- lapply(tmp, `[[`, "df")
+    df <- do.call(rbind, dfs)
+    # Add `id` column from table names
+    df$id <- rep(names(tables), vapply(dfs, nrow, integer(1)))
+    if (is.null(df$id)) {
+        df$id <- rep(seq_along(tables), vapply(dfs, nrow, integer(1)))
+    }
     pi0 <- vapply(tmp, `[[`, FUN.VALUE = double(1), "pi0")
     list(df = df, pi0 = pi0)
 }
@@ -71,13 +75,14 @@ ppScoresData <- function(tables) {
 
 ppScoresPlots <- function(ppData) {
     df <- ppData$df
+    df$id <- as.factor(df$id)
     pi0 <- ppData$pi0
     base_plot <- ggplot(df) +
         xlab("FDecoy") +
         theme_bw()
 
     p1 <- base_plot +
-        geom_point(aes(Fdp, Ftp, color = search)) +
+        geom_point(aes(Fdp, Ftp, color = id)) +
         ggtitle("PP plot") +
         ylab("FTarget") +
         geom_abline(
@@ -86,7 +91,7 @@ ppScoresPlots <- function(ppData) {
         )
 
     p2 <- base_plot +
-        geom_point(aes(Fdp, z, color = search)) +
+        geom_point(aes(Fdp, z, color = id)) +
         ggtitle("PP plot - pi0 subtracted") +
         ylab("FTarget-pi0") +
         geom_abline(slope = 0)
