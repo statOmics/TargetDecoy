@@ -1,9 +1,17 @@
 #' Create all the PP plots in one figure for scores from multiple objects
 #'
-#' @param object_list
+#' @param object_list List of \linkS4class{mzID} or \linkS4class{mzRident}
+#'   objects. If named, the names will be used in the legend of the plot. If
+#'   not, names will be extracted from the data files in case of *mzID* or
+#'   *mzRident* objects.
 #' @inheritParams decoyScoreTable
 #'
 #' @return
+#' One PP plot with all original pi0, and a standardized / rescaled PP plot with
+#' all `pi0` set to 0.
+#'
+#' @author Elke Debrie, Lieven Clement
+#'
 #' @export
 #'
 #' @examples
@@ -25,7 +33,6 @@ createPPlotObjects <- function(object_list,
                                decoy = NULL, score = NULL, log10 = TRUE) {
     if (!is.list(object_list)) object_list <- list(object_list)
 
-    # FIXME: find way to set proper names for tables (extract from mz objects?)
     tables <- processObjects(
         object_list = object_list,
         decoy = decoy, score = score, log10 = log10
