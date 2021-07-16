@@ -33,6 +33,20 @@
 #' # specifying the mzID object
 #'
 #' # evalTargetDecoys(mzIDexample)
+#'
+#'
+#' ## mzRident objects can also be used
+#' library(mzR)
+#'
+#' if (requireNamespace("msdata", quietly = TRUE)) {
+#'    ## Using example file from msdata
+#'    file <- system.file("mzid", "Tandem.mzid.gz", package="msdata")
+#'    mzid <- openIDfile(file)
+#' }
+#' decoyPlots2 <- evalTargetDecoys(mzid,
+#'     decoy = "isDecoy", score = "X.Tandem.expect", log10 = TRUE
+#' )
+#' decoyPlots2$together
 evalTargetDecoys <- function(object,
                              decoy = NULL,
                              score = NULL,

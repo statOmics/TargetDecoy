@@ -25,3 +25,5 @@ Imports:
     mzR,
     shiny,
     stats
+Suggests: 
+    msdata
