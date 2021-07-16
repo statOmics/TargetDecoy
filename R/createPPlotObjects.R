@@ -57,5 +57,25 @@ processObjects <- function(object_list, decoy, score, log10) {
         )
     }
     names(out) <- names(object_list)
+
+    ## If no names given, use raw file names from mz objects
+    if (is.null(names(out))) {
+        names(out) <- vapply(object_list, .get_object_name, character(1))
+    }
+
+    out
+}
+
+
+.get_object_name <- function(object) {
+    if (is(object, "mzID")) {
+        fname <- mzID::files(object)$id
+        out <- basename(fname)
+    } else if (is(object, "mzRident")) {
+        fname <- mzR::fileName(object)
+        out <- basename(fname)
+    } else {
+        out <- NULL
+    }
     out
 }
