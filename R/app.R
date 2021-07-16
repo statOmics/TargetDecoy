@@ -4,7 +4,7 @@
 #' arguments besides `object` is missing, will open a Shiny app to interactively
 #' select the variables.
 #'
-#' @param object A `data.frame`, \linkS4class{mzID} or \linkS4class{mzR} object.
+#' @param object A `data.frame`, \linkS4class{mzID} or \linkS4class{mzRident} object.
 #' @param decoy `logical`, to indicate if the peptide matches to a target or to
 #'   a decoy.
 #' @param score `numeric`, indicating the score of the peptide match, obtained

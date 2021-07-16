@@ -29,7 +29,7 @@ You can install the development version of __TargetDecoy__ from [GitHub](https:/
 ``` r
 if (!requireNamespace("remotes"))
     install.packages("remotes")
-remotes::install("statOmics/TargetDecoy")
+remotes::install_github("statOmics/TargetDecoy")
 ```
 
 <!-- ## Example -->
