@@ -18,16 +18,6 @@
 #'
 #' @author Elke Debrie, Lieven Clement
 #' @keywords internal
-#'
-#' @examples
-#' library(mzID)
-#'
-#' ## Use one of the example files in the mzID package
-#' exampleFile <- system.file('extdata', '55merge_tandem.mzid', package = 'mzID')
-#' mzIDexample <- mzID(exampleFile)
-#' score_table <- decoyScoreTable(mzIDexample,
-#'     decoy = "isdecoy", score = "x\\!tandem:expect", log10 = TRUE
-#' )
 decoyScoreTable <- function(object, decoy = NULL, score = NULL, log10 = TRUE) {
     df <- .getDF(object)
 
