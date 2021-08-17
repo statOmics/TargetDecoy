@@ -599,6 +599,12 @@
       "Repository": "CRAN",
       "Hash": "eaee7d2a6f3ed4491df868611cb064cc"
     },
+    "msdata": {
+      "Package": "msdata",
+      "Version": "0.33.0",
+      "Source": "Bioconductor",
+      "Hash": "59070251d77a76c0ad85b88674e7644b"
+    },
     "munsell": {
       "Package": "munsell",
       "Version": "0.5.0",
