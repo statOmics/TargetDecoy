@@ -27,4 +27,9 @@ Imports:
     shiny,
     stats
 Suggests: 
-    msdata
+    BiocStyle,
+    knitr,
+    msdata,
+    sessioninfo,
+    rmarkdown
+VignetteBuilder: knitr
