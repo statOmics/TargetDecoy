@@ -12,8 +12,8 @@ objects. If named, the names will be used in the legend of the plot. If
 not, names will be extracted from the data files in case of \emph{mzID} or
 \emph{mzRident} objects.}
 
-\item{decoy}{\code{logical}, to indicate if the peptide matches to a target or to
-a decoy.}
+\item{decoy}{\code{character}, name of the variable that indicates if the peptide
+matches to a target or to a decoy.}
 
 \item{score}{\code{numeric}, indicating the score of the peptide match, obtained
 by the search engine.}

@@ -5,8 +5,8 @@
 #' select the variables.
 #'
 #' @param object A `data.frame`, \linkS4class{mzID} or \linkS4class{mzRident} object.
-#' @param decoy `logical`, to indicate if the peptide matches to a target or to
-#'   a decoy.
+#' @param decoy `character`, name of the variable that indicates if the peptide
+#'   matches to a target or to a decoy.
 #' @param score `numeric`, indicating the score of the peptide match, obtained
 #'   by the search engine.
 #' @param log10 `logical` to indicate if the score should be

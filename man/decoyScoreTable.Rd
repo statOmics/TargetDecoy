@@ -9,8 +9,8 @@ decoyScoreTable(object, decoy = NULL, score = NULL, log10 = TRUE)
 \arguments{
 \item{object}{A \code{data.frame}, \linkS4class{mzID} or \linkS4class{mzRident} object.}
 
-\item{decoy}{\code{logical}, to indicate if the peptide matches to a target or to
-a decoy.}
+\item{decoy}{\code{character}, name of the variable that indicates if the peptide
+matches to a target or to a decoy.}
 
 \item{score}{\code{numeric}, indicating the score of the peptide match, obtained
 by the search engine.}

@@ -13,8 +13,8 @@ createPPlotScores(object, scores, decoy = NULL, log10 = TRUE)
 \item{scores}{A \code{character} vector of multiple score names from the input
 object. Typically from different search engines.}
 
-\item{decoy}{\code{logical}, to indicate if the peptide matches to a target or to
-a decoy.}
+\item{decoy}{\code{character}, name of the variable that indicates if the peptide
+matches to a target or to a decoy.}
 
 \item{log10}{\code{logical} to indicate if the score should be
 \code{-log10}-transformed.}
