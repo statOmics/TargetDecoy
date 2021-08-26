@@ -436,13 +436,12 @@ the score is an e-value.
 In the next example MSGF+ was used as the database search engine and SwissProt
 was used as protein sequence database. The MSGF+ search provided an mzid file.
 
-```{r, fig.asp=1}
-## Load the example data
-data("pyroSwissprot")
+We will reuse the `ModSwissXT` object from before.
 
+```{r, fig.asp=1}
 ## Run createPPlotScores with necessary arguments
 ## Omitting 'decoy', 'scores' or 'log10' will launch the Shiny app
-plotsShakerSwiss <- createPPlotScores(pyroSwissprot,
+plotsShakerSwiss <- createPPlotScores(ModSwissXT,
     decoy = "isdecoy",
     scores = c("omssa:evalue", "ms-gf:specevalue",
                "x!tandem:expect", "peptideshaker psm score"),
@@ -518,7 +517,7 @@ indicated by the same variable name `"ms-gf:specevalue"`.
 ## Create list of input objects, list names will be reused in the plots
 mzObjects <- list(
     ModSwiss_data = ModSwiss,
-    pyroSwissprot_data = pyroSwissprot
+    pyroSwissprot_data = ModSwissXT
 )
 
 plotSameEngine <- createPPlotObjects(
