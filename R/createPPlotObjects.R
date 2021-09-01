@@ -67,7 +67,7 @@ processObjects <- function(object_list, decoy, score, log10) {
 
     ## If no names given, use raw file names from mz objects
     if (is.null(names(out))) {
-        names(out) <- vapply(object_list, .get_object_name, character(1))
+        names(out) <- unlist(lapply(object_list, .get_object_name))
     }
 
     out
