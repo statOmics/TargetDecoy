@@ -7,7 +7,10 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![R-CMD-check-bioc](https://github.com/statOmics/TargetDecoy/workflows/R-CMD-check-bioc/badge.svg)](https://github.com/statOmics/TargetDecoy/actions)
 <!-- [![BioC status](http://www.bioconductor.org/shields/build/release/bioc/TargetDecoy.svg)](https://bioconductor.org/checkResults/release/bioc-LATEST/TargetDecoy) -->
+[![Codecov test
+coverage](https://codecov.io/gh/statOmics/TargetDecoy/branch/master/graph/badge.svg)](https://codecov.io/gh/statOmics/TargetDecoy?branch=master)
 <!-- badges: end -->
 
 The goal of **TargetDecoy** is to …
