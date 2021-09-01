@@ -43,6 +43,6 @@
 
 # Function for ggplot2-like colour scale in HCL space
 gg_color_hue <- function(n) {
-    hues <- seq(15, 375, length = n + 1)
+    hues <- seq(15, 375, length.out = n + 1)
     grDevices::hcl(h = hues, l = 65, c = 100)[seq_len(n)]
 }
