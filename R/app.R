@@ -46,8 +46,6 @@ decoyScoreTable <- function(object, decoy = NULL, score = NULL, log10 = TRUE) {
         table$score <- as.numeric(as.character(table$score))
     }
 
-    # check whether the selected variables are of the correct class
-    if (!is.numeric(table$score)) stop("`score` is not numeric.", call. = FALSE)
     if (!is.logical(table$decoy)) stop("`decoy` is not logical.", call. = FALSE)
 
     # perform log10-transformation on variable 'score' if so indicated
