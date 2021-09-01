@@ -6,3 +6,5 @@
 ^doc$
 ^README\.Rmd$
 ^\.renvignore$
+^codecov\.yml$
+^\.github$
