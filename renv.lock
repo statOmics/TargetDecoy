@@ -132,6 +132,13 @@
       "Repository": "CRAN",
       "Hash": "4f57884290cc75ab22f4af9e9d4ca862"
     },
+    "askpass": {
+      "Package": "askpass",
+      "Version": "1.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "e8a22846fff485f0be3770c2da758713"
+    },
     "backports": {
       "Package": "backports",
       "Version": "1.2.1",
@@ -290,6 +297,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "0514bd6a3e99a2a17145c97c1cfebb09"
+    },
+    "covr": {
+      "Package": "covr",
+      "Version": "3.5.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "6d80a9fc3c0c8473153b54fa54719dfd"
     },
     "cowplot": {
       "Package": "cowplot",
@@ -534,6 +548,13 @@
       "Repository": "CRAN",
       "Hash": "a42959b003aad9fc351b10250c5a6b77"
     },
+    "httr": {
+      "Package": "httr",
+      "Version": "1.4.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "a525aba14184fec243f9eaec62fbed43"
+    },
     "isoband": {
       "Package": "isoband",
       "Version": "0.2.5",
@@ -589,6 +610,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "f36bf1a849d9106dc2af72e501f9de41"
+    },
+    "lazyeval": {
+      "Package": "lazyeval",
+      "Version": "0.2.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "d908914ae53b04d4c0c0fd72ecc35370"
     },
     "lifecycle": {
       "Package": "lifecycle",
@@ -718,6 +746,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "df58958f293b166e4ab885ebcad90e02"
+    },
+    "openssl": {
+      "Package": "openssl",
+      "Version": "1.4.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "f4dbc5a47fd93d3415249884d31d6791"
     },
     "openxlsx": {
       "Package": "openxlsx",
@@ -871,6 +906,13 @@
       "Repository": "CRAN",
       "Hash": "30e5eba91b67f7f4d75d31de14bbfbdc"
     },
+    "rex": {
+      "Package": "rex",
+      "Version": "1.2.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "093584b944440c5cd07a696b3c8e0e4c"
+    },
     "rio": {
       "Package": "rio",
       "Version": "0.5.27",
@@ -968,6 +1010,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "0759e6b6c0957edb1311028a49a35e76"
+    },
+    "sys": {
+      "Package": "sys",
+      "Version": "3.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "b227d13e29222b4574486cfcbde077fa"
     },
     "testthat": {
       "Package": "testthat",
