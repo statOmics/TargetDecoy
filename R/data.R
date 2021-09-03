@@ -1,6 +1,6 @@
 #' SwissProt data
 #'
-#' TODO: describe data briefly...
+#' 
 #'
 #' @format An mzID object.
 #' TODO: add some more details...
