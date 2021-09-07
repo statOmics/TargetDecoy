@@ -184,14 +184,8 @@
     "brio": {
       "Package": "brio",
       "Version": "1.1.2",
-      "Source": "CRAN",
+      "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "brio",
-      "RemoteRef": "brio",
-      "RemoteRepos": "https://cran.rstudio.org",
-      "RemotePkgType": "macos",
-      "RemoteSha": "1.1.2",
       "Hash": "2f01e16ff9571fe70381c7b9ae560dc4"
     },
     "broom": {
@@ -218,14 +212,8 @@
     "callr": {
       "Package": "callr",
       "Version": "3.7.0",
-      "Source": "CRAN",
+      "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "callr",
-      "RemoteRef": "callr",
-      "RemoteRepos": "https://cran.rstudio.org",
-      "RemotePkgType": "macos",
-      "RemoteSha": "3.7.0",
       "Hash": "461aa75a11ce2400245190ef5d3995df"
     },
     "car": {
@@ -350,14 +338,8 @@
     "diffobj": {
       "Package": "diffobj",
       "Version": "0.3.4",
-      "Source": "CRAN",
+      "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "diffobj",
-      "RemoteRef": "diffobj",
-      "RemoteRepos": "https://cran.rstudio.org",
-      "RemotePkgType": "macos",
-      "RemoteSha": "0.3.4",
       "Hash": "feb5b7455eba422a2c110bb89852e6a3"
     },
     "digest": {
@@ -709,22 +691,16 @@
     "ncdf4": {
       "Package": "ncdf4",
       "Version": "1.17",
-      "Source": "CRAN",
+      "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "ncdf4",
-      "RemoteRef": "ncdf4",
-      "RemoteRepos": "https://cran.rstudio.org",
-      "RemotePkgType": "macos",
-      "RemoteSha": "1.17",
       "Hash": "5c1c0231b12b3d54cf619a3e5e36d229"
     },
     "nlme": {
       "Package": "nlme",
-      "Version": "3.1-152",
+      "Version": "3.1-153",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "35de1ce639f20b5e10f7f46260730c65"
+      "Hash": "2d632e0d963a653a0329756ce701ecdd"
     },
     "nloptr": {
       "Package": "nloptr",
