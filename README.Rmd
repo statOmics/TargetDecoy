@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 The goal of __TargetDecoy__ is to to generate diagnostic plots to evaluate the
-quality of the target decoy approach (TDA). 
+quality of the target decoy approach (TDA).
 
 A first step in the data analysis of Mass Spectrometry (MS) based proteomics
 data is to identify peptides and proteins. With this respect the huge number of
@@ -63,16 +63,3 @@ BiocManager::install("statOmics/TargetDecoy")
 
 Check the [vignette]().
 <!-- TODO: add link to pkgdown website or Bioc when available -->
-
-## Development
-
-You can use [renv](https://rstudio.github.io/renv/index.html) to install a
-development environment for this package:
-
-``` r
-if (!requireNamespace("renv"))
-    install.packages("renv")
-
-## Within the TargetDecoy directory
-renv::restore()
-```
