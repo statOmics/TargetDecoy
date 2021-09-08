@@ -57,16 +57,3 @@ BiocManager::install("statOmics/TargetDecoy")
 
 Check the [vignette]().
 <!-- TODO: add link to pkgdown website or Bioc when available -->
-
-## Development
-
-You can use [renv](https://rstudio.github.io/renv/index.html) to install
-a development environment for this package:
-
-``` r
-if (!requireNamespace("renv"))
-    install.packages("renv")
-
-## Within the TargetDecoy directory
-renv::restore()
-```
