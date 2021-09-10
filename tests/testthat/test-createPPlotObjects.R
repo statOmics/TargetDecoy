@@ -30,13 +30,15 @@ test_that("createPPlotObjects() fails for incompatible arg lengths", {
         createPPlotObjects(mzObjects,
             score = c("omssa:evalue", "x\\!tandem:expect"),
             decoy = "isdecoy", log10 = c(TRUE, FALSE, TRUE)
-        )
+        ),
+        "They should have the same length or length == 1."
     )
     expect_error(
         createPPlotObjects(mzObjects,
             score = c("omssa:evalue", "x\\!tandem:expect"),
             decoy = rep("isdecoy", 3), log10 = TRUE
-        )
+        ),
+        "They should have the same length or length == 1."
     )
 })
 
