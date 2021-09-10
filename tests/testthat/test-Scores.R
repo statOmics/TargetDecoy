@@ -17,12 +17,7 @@ test_that("createPPLotScores() fails for incompatible arg lengths", {
         createPPlotScores(mzIDexample,
             scores = c("x\\!tandem:hyperscore", "x\\!tandem:expect"),
             decoy = "isdecoy", log10 = c(TRUE, FALSE, TRUE)
-        )
-    )
-    expect_error(
-        createPPlotScores(mzIDexample,
-            scores = c("x\\!tandem:hyperscore", "x\\!tandem:expect"),
-            decoy = rep("isdecoy", 3), log10 = TRUE
-        )
+        ),
+        "They should have the same length or length == 1."
     )
 })
