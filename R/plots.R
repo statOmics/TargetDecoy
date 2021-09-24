@@ -25,7 +25,7 @@
     Fdp <- Ftp <- NULL
 
     ppPlot <- ggplot(df) +
-        geom_point(aes(Fdp, Ftp), color = "dark gray") +
+        geom_point(aes(Fdp, Ftp), color = "dark gray", na.rm = TRUE) +
         geom_abline(slope = pi0, color = "black") +
         labs(title = "PP plot") +
         coord_cartesian(xlim = c(0, 1), ylim = ylim, expand = TRUE) +

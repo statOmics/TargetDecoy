@@ -85,7 +85,7 @@ ppScoresPlots <- function(ppData) {
     Fdp <- Ftp <- id <- z <- NULL
 
     p1 <- base_plot +
-        geom_point(aes(Fdp, Ftp, color = id)) +
+        geom_point(aes(Fdp, Ftp, color = id), na.rm = TRUE) +
         ggtitle("PP plot") +
         ylab("FTarget") +
         geom_abline(
@@ -94,7 +94,7 @@ ppScoresPlots <- function(ppData) {
         )
 
     p2 <- base_plot +
-        geom_point(aes(Fdp, z, color = id)) +
+        geom_point(aes(Fdp, z, color = id), na.rm = TRUE) +
         ggtitle("PP plot - pi0 subtracted") +
         ylab("FTarget-pi0") +
         geom_abline(slope = 0)
