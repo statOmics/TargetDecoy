@@ -35,7 +35,8 @@ opts_chunk$set(
     collapse = TRUE,
     comment = "#>",
     crop = NULL,
-    fig.width = 7
+    fig.width = 6,
+    dpi = 72
 )
 ```
 
