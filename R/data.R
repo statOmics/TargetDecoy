@@ -6,7 +6,7 @@
 #' The Pyrococcus furiosis reference proteome fasta files were downloaded from 
 #' UniProtKB/Swiss-Prot on April 22, 2016. 
 #' The Pyrococcus data was searched against all Pyrococcus proteins 
-#' with MS-GF+ search engines using either the reference proteome 
+#' with MS-GF+ search engines using the reference proteome 
 #' from UniProtKB/Swiss-Prot.
 #' 
 #'
@@ -27,7 +27,7 @@
 #' The Pyrococcus furiosis reference proteome fasta files were downloaded from 
 #' UniProtKB/Swiss-Prot on April 22, 2016. 
 #' The Pyrococcus data was searched against all Pyrococcus proteins 
-#' with X!Tandem search engines using either the reference proteome 
+#' with a combined search (omssa, X!Tandem and MS-GF+) using the reference proteome 
 #' from UniProtKB/Swiss-Prot.
 #'
 #' @format An mzID object.
