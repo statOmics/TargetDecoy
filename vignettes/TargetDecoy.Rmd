@@ -282,7 +282,7 @@ in the `r Biocpkg("mzR")` package)
 msgfSwiss <- evalTargetDecoys(ModSwiss)
 ```
 
-```{r, echo=FALSE, , fig.cap="View of the panels of the GUI"}
+```{r, echo=FALSE, fig.width=8, fig.cap="View of the panels of the GUI"}
 include_graphics("img/GUI.png")
 ```
 
