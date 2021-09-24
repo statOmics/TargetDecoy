@@ -8,3 +8,4 @@
 ^\.renvignore$
 ^codecov\.yml$
 ^\.github$
+^Meta$

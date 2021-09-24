@@ -8,8 +8,9 @@
 dev/
 doc/
 inst/doc
+/doc/
+/Meta/
 
 ## Git ignore renv
 renv*
 .Rprofile
-
