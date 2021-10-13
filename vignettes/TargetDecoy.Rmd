@@ -41,11 +41,6 @@ opts_chunk$set(
 ```
 
 
-```{r vignetteSetup, echo=FALSE, message=FALSE, warning = FALSE}
-## Track time spent on making the vignette
-startTime <- Sys.time()
-```
-
 # Basics
 
 ## Installing `TargetDecoy`
@@ -168,18 +163,33 @@ These assumptions can be checked using a histogram and a PP-plot.
 
 In the histogram the shape of the score distribution of the decoys (shown in blue in the figure below) should be equal to that of bad target hits (first mode in the target distribution indicated in red). Note that the height of the decoys can be slightly lower than the first mode in the target distribution because some good target hits also have a low score (e.g., because of poor quality observed spectra).
 
-```{r, echo=FALSE, fig.cap="Histogram of the scores of targets and decoys."}
-include_graphics("img/ExampleHist.png")
+
+```{r, fig.cap="Histogram of the scores of targets and decoys."}
+data("ModSwiss")
+msgfSwiss <- evalTargetDecoys(ModSwiss,
+    decoy = "isdecoy", score = "ms-gf:specevalue",
+    log10 = TRUE, nBins = 50
+)
+msgfSwiss$histogram
 ```
+
 
 ## PPplot
 
 The figure below shows an example of a PP plot, the main diagnostic plot to
 evaluate the quality of the decoys.
 
-```{r, echo=FALSE, , fig.cap="PP plot"}
-include_graphics("img/pp.png")
+
+```{r , fig.cap="PP plot"}
+data("ModSwiss")
+msgfSwiss <- evalTargetDecoys(ModSwiss,
+    decoy = "isdecoy", score = "ms-gf:specevalue",
+    log10 = TRUE, nBins = 50
+)
+msgfSwiss$ppPlot
 ```
+
+
 
 Deviations from the assumptions of TDA can be best evaluated in the PP-plot. The PP-plot displays the empirical cumulative distribution (ECDF) from the target distribution in function of that of the decoy distribution. PP-plots have the property that they show a straight 45 degree line through the origin if and only if both distributions are equivalent. Any deviation from this straight line indicates that the distributions differ. Note that we expect that these distributions will differ for targets and decoys. Indeed, the target distribution is stochastically larger than the decoy distribution as larger scores indicate more reliable hits and as decoys are believed to behave similarly to bad target hits. Hence, the PP-plot for targets versus decoys will always be expected to lie below the 45 degree line. When the decoys are a good simulation for the bad target hits, however, the lower values in the PP-plot should lie on a straight line through the origin with a slope determined by $\widehat{\pi}_0$. Indeed, small target PSM scores are most likely bad hits. Hence we will include the $\widehat{\pi}_0$-line in our diagnostic PP plot to evaluate the quality of the decoys. 
 
@@ -515,10 +525,6 @@ Similar to example 1.2, the histogram and the PP-plot show issues with the estim
 
 Date the vignette was generated.
 
-```{r reproduce1, echo=FALSE}
-## Date the vignette was generated
-Sys.time()
-```
 
 Wallclock time spent generating the vignette.
 

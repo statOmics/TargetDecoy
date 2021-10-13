@@ -28,6 +28,15 @@ decoyScoreTable <- function(object, decoy = NULL, score = NULL, log10 = TRUE) {
         score <- out$selScore # continu
         log10 <- out$log
     }
+    
+    ###############
+    # VERVANGEN?
+    
+    if (!(score %in% colnames(df)) | !(decoy %in% colnames(df))) {
+        stop("Column(s) not found:", call. = FALSE)
+    }
+    
+    ###############
 
     if (!(decoy %in% colnames(df))) {
        stop("`decoy = '", decoy, "'` not found in input object.", call. = FALSE)
