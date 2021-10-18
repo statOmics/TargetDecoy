@@ -3,7 +3,7 @@
 \docType{data}
 \name{ModSwiss}
 \alias{ModSwiss}
-\title{SwissProt data}
+\title{Swiss-Prot MS-GF+ data}
 \format{
 An mzID object.
 TODO: add some more details...
@@ -15,6 +15,12 @@ TODO: add source of dataset
 data(ModSwiss)
 }
 \description{
-TODO: describe data briefly...
+Data from a Pyrococcus furiosis sample run on a LTQ-Orbitrap Velos mass spectrometer.
+The data can be found in the PRIDE repository with identifier PXD001077.
+The Pyrococcus furiosis reference proteome fasta files were downloaded from
+UniProtKB/Swiss-Prot on April 22, 2016.
+The Pyrococcus data was searched against all Pyrococcus proteins
+with MS-GF+ search engines using the reference proteome
+from UniProtKB/Swiss-Prot.
 }
 \keyword{datasets}

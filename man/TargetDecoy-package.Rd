@@ -39,16 +39,12 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Elke Debrie \email{elke.debrie@ugent.be}
+\strong{Maintainer}: Elke Debrie \email{elkedebrie@gmail.com}
 
 Authors:
 \itemize{
   \item Lieven Clement \email{lieven.clement@ugent.be} (\href{https://orcid.org/0000-0002-9050-4370}{ORCID})
-}
-
-Other contributors:
-\itemize{
-  \item Milan Malfait \email{milan.malfait@ugent.be} (\href{https://orcid.org/0000-0001-9144-3701}{ORCID}) [contributor]
+  \item Milan Malfait \email{milan.malfait@ugent.be} (\href{https://orcid.org/0000-0001-9144-3701}{ORCID})
 }
 
 }
