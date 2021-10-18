@@ -523,16 +523,6 @@ Similar to example 1.2, the histogram and the PP-plot show issues with the estim
 
 # Reproducibility
 
-Date the vignette was generated.
-
-
-Wallclock time spent generating the vignette.
-
-```{r reproduce2, echo=FALSE}
-## Processing time in seconds
-totalTime <- diff(c(startTime, Sys.time()))
-round(totalTime, digits = 3)
-```
 
 <details>
 <summary>`R` session information.</summary>
