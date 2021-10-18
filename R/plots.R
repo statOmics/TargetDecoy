@@ -14,33 +14,6 @@
 }
 
 
-## Create PP-plot
-.ppPlot <- function(data, ylim = NULL) {
-    ppData <- .ppData(data)
-    df <- ppData$df
-    pi0 <- ppData$pi0
-    ylimHlp <- ppData$ylimHlp
-
-    ## Avoid R CMD check "no visible binding" warnings
-    Fdp <- Ftp <- NULL
-
-    ppPlot <- ggplot(df) +
-        geom_point(aes(Fdp, Ftp), color = "dark gray", na.rm = TRUE) +
-        geom_abline(slope = pi0, color = "black") +
-        labs(title = "PP plot") +
-        coord_cartesian(xlim = c(0, 1), ylim = ylim, expand = TRUE) +
-        theme_bw() +
-        theme(
-            plot.title = element_text(size = rel(1.5)),
-            axis.title = element_text(size = rel(1.2)),
-            axis.text = element_text(size = rel(1.2)),
-            axis.title.y = element_text(angle = 0)
-        )
-
-   list(ppPlot = ppPlot, yLim = c(0, (1 - ylimHlp)))
-}
-
-
 # Function for ggplot2-like colour scale in HCL space
 gg_color_hue <- function(n) {
     hues <- seq(15, 375, length.out = n + 1)

@@ -17,6 +17,8 @@
 #' @author Elke Debrie, Lieven Clement
 #' @keywords internal
 decoyScoreTable <- function(object, decoy, score, log10 = TRUE) {
+    stopifnot(is.logical(log10))
+
     df <- .getDF(object)
 
     is_missing <- !(c(decoy, score) %in% colnames(df))
@@ -116,58 +118,56 @@ decoyScoreTable <- function(object, decoy, score, log10 = TRUE) {
 #' )
 #' decoyPlots2$together
 evalTargetDecoys <- function(object,
-                             decoy = NULL,
-                             score = NULL,
-                             log10 = NULL,
+                             decoy, score,
+                             log10 = TRUE,
                              nBins = 50) {
-    ## Prepare score table
-    data <- decoyScoreTable(
-        object = object,
-        decoy = decoy, score = score, log10 = log10
-    )
 
     # create PP-plot
-    p1 <- .ppPlot(data)
+    ppPlot <- evalTargetDecoysPPPlot(
+        object = object,
+        decoy = decoy, score = score,
+        log10 = log10, nBins = nBins,
+        zoom = FALSE
+    )
 
     # create histogram
-    p2 <- ggplot(data, aes(score, fill = decoy, col = I("black"))) +
-        geom_histogram(alpha = 0.5, bins = nBins, position = "identity") +
-        labs(
-            x = utils::head(score), y = "",
-            title = "Histogram of targets and decoys"
-        ) +
-        theme_bw() +
-        theme(
-            plot.title = element_text(size = rel(1.5)),
-            axis.title = element_text(size = rel(1.2)),
-            axis.text = element_text(size = rel(1.2)),
-            axis.title.y = element_text(angle = 0)
-        )
+    ppHist <- evalTargetDecoysHist(
+        object = object,
+        decoy = decoy, score = score,
+        log10 = log10, nBins = nBins,
+        zoom = FALSE
+    )
 
-    ppPlotZoom <- p1$ppPlot + ylim(p1$yLim[1], p1$yLim[2])
-    histogramZoom <- p2 +
-        coord_cartesian(
-            xlim = c(min(data$score), max(data$score[data$decoy])),
-            expand = TRUE
-        )
+    # create zoomed PP-plot
+    ppPlotZoom <- evalTargetDecoysPPPlot(
+        object = object,
+        decoy = decoy, score = score,
+        log10 = log10, nBins = nBins,
+        zoom = TRUE
+    )
 
-    out <- list(
-        ppPlot = p1$ppPlot,
-        histogram = p2,
+    # create zoomed histogram
+    histogramZoom <- evalTargetDecoysHist(
+        object = object,
+        decoy = decoy, score = score,
+        log10 = log10, nBins = nBins,
+        zoom = TRUE
+    )
+
+    plot_list <- list(
+        ppPlot = ppPlot,
+        histogram = ppHist,
         ppPlotZoom = ppPlotZoom,
         histogramZoom = histogramZoom
     )
-    out$together <- ggpubr::ggarrange(plotlist = out, ncol = 2, nrow = 2)
-    return(out)
+    ggpubr::ggarrange(plotlist = plot_list, ncol = 2, nrow = 2)
 }
-
-
 
 evalTargetDecoysPPPlot <- function(object,
-                             decoy = NULL,
-                             score = NULL,
-                             log10 = NULL,
-                             nBins = 50) {
+                                   decoy, score,
+                                   log10 = TRUE,
+                                   nBins = 50,
+                                   zoom = FALSE) {
     ## Prepare score table
     data <- decoyScoreTable(
         object = object,
@@ -175,18 +175,49 @@ evalTargetDecoysPPPlot <- function(object,
     )
 
     # create PP-plot
-    p1 <- .ppPlot(data)
+    p <- .ppPlot(data)
 
-    out <- ppPlot = p1$ppPlot
-
+    if (zoom) {
+        out <- p$ppPlot + ylim(p$yLim[1], p$yLim[2])
+    } else {
+        out <- p$ppPlot
+    }
     return(out)
 }
+
+## Helper to create PP-plot
+.ppPlot <- function(data, ylim = NULL) {
+    ppData <- .ppData(data)
+    df <- ppData$df
+    pi0 <- ppData$pi0
+    ylimHlp <- ppData$ylimHlp
+
+    ## Avoid R CMD check "no visible binding" warnings
+    Fdp <- Ftp <- NULL
+
+    ppPlot <- ggplot(df) +
+        geom_point(aes(Fdp, Ftp), color = "dark gray", na.rm = TRUE) +
+        geom_abline(slope = pi0, color = "black") +
+        labs(title = "PP plot") +
+        coord_cartesian(xlim = c(0, 1), ylim = ylim, expand = TRUE) +
+        theme_bw() +
+        theme(
+            plot.title = element_text(size = rel(1.5)),
+            axis.title = element_text(size = rel(1.2)),
+            axis.text = element_text(size = rel(1.2)),
+            axis.title.y = element_text(angle = 0)
+        )
+
+   list(ppPlot = ppPlot, yLim = c(0, (1 - ylimHlp)))
+}
+
 
 evalTargetDecoysHist <- function(object,
-                             decoy = NULL,
-                             score = NULL,
-                             log10 = NULL,
-                             nBins = 50) {
+                                 decoy = NULL,
+                                 score = NULL,
+                                 log10 = NULL,
+                                 nBins = 50,
+                                 zoom = FALSE) {
     ## Prepare score table
     data <- decoyScoreTable(
         object = object,
@@ -194,10 +225,10 @@ evalTargetDecoysHist <- function(object,
     )
 
     # create histogram
-    p2 <- ggplot(data, aes(score, fill = decoy, col = I("black"))) +
+    out <- ggplot(data, aes(score, fill = decoy, col = I("black"))) +
         geom_histogram(alpha = 0.5, bins = nBins, position = "identity") +
         labs(
-            x = utils::head(score), y = "",
+            x = score, y = "",
             title = "Histogram of targets and decoys"
         ) +
         theme_bw() +
@@ -208,117 +239,13 @@ evalTargetDecoysHist <- function(object,
             axis.title.y = element_text(angle = 0)
         )
 
-
-
-    out <- histogram = p2
-    return(out)
-}
-
-
-
-
-evalTargetDecoysZoomPP <- function(object,
-                             decoy = NULL,
-                             score = NULL,
-                             log10 = NULL,
-                             nBins = 50) {
-    ## Prepare score table
-    data <- decoyScoreTable(
-        object = object,
-        decoy = decoy, score = score, log10 = log10
-    )
-
-    # create PP-plot
-    p1 <- .ppPlot(data)
-
-
-    ppPlotZoom <- p1$ppPlot + ylim(p1$yLim[1], p1$yLim[2])
-
-    out <- ppPlotZoom = ppPlotZoom
-    return(out)
-}
-
-evalTargetDecoysZooomHist <- function(object,
-                             decoy = NULL,
-                             score = NULL,
-                             log10 = NULL,
-                             nBins = 50) {
-    ## Prepare score table
-    data <- decoyScoreTable(
-        object = object,
-        decoy = decoy, score = score, log10 = log10
-    )
-
-
-    # create histogram
-    p2 <- ggplot(data, aes(score, fill = decoy, col = I("black"))) +
-        geom_histogram(alpha = 0.5, bins = nBins, position = "identity") +
-        labs(
-            x = utils::head(score), y = "",
-            title = "Histogram of targets and decoys"
-        ) +
-        theme_bw() +
-        theme(
-            plot.title = element_text(size = rel(1.5)),
-            axis.title = element_text(size = rel(1.2)),
-            axis.text = element_text(size = rel(1.2)),
-            axis.title.y = element_text(angle = 0)
-        )
-
-    histogramZoom <- p2 +
-        coord_cartesian(
-            xlim = c(min(data$score), max(data$score[data$decoy])),
-            expand = TRUE
-        )
-
-    out <- histogramZoom = histogramZoom
+    if (zoom) {
+        out <- out +
+            coord_cartesian(
+                xlim = c(min(data$score), max(data$score[data$decoy])),
+                expand = TRUE
+            )
+    }
 
     return(out)
-}
-
-
-evalTargetDecoysTogether <- function(object,
-                             decoy = NULL,
-                             score = NULL,
-                             log10 = NULL,
-                             nBins = 50) {
-    ## Prepare score table
-    data <- decoyScoreTable(
-        object = object,
-        decoy = decoy, score = score, log10 = log10
-    )
-
-    # create PP-plot
-    p1 <- .ppPlot(data)
-
-    # create histogram
-    p2 <- ggplot(data, aes(score, fill = decoy, col = I("black"))) +
-        geom_histogram(alpha = 0.5, bins = nBins, position = "identity") +
-        labs(
-            x = utils::head(score), y = "",
-            title = "Histogram of targets and decoys"
-        ) +
-        theme_bw() +
-        theme(
-            plot.title = element_text(size = rel(1.5)),
-            axis.title = element_text(size = rel(1.2)),
-            axis.text = element_text(size = rel(1.2)),
-            axis.title.y = element_text(angle = 0)
-        )
-
-    ppPlotZoom <- p1$ppPlot + ylim(p1$yLim[1], p1$yLim[2])
-    histogramZoom <- p2 +
-        coord_cartesian(
-            xlim = c(min(data$score), max(data$score[data$decoy])),
-            expand = TRUE
-        )
-
-    out <- list(
-        ppPlot = p1$ppPlot,
-        histogram = p2,
-        ppPlotZoom = ppPlotZoom,
-        histogramZoom = histogramZoom
-    )
-    out$together <- ggpubr::ggarrange(plotlist = out, ncol = 2, nrow = 2)
-    return(out$together)
-}
+ }
