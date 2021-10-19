@@ -12,8 +12,7 @@ test_that("createPPlotObjects() works", {
         log10 = TRUE
     )
 
-    expect_type(out, "list")
-    expect_length(out, 2)
+    expect_s3_class(out, "ggplot")
 })
 
 test_that("createPPlotObjects() works for single objects", {
@@ -21,8 +20,7 @@ test_that("createPPlotObjects() works for single objects", {
         decoy = "isdecoy", score = "omssa:evalue", log10 = TRUE
     )
 
-    expect_type(out, "list")
-    expect_length(out, 2)
+    expect_s3_class(out, "ggplot")
 })
 
 test_that("createPPlotObjects() fails for incompatible arg lengths", {
@@ -56,6 +54,5 @@ test_that("createPPlotObjects() works for various object formats", {
         log10 = TRUE
     )
 
-    expect_type(out, "list")
-    expect_length(out, 2)
+    expect_s3_class(out, "ggplot")
 })

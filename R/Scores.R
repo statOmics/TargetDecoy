@@ -99,5 +99,5 @@ ppScoresPlots <- function(ppData) {
         ylab("FTarget-pi0") +
         geom_abline(slope = 0)
 
-    list(p1, p2)
+    ggpubr::ggarrange(p1, p2, nrow = 2)
 }

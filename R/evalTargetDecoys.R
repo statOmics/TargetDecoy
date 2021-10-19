@@ -182,13 +182,10 @@ evalTargetDecoys <- function(object,
         zoom = TRUE
     )
 
-    plot_list <- list(
-        ppPlot = ppPlot,
-        histogram = ppHist,
-        ppPlotZoom = ppPlotZoom,
-        histogramZoom = histogramZoom
+    ggpubr::ggarrange(
+        ppPlot, ppHist, ppPlotZoom, histogramZoom,
+        ncol = 2, nrow = 2
     )
-    ggpubr::ggarrange(plotlist = plot_list, ncol = 2, nrow = 2)
 }
 
 #' @rdname evalTargetDecoys
