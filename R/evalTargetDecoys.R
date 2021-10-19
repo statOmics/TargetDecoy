@@ -74,49 +74,77 @@ decoyScoreTable <- function(object, decoy, score, log10 = TRUE) {
 #' A histogram and PP plot allow to check both necessary assumptions.
 #'
 #' @inheritParams decoyScoreTable
+#' @param zoom Logical value indicating whether a zoomed version of the plot
+#'     should be returned. Default: `FALSE`.
 #'
 #' @return
-#' A list containing the PP-plot and histogram, a zoom of both plots and an
-#' overview of all four plots.
+#' `evalTargetDecoys` returns an overview of the following four plots:
 #'
-#' @author Elke Debrie, Lieven Clement
+#'   1. A PP plot showing the empirical cumulative distribution of the target
+#'     distribution in function of that of the decoy distribution
+#'   2. A histogram showing the score distributions of the decoys and non-decoys
+#'   3. A zoomed PP plot
+#'   4. A zoomed histogram
 #'
-#' @export
+#' `evalTargetDecoysPPPlot` generates the PP plot only (1.) or the zoomed
+#'  version (3.) if `zoom = TRUE`.
+#'
+#' `evalTargetDecoysHist` generates the histogram only (2.) or the zoomed
+#'  version (4.) if `zoom = TRUE`.
+#'
+#' @author Elke Debrie, Lieven Clement, Milan Malfait
 #'
 #' @examples
 #' library(mzID)
 #'
 #' ## Use one of the example files in the mzID package
-#' exampleFile <- system.file('extdata', '55merge_tandem.mzid', package = 'mzID')
+#' exampleFile <- system.file("extdata", "55merge_tandem.mzid", package = "mzID")
 #' mzIDexample <- mzID(exampleFile)
 #'
-#' decoyPlots <- evalTargetDecoys(mzIDexample,
+#' # Plot the overview of the four plots
+#' evalTargetDecoys(mzIDexample,
 #'     decoy = "isdecoy", score = "x\\!tandem:expect", log10 = TRUE
 #' )
 #'
-#' # Plot only the overview of the four plots
-#' decoyPlots$together
+#' # Plot the PP plot only
+#' evalTargetDecoysPPPlot(mzIDexample,
+#'     decoy = "isdecoy", score = "x\\!tandem:expect", log10 = TRUE
+#' )
 #'
-#' # If you do not know the name of the score and/or decoy variable,
-#' # or if you want to evaluate how many bins you want to use in the histogram,
-#' # or if -log10 transformation is needed you can launch a shiny app by only
-#' # specifying the mzID object
+#' # Plot the zoomed PP plot only
+#' evalTargetDecoysPPPlot(mzIDexample,
+#'     decoy = "isdecoy", score = "x\\!tandem:expect", log10 = TRUE,
+#'     zoom = TRUE
+#' )
 #'
-#' # evalTargetDecoys(mzIDexample)
+#' # Plot the histogram only
+#' evalTargetDecoysHist(mzIDexample,
+#'     decoy = "isdecoy", score = "x\\!tandem:expect", log10 = TRUE
+#' )
 #'
+#' # Plot the zoomed histogram only
+#' evalTargetDecoysHist(mzIDexample,
+#'     decoy = "isdecoy", score = "x\\!tandem:expect", log10 = TRUE,
+#'     zoom = TRUE
+#' )
 #'
 #' ## mzRident objects can also be used
 #' library(mzR)
 #'
 #' if (requireNamespace("msdata", quietly = TRUE)) {
-#'    ## Using example file from msdata
-#'    file <- system.file("mzid", "Tandem.mzid.gz", package="msdata")
-#'    mzid <- openIDfile(file)
+#'     ## Using example file from msdata
+#'     file <- system.file("mzid", "Tandem.mzid.gz", package = "msdata")
+#'     mzid <- openIDfile(file)
 #' }
-#' decoyPlots2 <- evalTargetDecoys(mzid,
+#' evalTargetDecoys(mzid,
 #'     decoy = "isDecoy", score = "X.Tandem.expect", log10 = TRUE
 #' )
-#' decoyPlots2$together
+#' @name evalTargetDecoys
+NULL
+
+
+#' @export
+#' @rdname evalTargetDecoys
 evalTargetDecoys <- function(object,
                              decoy, score,
                              log10 = TRUE,
@@ -163,6 +191,8 @@ evalTargetDecoys <- function(object,
     ggpubr::ggarrange(plotlist = plot_list, ncol = 2, nrow = 2)
 }
 
+#' @rdname evalTargetDecoys
+#' @export
 evalTargetDecoysPPPlot <- function(object,
                                    decoy, score,
                                    log10 = TRUE,
@@ -212,6 +242,8 @@ evalTargetDecoysPPPlot <- function(object,
 }
 
 
+#' @rdname evalTargetDecoys
+#' @export
 evalTargetDecoysHist <- function(object,
                                  decoy = NULL,
                                  score = NULL,

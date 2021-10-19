@@ -2,9 +2,29 @@
 % Please edit documentation in R/evalTargetDecoys.R
 \name{evalTargetDecoys}
 \alias{evalTargetDecoys}
+\alias{evalTargetDecoysPPPlot}
+\alias{evalTargetDecoysHist}
 \title{Evaluate assumptions of the Target Decoys approach}
 \usage{
-evalTargetDecoys(object, decoy = NULL, score = NULL, log10 = NULL, nBins = 50)
+evalTargetDecoys(object, decoy, score, log10 = TRUE, nBins = 50)
+
+evalTargetDecoysPPPlot(
+  object,
+  decoy,
+  score,
+  log10 = TRUE,
+  nBins = 50,
+  zoom = FALSE
+)
+
+evalTargetDecoysHist(
+  object,
+  decoy = NULL,
+  score = NULL,
+  log10 = NULL,
+  nBins = 50,
+  zoom = FALSE
+)
 }
 \arguments{
 \item{object}{A \code{data.frame}, \linkS4class{mzID} or \linkS4class{mzRident} object.}
@@ -19,10 +39,25 @@ by the search engine.}
 \code{-log10}-transformed.}
 
 \item{nBins}{\code{numeric} indicating the number of bins in the histogram.}
+
+\item{zoom}{Logical value indicating whether a zoomed version of the plot
+should be returned. Default: \code{FALSE}.}
 }
 \value{
-A list containing the PP-plot and histogram, a zoom of both plots and an
-overview of all four plots.
+\code{evalTargetDecoys} returns an overview of the following four plots:
+\enumerate{
+\item A PP plot showing the empirical cumulative distribution of the target
+distribution in function of that of the decoy distribution
+\item A histogram showing the score distributions of the decoys and non-decoys
+\item A zoomed PP plot
+\item A zoomed histogram
+}
+
+\code{evalTargetDecoysPPPlot} generates the PP plot only (1.) or the zoomed
+version (3.) if \code{zoom = TRUE}.
+
+\code{evalTargetDecoysHist} generates the histogram only (2.) or the zoomed
+version (4.) if \code{zoom = TRUE}.
 }
 \description{
 Create diagnostic plots to evaluate the TDA assumptions.
@@ -32,37 +67,48 @@ A histogram and PP plot allow to check both necessary assumptions.
 library(mzID)
 
 ## Use one of the example files in the mzID package
-exampleFile <- system.file('extdata', '55merge_tandem.mzid', package = 'mzID')
+exampleFile <- system.file("extdata", "55merge_tandem.mzid", package = "mzID")
 mzIDexample <- mzID(exampleFile)
 
-decoyPlots <- evalTargetDecoys(mzIDexample,
+# Plot the overview of the four plots
+evalTargetDecoys(mzIDexample,
     decoy = "isdecoy", score = "x\\\\!tandem:expect", log10 = TRUE
 )
 
-# Plot only the overview of the four plots
-decoyPlots$together
+# Plot the PP plot only
+evalTargetDecoysPPPlot(mzIDexample,
+    decoy = "isdecoy", score = "x\\\\!tandem:expect", log10 = TRUE
+)
 
-# If you do not know the name of the score and/or decoy variable,
-# or if you want to evaluate how many bins you want to use in the histogram,
-# or if -log10 transformation is needed you can launch a shiny app by only
-# specifying the mzID object
+# Plot the zoomed PP plot only
+evalTargetDecoysPPPlot(mzIDexample,
+    decoy = "isdecoy", score = "x\\\\!tandem:expect", log10 = TRUE,
+    zoom = TRUE
+)
 
-# evalTargetDecoys(mzIDexample)
+# Plot the histogram only
+evalTargetDecoysHist(mzIDexample,
+    decoy = "isdecoy", score = "x\\\\!tandem:expect", log10 = TRUE
+)
 
+# Plot the zoomed histogram only
+evalTargetDecoysHist(mzIDexample,
+    decoy = "isdecoy", score = "x\\\\!tandem:expect", log10 = TRUE,
+    zoom = TRUE
+)
 
 ## mzRident objects can also be used
 library(mzR)
 
 if (requireNamespace("msdata", quietly = TRUE)) {
-   ## Using example file from msdata
-   file <- system.file("mzid", "Tandem.mzid.gz", package="msdata")
-   mzid <- openIDfile(file)
+    ## Using example file from msdata
+    file <- system.file("mzid", "Tandem.mzid.gz", package = "msdata")
+    mzid <- openIDfile(file)
 }
-decoyPlots2 <- evalTargetDecoys(mzid,
+evalTargetDecoys(mzid,
     decoy = "isDecoy", score = "X.Tandem.expect", log10 = TRUE
 )
-decoyPlots2$together
 }
 \author{
-Elke Debrie, Lieven Clement
+Elke Debrie, Lieven Clement, Milan Malfait
 }

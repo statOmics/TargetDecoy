@@ -4,7 +4,7 @@
 \alias{decoyScoreTable}
 \title{Prepare score table for decoys}
 \usage{
-decoyScoreTable(object, decoy = NULL, score = NULL, log10 = TRUE)
+decoyScoreTable(object, decoy, score, log10 = TRUE)
 }
 \arguments{
 \item{object}{A \code{data.frame}, \linkS4class{mzID} or \linkS4class{mzRident} object.}
@@ -24,9 +24,7 @@ by the search engine.}
 A \code{data.frame} with a logical \code{"decoy"} column and numeric \code{"scores"}.
 }
 \description{
-Takes an input object and returns a score table for the decoys. If one of the
-arguments besides \code{object} is missing, will open a Shiny app to interactively
-select the variables.
+Takes an input object and returns a score table for the decoys.
 }
 \author{
 Elke Debrie, Lieven Clement

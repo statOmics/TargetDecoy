@@ -3,6 +3,8 @@
 export(createPPlotObjects)
 export(createPPlotScores)
 export(evalTargetDecoys)
+export(evalTargetDecoysHist)
+export(evalTargetDecoysPPPlot)
 import(ggplot2)
 importFrom(methods,is)
 importFrom(mzID,flatten)
