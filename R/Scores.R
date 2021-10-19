@@ -28,7 +28,7 @@
 #'     scores = c("x\\!tandem:hyperscore", "x\\!tandem:expect"),
 #'     decoy = "isdecoy", log10 = TRUE
 #' )
-createPPlotScores <- function(object, scores, decoy = NULL, log10 = TRUE) {
+createPPlotScores <- function(object, scores, decoy, log10 = TRUE) {
     tables <- processScores(
         object = object,
         scores = scores, decoy = decoy, log10 = log10
