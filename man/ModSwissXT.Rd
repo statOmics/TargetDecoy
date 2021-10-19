@@ -5,11 +5,7 @@
 \alias{ModSwissXT}
 \title{Swiss-Prot X!Tandem data}
 \format{
-An mzID object.
-TODO: add some more details...
-}
-\source{
-TODO: add source of dataset
+An \linkS4class{mzID} object.
 }
 \usage{
 data(ModSwissXT)
