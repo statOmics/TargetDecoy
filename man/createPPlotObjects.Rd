@@ -4,7 +4,7 @@
 \alias{createPPlotObjects}
 \title{Create all the PP plots in one figure for scores from multiple objects}
 \usage{
-createPPlotObjects(object_list, decoy = NULL, score = NULL, log10 = TRUE)
+createPPlotObjects(object_list, decoy, score, log10 = TRUE)
 }
 \arguments{
 \item{object_list}{List of \linkS4class{mzID} or \linkS4class{mzRident}

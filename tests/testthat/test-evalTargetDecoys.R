@@ -72,6 +72,35 @@ test_that("evalTargetDecoys() works", {
     decoyPlots <- evalTargetDecoys(mzIDexample,
         decoy = "isdecoy", score = "x\\!tandem:expect", log10 = TRUE
     )
-    expect_type(decoyPlots, "list")
-    expect_length(decoyPlots, 5)
+    expect_s3_class(decoyPlots, "ggplot")
+})
+
+test_that("evalTargetDecoysPPPlot() works", {
+    decoyPlots <- evalTargetDecoysPPPlot(mzIDexample,
+        decoy = "isdecoy", score = "x\\!tandem:expect", log10 = TRUE
+    )
+    expect_s3_class(decoyPlots, "ggplot")
+})
+
+test_that("evalTargetDecoysPPPlot(zoom = TRUE) works", {
+    decoyPlots <- evalTargetDecoysPPPlot(mzIDexample,
+        decoy = "isdecoy", score = "x\\!tandem:expect", log10 = TRUE,
+        zoom = TRUE
+    )
+    expect_s3_class(decoyPlots, "ggplot")
+})
+
+test_that("evalTargetDecoysHist() works", {
+    decoyPlots <- evalTargetDecoysHist(mzIDexample,
+        decoy = "isdecoy", score = "x\\!tandem:expect", log10 = TRUE
+    )
+    expect_s3_class(decoyPlots, "ggplot")
+})
+
+test_that("evalTargetDecoysHist(zoom = TRUE) works", {
+    decoyPlots <- evalTargetDecoysHist(mzIDexample,
+        decoy = "isdecoy", score = "x\\!tandem:expect", log10 = TRUE,
+        zoom = TRUE
+    )
+    expect_s3_class(decoyPlots, "ggplot")
 })

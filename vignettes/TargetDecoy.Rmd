@@ -13,7 +13,6 @@ author:
   - name: Lieven Clement
     affiliation:
     - Ghent University
- 
 output: 
   BiocStyle::html_document:
     self_contained: yes
@@ -25,8 +24,8 @@ date: "`r doc_date()`"
 package: "`r pkg_ver('TargetDecoy')`"
 vignette: >
   %\VignetteIndexEntry{Introduction to TargetDecoy}
-  %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}  
+  %\VignetteEngine{knitr::rmarkdown}
 ---
 
 ```{r setup, include=FALSE}
@@ -40,28 +39,44 @@ opts_chunk$set(
 )
 ```
 
-
-```{r vignetteSetup, echo=FALSE, message=FALSE, warning = FALSE}
-## Track time spent on making the vignette
-startTime <- Sys.time()
+```{r "libraries", message=FALSE, warning=FALSE}
+library(TargetDecoy)
+library(ggplot2)
 ```
+
 
 # Basics
 
 ## Installing `TargetDecoy`
 
-`r Biocpkg("TargetDecoy")` is an `R` package available via the [Bioconductor](http://bioconductor.org) repository for packages. `R` can be installed on any operating system from [CRAN](https://cran.r-project.org/) after which you can install `r Biocpkg("TargetDecoy")` by using the following commands in your `R` session:
+<!-- `r Biocpkg("TargetDecoy")` is an `R` package available via the -->
+<!-- [Bioconductor](http://bioconductor.org) repository for packages. `R` can be -->
+<!-- installed on any operating system from [CRAN](https://cran.r-project.org/) after -->
+<!-- which you can install `r Biocpkg("TargetDecoy")` by using the following commands -->
+<!-- in your `R` session: -->
 
-```{r "install", eval=FALSE}
+<!-- ```{r "install", eval=FALSE} -->
+<!-- if (!requireNamespace("BiocManager", quietly = TRUE)) { -->
+<!--       install.packages("BiocManager") -->
+<!--   } -->
+
+<!-- BiocManager::install("TargetDecoy") -->
+
+<!-- ## Check that you have a valid Bioconductor installation -->
+<!-- BiocManager::valid() -->
+<!-- ``` -->
+
+The development version of `TargetDecoy` can be installed from GitHub by running
+the following in an `R` session:
+
+```{r "install-devel", eval=FALSE}
 if (!requireNamespace("BiocManager", quietly = TRUE)) {
       install.packages("BiocManager")
   }
 
-BiocManager::install("TargetDecoy")
-
-## Check that you have a valid Bioconductor installation
-BiocManager::valid()
+BiocManager::install("statOmics/TargetDecoy")
 ```
+
 
 ## Citing `TargetDecoy`
 
@@ -151,7 +166,7 @@ include_graphics("img/Kleur.png")
 In summary, two assumptions have to be checked:
   
 - Assumption 1: The decoy PSM hits are a good simulation of the bad target hits
-and they distributions are equal.
+and the distributions are equal.
 
 - Assumption 2: When the library size of targets and decoys is the same, it is
 equally likely that a bad hit matches to a target sequence or to a decoy
@@ -168,17 +183,25 @@ These assumptions can be checked using a histogram and a PP-plot.
 
 In the histogram the shape of the score distribution of the decoys (shown in blue in the figure below) should be equal to that of bad target hits (first mode in the target distribution indicated in red). Note that the height of the decoys can be slightly lower than the first mode in the target distribution because some good target hits also have a low score (e.g., because of poor quality observed spectra).
 
-```{r, echo=FALSE, fig.cap="Histogram of the scores of targets and decoys."}
-include_graphics("img/ExampleHist.png")
+```{r, fig.cap="Histogram of the scores of targets and decoys."}
+data("ModSwiss")
+evalTargetDecoysHist(ModSwiss,
+    decoy = "isdecoy", score = "ms-gf:specevalue",
+    log10 = TRUE, nBins = 50
+)
 ```
+
 
 ## PPplot
 
 The figure below shows an example of a PP plot, the main diagnostic plot to
 evaluate the quality of the decoys.
 
-```{r, echo=FALSE, , fig.cap="PP plot"}
-include_graphics("img/pp.png")
+```{r , fig.cap="PP plot"}
+evalTargetDecoysPPPlot(ModSwiss,
+    decoy = "isdecoy", score = "ms-gf:specevalue",
+    log10 = TRUE
+)
 ```
 
 Deviations from the assumptions of TDA can be best evaluated in the PP-plot. The PP-plot displays the empirical cumulative distribution (ECDF) from the target distribution in function of that of the decoy distribution. PP-plots have the property that they show a straight 45 degree line through the origin if and only if both distributions are equivalent. Any deviation from this straight line indicates that the distributions differ. Note that we expect that these distributions will differ for targets and decoys. Indeed, the target distribution is stochastically larger than the decoy distribution as larger scores indicate more reliable hits and as decoys are believed to behave similarly to bad target hits. Hence, the PP-plot for targets versus decoys will always be expected to lie below the 45 degree line. When the decoys are a good simulation for the bad target hits, however, the lower values in the PP-plot should lie on a straight line through the origin with a slope determined by $\widehat{\pi}_0$. Indeed, small target PSM scores are most likely bad hits. Hence we will include the $\widehat{\pi}_0$-line in our diagnostic PP plot to evaluate the quality of the decoys. 
@@ -186,12 +209,6 @@ Deviations from the assumptions of TDA can be best evaluated in the PP-plot. The
 When the assumptions of the TDA approach are violated, the dots in the PP-plot at lower percentiles will deviate from the $\widehat{\pi}_0$ line. In case the PP-plot is still a straight line at lower percentiles, then the shape of the decoy distribution is correct, but there are less (or more) decoys than expected under the concatenated TDA assumption, which could occur if the decoy database is different in size than the target database or when a bad hit is less likely to match to a decoy than to a bad target hit. This would also be visible in the histograms: the decoy histogram would be considerably lower (higher) than the first mode of the target distribution. When the PP-plot at lower percentiles deviates from a straight line, the distribution of decoys and the bad target PSMs is not equivalent, indicating that the decoys are not a good simulation of bad target hits. Either type of deviation should be of concern as each indicates that the FDR returned by the conventional concatenated TDA is incorrect.
 
 # Examples
-
-```{r "libraries", message=FALSE, warning=FALSE}
-library(TargetDecoy)
-library(ggplot2)
-library(gridExtra)
-```
 
 ## The data
 
@@ -209,14 +226,11 @@ was used as protein sequence database. The MS-GF+ search provided an mzid file.
 data("ModSwiss")
 ```
 
-#### Without GUI 
-
 We use the function `evalTargetDecoys()`. This function creates two diagnostic
 plots, i.e. a histogram and a PP plot. It can be used to evaluate the quality of
 the target decoy approach, i.e. to check the competitive TDA assumptions.
 
-When the variable name of the decoy flag and the score is known in advance, all
-of the following arguments can be passed to the function and no GUI is needed:
+It has the following arguments:
 
 - `object`: mzID object, mzR object or `data.frame`
 - `decoy`: Character, name of the decoy variable which consists of a boolean that indicates
@@ -226,71 +240,54 @@ the file (typically `"isdecoy"` or `"isDecoy"`).
 to be continuous (larger scores are assumed to be better. E-values are typically
 -log10(e-value) transformed.) Name of the variable depends on the search engine.
 - `log10`: Logical. Should the score be log10 transformed? Typically used when
-the score is an e-value.
-- `nBins`: Number of bins in the histogram.
+the score is an e-value. The default is `TRUE`.
+- `nBins`: Number of bins in the histogram. The default is `50`
 
-```{r}
-msgfSwiss <- evalTargetDecoys(ModSwiss,
+`evalTargetDecoys()` will return a figure consisting of 4 plots:
+
+1. A PP plot showing the empirical cumulative distribution of the target
+  distribution in function of that of the decoy distribution
+2. A histogram showing the score distributions of the decoys and non-decoys
+3. A zoomed PP plot
+4. A zoomed histogram
+
+```{r evalTargetDecoys-plot, fig.cap="Histogram and PP plot, as well as a zoom for both plots."}
+evalTargetDecoys(ModSwiss,
     decoy = "isdecoy", score = "ms-gf:specevalue",
     log10 = TRUE, nBins = 50
 )
-
-## The output is a list containing each plot
-names(msgfSwiss)
 ```
 
-When plotting the object `msgfSwiss` five plots are generated: a histogram and a
-zoom of the histogram on the decoys, a PP plot and a zoom of the PP plot and an
-outline plot with all four plots. These five plots can each be called
-individually as follows:
+The four plots can also be generated individually as follows:
 
 ```{r}
-msgfSwiss$ppPlot
-msgfSwiss$ppPlotZoom
-msgfSwiss$histogram
-msgfSwiss$histogramZoom
+msgfSwiss_ppPlot <- evalTargetDecoysPPPlot(ModSwiss,
+    decoy = "isdecoy", score = "ms-gf:specevalue",
+    log10 = TRUE
+)
+msgfSwiss_ppPlot_zoomed <- evalTargetDecoysPPPlot(ModSwiss,
+    decoy = "isdecoy", score = "ms-gf:specevalue",
+    log10 = TRUE, zoom = TRUE
+)
+msgfSwiss_hist <- evalTargetDecoysHist(ModSwiss,
+    decoy = "isdecoy", score = "ms-gf:specevalue",
+    log10 = TRUE, nBins = 50
+)
+msgfSwiss_hist_zoomed <- evalTargetDecoysHist(ModSwiss,
+    decoy = "isdecoy", score = "ms-gf:specevalue",
+    log10 = TRUE, nBins = 50, zoom = TRUE
+)
 ```
 
-```{r, fig.cap="Histogram and PP plot, as well as a zoom for both plots. Also an overview figure can be made (last figure)."}
-msgfSwiss$together
-```
 
 All plots are `ggplot` objects, which means that one can zoom in on any part of
 the plot.
 
 ```{r, fig.cap="Zoom of the first part of the PP plot"}
-zoomPlot <- msgfSwiss$ppPlot +
+msgfSwiss_ppPlot +
     coord_cartesian(xlim = c(NA, 0.25), ylim = c(NA, 0.05))
-zoomPlot
 ```
 
-#### With GUI
-
-When we only provide the object with the search results, e.g. imported mzID
-files as an argument to the function, a pop-up window opens. The user can select
-all the other arguments in the GUI as shown below.
-
-The object argument can consist of three types:
-
-- `mzID` object; Preprocessed file with `mzID::mzID()` function.
-- `mzR` object; Preprocessed file with `mzR::mzR()` function. (mzID file that has been imported in R
-in the `r Biocpkg("mzR")` package)
-- `data.frame`; Contains fields 'isdecoy' and 'score'
-
-```{r, eval=FALSE}
-## Use the function with only an mzID object and no other arguments,
-## this will launch a Shiny app to select the relevant arguments
-msgfSwiss <- evalTargetDecoys(ModSwiss)
-```
-
-```{r, echo=FALSE, fig.width=8, fig.cap="View of the panels of the GUI"}
-include_graphics("img/GUI.png")
-```
-
-When executing the `evalTargetDecoys()` function, a histogram and pp-Plot are
-generated. Histogram and pp-Plot can be seen in the respective panels of the
-GUI, but also in the R session after stopping the application. They are also
-returned to the R session when quitting the shiny app.
 
 ### Interpretation
 
@@ -326,11 +323,10 @@ data("ModSwissXT")
 We run `evalTargetDecoys()` with the necessary arguments.
 
 ```{r, fig.cap="Histogram and PP plot, each with a zoom level."}
-msgfSwissXT <- evalTargetDecoys(ModSwissXT,
+evalTargetDecoys(ModSwissXT,
     decoy = "isdecoy", score = "x!tandem:expect",
     log10 = TRUE, nBins = 50
 )
-msgfSwissXT$together
 ```
 
 The shape of the decoy distribution seems to be fine, i.e. the first part of the
@@ -381,15 +377,13 @@ We will reuse the `ModSwissXT` object from before.
 ```{r, fig.asp=1, fig.cap="PP plot and standardized PP plot"}
 ## Run createPPlotScores with necessary arguments
 ## Omitting 'decoy', 'scores' or 'log10' will launch the Shiny app
-plotsShakerSwiss <- createPPlotScores(ModSwissXT,
+createPPlotScores(ModSwissXT,
     decoy = "isdecoy",
     scores = c("omssa:evalue", "ms-gf:specevalue",
                "x!tandem:expect", "peptideshaker psm score"),
     ## We can choose to log-transform some scores but not others
     log10 = c(TRUE, TRUE, TRUE, FALSE)
 )
-
-grid.arrange(plotsShakerSwiss[[1]], plotsShakerSwiss[[2]], nrow = 2)
 ```
 
 ### Interpretation of the plots
@@ -402,14 +396,6 @@ multiple search engines is visualised. The standardized plots show that the TDA
 assumptions hold for both MSGF+ and OMSSA. For X!tandem, however, we again see
 issues for the Swissprot search and these also seem to affect the combined
 peptide shaker search engine score that relies on all three searches.
-
-<!-- MM: the text below relates to another example not shown -->
-<!-- In the Uniprot search, however, no -->
-<!-- clear deviations are observed. Indeed, Uniprot is a much larger database than -->
-<!-- the curated Swissprot database. Therefore the search space in X!tandems first -->
-<!-- phase is much larger for Uniprot than for Swissprot. Hence, less decoys from the -->
-<!-- first pass seem to match with a higher score to a modified target PSMs in the -->
-<!-- second pass and the FDR estimation does not seem to be compromised. -->
 
 From these plots we can deduce that combined search engines are useful. However,
 it is crucial to assess the TDA assumptions, otherwise the FDR control can be
@@ -460,12 +446,10 @@ mzObjects <- list(
     pyroSwissprot_data = ModSwissXT
 )
 
-plotSameEngine <- createPPlotObjects(
+createPPlotObjects(
     mzObjects, decoy = "isdecoy",
     score = "ms-gf:specevalue"
 )
-
-grid.arrange(plotSameEngine[[1]], plotSameEngine[[2]], nrow = 2)
 ```
 
 ### Example 3.2: Two objects with different search engines
@@ -484,15 +468,14 @@ plotDiffEngine <- createPPlotObjects(mzObjects,
     decoy = "isdecoy",
     score = c("ms-gf:specevalue", "x!tandem:expect")
 )
-
-grid.arrange(plotDiffEngine[[1]], plotDiffEngine[[2]], nrow = 2)
+plotDiffEngine
 ```
 
 Also here, it can be useful to zoom in on one specific part of the figure.
 
 ```{r}
 # Zoom in on the relevant or desired part of the plot
-plotZoom <- plotDiffEngine[[2]] +
+plotZoom <- plotDiffEngine +
     coord_cartesian(xlim = c(NA, 0.25), ylim = c(NA, 0.05))
 plotZoom 
 ```
@@ -501,32 +484,16 @@ In a final step, we can investigate the anomalous plot in more detail using
 `evalTargetDecoys()`.
 
 ```{r, fig.cap="Histogram and PP plot, each with a zoom level."}
-detailPlot <- evalTargetDecoys(mzObjects$ModSwissXT_data,
+evalTargetDecoys(mzObjects$ModSwissXT_data,
     decoy = "isdecoy", score = "x!tandem:expect",
     log10 = TRUE, nBins = 50
 )
-
-detailPlot$together
 ```
 
 Similar to example 1.2, the histogram and the PP-plot show issues with the estimation of $\pi_0$, which is due to the second pass strategy that is performed by X!tandem.
 
 # Reproducibility
 
-Date the vignette was generated.
-
-```{r reproduce1, echo=FALSE}
-## Date the vignette was generated
-Sys.time()
-```
-
-Wallclock time spent generating the vignette.
-
-```{r reproduce2, echo=FALSE}
-## Processing time in seconds
-totalTime <- diff(c(startTime, Sys.time()))
-round(totalTime, digits = 3)
-```
 
 <details>
 <summary>`R` session information.</summary>

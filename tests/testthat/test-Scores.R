@@ -8,8 +8,7 @@ test_that("createPPlotScores() works", {
         decoy = "isdecoy", log10 = TRUE
     )
 
-    expect_type(out, "list")
-    expect_length(out, 2)
+    expect_s3_class(out, "ggplot")
 })
 
 test_that("createPPLotScores() fails for incompatible arg lengths", {

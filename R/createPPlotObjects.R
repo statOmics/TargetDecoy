@@ -29,8 +29,7 @@
 #'     score = c("omssa:evalue", "x\\!tandem:expect"),
 #'     log10 = TRUE
 #' )
-createPPlotObjects <- function(object_list,
-                               decoy = NULL, score = NULL, log10 = TRUE) {
+createPPlotObjects <- function(object_list, decoy, score, log10 = TRUE) {
     if (!is.list(object_list)) object_list <- list(object_list)
 
     tables <- processObjects(

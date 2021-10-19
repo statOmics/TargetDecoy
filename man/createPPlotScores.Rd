@@ -5,7 +5,7 @@
 \title{Evaluate assumptions of the Target Decoys Approach for multiple search
 engines}
 \usage{
-createPPlotScores(object, scores, decoy = NULL, log10 = TRUE)
+createPPlotScores(object, scores, decoy, log10 = TRUE)
 }
 \arguments{
 \item{object}{A \code{data.frame}, \linkS4class{mzID} or \linkS4class{mzRident} object.}
