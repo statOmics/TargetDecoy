@@ -17,8 +17,6 @@ by the search engine.}
 
 \item{log10}{\code{logical} to indicate if the score should be
 \code{-log10}-transformed.}
-
-\item{nBins}{\code{numeric} indicating the number of bins in the histogram.}
 }
 \value{
 A \code{data.frame} with a logical \code{"decoy"} column and numeric \code{"scores"}.

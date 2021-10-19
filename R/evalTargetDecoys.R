@@ -9,7 +9,6 @@
 #'   by the search engine.
 #' @param log10 `logical` to indicate if the score should be
 #'   `-log10`-transformed.
-#' @param nBins `numeric` indicating the number of bins in the histogram.
 #'
 #' @return
 #' A `data.frame` with a logical `"decoy"` column and numeric `"scores"`.
@@ -74,6 +73,7 @@ decoyScoreTable <- function(object, decoy, score, log10 = TRUE) {
 #' A histogram and PP plot allow to check both necessary assumptions.
 #'
 #' @inheritParams decoyScoreTable
+#' @param nBins `numeric` indicating the number of bins in the histogram.
 #' @param zoom Logical value indicating whether a zoomed version of the plot
 #'     should be returned. Default: `FALSE`.
 #'
@@ -154,8 +154,7 @@ evalTargetDecoys <- function(object,
     ppPlot <- evalTargetDecoysPPPlot(
         object = object,
         decoy = decoy, score = score,
-        log10 = log10, nBins = nBins,
-        zoom = FALSE
+        log10 = log10, zoom = FALSE
     )
 
     # create histogram
@@ -170,8 +169,7 @@ evalTargetDecoys <- function(object,
     ppPlotZoom <- evalTargetDecoysPPPlot(
         object = object,
         decoy = decoy, score = score,
-        log10 = log10, nBins = nBins,
-        zoom = TRUE
+        log10 = log10, zoom = TRUE
     )
 
     # create zoomed histogram
@@ -193,7 +191,6 @@ evalTargetDecoys <- function(object,
 evalTargetDecoysPPPlot <- function(object,
                                    decoy, score,
                                    log10 = TRUE,
-                                   nBins = 50,
                                    zoom = FALSE) {
     ## Prepare score table
     data <- decoyScoreTable(

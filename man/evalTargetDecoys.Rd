@@ -8,14 +8,7 @@
 \usage{
 evalTargetDecoys(object, decoy, score, log10 = TRUE, nBins = 50)
 
-evalTargetDecoysPPPlot(
-  object,
-  decoy,
-  score,
-  log10 = TRUE,
-  nBins = 50,
-  zoom = FALSE
-)
+evalTargetDecoysPPPlot(object, decoy, score, log10 = TRUE, zoom = FALSE)
 
 evalTargetDecoysHist(
   object,
