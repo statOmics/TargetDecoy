@@ -11,6 +11,10 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![Codecov test
 coverage](https://codecov.io/gh/statOmics/TargetDecoy/branch/master/graph/badge.svg)](https://codecov.io/gh/statOmics/TargetDecoy?branch=master)
 <!-- [![BioC status](http://www.bioconductor.org/shields/build/release/bioc/TargetDecoy.svg)](https://bioconductor.org/checkResults/release/bioc-LATEST/TargetDecoy) -->
+[![BioC status
+release](http://www.bioconductor.org/shields/build/release/bioc/TargetDecoy.svg)](https://bioconductor.org/checkResults/release/bioc-LATEST/TargetDecoy)
+[![BioC status
+devel](http://www.bioconductor.org/shields/build/devel/bioc/TargetDecoy.svg)](https://bioconductor.org/checkResults/devel/bioc-LATEST/TargetDecoy)
 <!-- badges: end -->
 
 The goal of **TargetDecoy** is to to generate diagnostic plots to
@@ -44,16 +48,25 @@ plots to evaluate the quality of the target decoy method.
 
 ## Installation
 
-You can install the development version of **TargetDecoy** from
-[GitHub](https://github.com/statOmics/TargetDecoy) with:
+You can install
+*[TargetDecoy](https://bioconductor.org/packages/3.14/TargetDecoy)* from
+[*Bioconductor*](http://bioconductor.org/) using the following code:
 
 ``` r
-if (!requireNamespace("BiocManager"))
+if (!requireNamespace("BiocManager", quietly = TRUE)) {
     install.packages("BiocManager")
+}
+BiocManager::install("TargetDecoy")
+```
+
+The latest development version of **TargetDecoy** can alaso be installed
+from [GitHub](https://github.com/statOmics/TargetDecoy) with:
+
+``` r
 BiocManager::install("statOmics/TargetDecoy")
 ```
 
 ## Getting started
 
-Check the [vignette]().
-<!-- TODO: add link to pkgdown website or Bioc when available -->
+Check the
+[vignette](https://bioconductor.org/packages/release/bioc/vignettes/TargetDecoy/inst/doc/TargetDecoy.html).
