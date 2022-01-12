@@ -43,7 +43,7 @@ Description:
     To this end we developed TargetDecoy to generate diagnostic plots to
     evaluate the quality of the target decoy method.
 License: Artistic-2.0
-URL: https://github.com/statOmics/TargetDecoy
+URL: https://www.bioconductor.org/packages/TargetDecoy, https://statomics.github.io/TargetDecoy/, https://github.com/statOmics/TargetDecoy/
 BugReports: https://github.com/statOmics/TargetDecoy/issues
 biocViews: MassSpectrometry, Proteomics, QualityControl, Software, Visualization
 Encoding: UTF-8
