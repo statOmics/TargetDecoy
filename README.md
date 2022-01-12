@@ -59,7 +59,7 @@ if (!requireNamespace("BiocManager", quietly = TRUE)) {
 BiocManager::install("TargetDecoy")
 ```
 
-The latest development version of **TargetDecoy** can alaso be installed
+The latest development version of **TargetDecoy** can also be installed
 from [GitHub](https://github.com/statOmics/TargetDecoy) with:
 
 ``` r

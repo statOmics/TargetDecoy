@@ -64,7 +64,7 @@ BiocManager::install("TargetDecoy")
 ```
 
 
-The latest development version of __TargetDecoy__  can alaso be installed from
+The latest development version of __TargetDecoy__  can also be installed from
 [GitHub](https://github.com/statOmics/TargetDecoy) with:
 
 ```r
