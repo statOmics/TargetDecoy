@@ -89,15 +89,15 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/statOmics/TargetDecoy" class="external-link">TargetDecoy</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://www.bioconductor.org/packages/TargetDecoy" class="external-link">TargetDecoy</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></code></pre></div>
-<div class="section level1">
-<h1 id="basics">Basics<a class="anchor" aria-label="anchor" href="#basics"></a>
-</h1>
 <div class="section level2">
-<h2 id="installing-targetdecoy">Installing <code>TargetDecoy</code><a class="anchor" aria-label="anchor" href="#installing-targetdecoy"></a>
+<h2 id="basics">Basics<a class="anchor" aria-label="anchor" href="#basics"></a>
 </h2>
-<p><em><a href="https://bioconductor.org/packages/3.14/TargetDecoy" class="external-link">TargetDecoy</a></em> is an <code>R</code> package available via the <a href="http://bioconductor.org" class="external-link">Bioconductor</a> repository for packages. <code>R</code> can be installed on any operating system from <a href="https://cran.r-project.org/" class="external-link">CRAN</a> after which you can install <em><a href="https://bioconductor.org/packages/3.14/TargetDecoy" class="external-link">TargetDecoy</a></em> by using the following commands in your <code>R</code> session:</p>
+<div class="section level3">
+<h3 id="installing-targetdecoy">Installing <code>TargetDecoy</code><a class="anchor" aria-label="anchor" href="#installing-targetdecoy"></a>
+</h3>
+<p><em><a href="https://bioconductor.org/packages/3.15/TargetDecoy" class="external-link">TargetDecoy</a></em> is an <code>R</code> package available via the <a href="http://bioconductor.org" class="external-link">Bioconductor</a> repository for packages. <code>R</code> can be installed on any operating system from <a href="https://cran.r-project.org/" class="external-link">CRAN</a> after which you can install <em><a href="https://bioconductor.org/packages/3.15/TargetDecoy" class="external-link">TargetDecoy</a></em> by using the following commands in your <code>R</code> session:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"BiocManager"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
       <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span>
@@ -111,10 +111,10 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html" class="external-link">install</a></span><span class="op">(</span><span class="st">"statOmics/TargetDecoy"</span><span class="op">)</span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="citing-targetdecoy">Citing <code>TargetDecoy</code><a class="anchor" aria-label="anchor" href="#citing-targetdecoy"></a>
-</h2>
-<p>We hope that <em><a href="https://bioconductor.org/packages/3.14/TargetDecoy" class="external-link">TargetDecoy</a></em> will be useful for your research. Please use the following information to cite the package and the overall approach. Thank you!</p>
+<div class="section level3">
+<h3 id="citing-targetdecoy">Citing <code>TargetDecoy</code><a class="anchor" aria-label="anchor" href="#citing-targetdecoy"></a>
+</h3>
+<p>We hope that <em><a href="https://bioconductor.org/packages/3.15/TargetDecoy" class="external-link">TargetDecoy</a></em> will be useful for your research. Please use the following information to cite the package and the overall approach. Thank you!</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Citation info</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation</a></span><span class="op">(</span><span class="st">"TargetDecoy"</span><span class="op">)</span>
@@ -122,8 +122,10 @@
 <span class="co">#&gt; To cite package 'TargetDecoy' in publications use:</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;   Elke Debrie, Lieven Clement and Milan Malfait (2021). TargetDecoy:</span>
-<span class="co">#&gt;   Diagnostic Plots to Evaluate the Target Decoy Approach. R package</span>
-<span class="co">#&gt;   version 1.1.0. https://github.com/statOmics/TargetDecoy</span>
+<span class="co">#&gt;   Diagnostic Plots to Evaluate the Target Decoy Approach.</span>
+<span class="co">#&gt;   https://www.bioconductor.org/packages/TargetDecoy,</span>
+<span class="co">#&gt;   https://statomics.github.io/TargetDecoy/,</span>
+<span class="co">#&gt;   https://github.com/statOmics/TargetDecoy/.</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; A BibTeX entry for LaTeX users is</span>
 <span class="co">#&gt; </span>
@@ -131,22 +133,21 @@
 <span class="co">#&gt;     title = {TargetDecoy: Diagnostic Plots to Evaluate the Target Decoy Approach},</span>
 <span class="co">#&gt;     author = {Elke Debrie and Lieven Clement and Milan Malfait},</span>
 <span class="co">#&gt;     year = {2021},</span>
-<span class="co">#&gt;     note = {R package version 1.1.0},</span>
-<span class="co">#&gt;     url = {https://github.com/statOmics/TargetDecoy},</span>
+<span class="co">#&gt;     note = {https://www.bioconductor.org/packages/TargetDecoy, https://statomics.github.io/TargetDecoy/, https://github.com/statOmics/TargetDecoy/},</span>
 <span class="co">#&gt;   }</span></code></pre></div>
 </div>
 </div>
-<div class="section level1">
-<h1 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
-</h1>
+<div class="section level2">
+<h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h2>
 <p>A first step in the data analysis of Mass Spectrometry (MS) based proteomics data is to identify peptides and proteins. For this, a huge number of experimental mass spectra typically have to be assigned to theoretical peptides derived from a sequence database. This task is carried out by specialised algorithms called search engines, which compare each of the observed spectra to theoretical spectra derived from relevant candidate peptides obtained from a sequence data base and calculate a score for each comparison. The observed spectrum is then assigned to the theoretical peptide with the best score, which is also referred to as a peptide-to-spectrum match (PSM). It is of course crucial for the downstream analysis to evaluate the overall reliability of these matches. Therefore False Discovery Rate (FDR) control is used to return a sufficiently reliable list of PSMs. The FDR calculation, however, requires a good characterisation of the score distribution of PSMs that are matched to an incorrect peptide (bad target hits). In proteomics, the target decoy approach (TDA) is typically used for this purpose. The TDA method matches the observed spectra to a database of real (target) and nonsense (decoy) peptides, with the latter typically generated by reversing protein sequences in the target database. Hence, all PSMs that match to a decoy peptide are known to be bad hits and the distribution of their scores is used to estimate the distribution of the bad scoring target PSMs. A crucial assumption of the TDA is that decoy PSM hits have similar properties as bad target hits so that decoy PSM scores are a good simulation of target PSM scores. Users, however, typically do not evaluate these assumptions. To this end we developed <strong>TargetDecoy</strong> to generate diagnostic plots to evaluate the quality of the target decoy method, thus allowing users to assess whether the key assumptions underlying the method are met.</p>
 </div>
-<div class="section level1">
-<h1 id="concepts">Concepts<a class="anchor" aria-label="anchor" href="#concepts"></a>
-</h1>
 <div class="section level2">
-<h2 id="basic-statistical-concepts">Basic Statistical Concepts<a class="anchor" aria-label="anchor" href="#basic-statistical-concepts"></a>
+<h2 id="concepts">Concepts<a class="anchor" aria-label="anchor" href="#concepts"></a>
 </h2>
+<div class="section level3">
+<h3 id="basic-statistical-concepts">Basic Statistical Concepts<a class="anchor" aria-label="anchor" href="#basic-statistical-concepts"></a>
+</h3>
 <p>We first introduce some notation. With <span class="math inline">\(x\)</span> we denote the PSM and without loss of generality we assume that larger score values indicate a better match to the theoretical spectrum. The scores will follow a mixture distribution:</p>
 <p><span class="math display">\[f(x) = \pi_0f_0(x)+(1-\pi_0)f_1(x),\]</span></p>
 <p>with <span class="math inline">\(f(x)\)</span> the target PSM score distribution, <span class="math inline">\(f_0(x)\)</span> the mixture component corresponding to incorrect PSMs, <span class="math inline">\(f_1(x)\)</span> the mixture component corresponding to the correct PSMs and <span class="math inline">\(\pi_0\)</span> the fraction of incorrect PSMs. Based on the mixture distribution we can calculate the posterior probability that a PSM with score <span class="math inline">\(x\)</span> is a bad match:</p>
@@ -156,9 +157,9 @@
 <p>with <span class="math inline">\(\int\limits_{x=t}^{+\infty} f_0(x) dx\)</span> the probability to observe a bad PSM hit above the threshold and, <span class="math inline">\(\int\limits_{x=t}^{+\infty} f(x) dx\)</span> the probability to observe a target PSM hit above the threshold. The probability <span class="math inline">\(P[\text{Bad hit} \mid \text{score }x&gt;t]\)</span> is also referred to as the False Discovery Rate for peptide identification (FDR) of the set of PSMs with scores above the threshold <span class="math inline">\(t\)</span>. Hence, the FDR has the interpretation of the expected fraction of bad hits in the set of all target hits that are returned in the final PSM list, so bad PSM hits with scores above the threshold.</p>
 <p>In order to estimate the FDR, we thus have to estimate the distribution of the bad hits and of the targets. In proteomics this is typically done by the use of the Target Decoy Approach (TDA).</p>
 </div>
-<div class="section level2">
-<h2 id="target-decoy-approach">Target Decoy Approach<a class="anchor" aria-label="anchor" href="#target-decoy-approach"></a>
-</h2>
+<div class="section level3">
+<h3 id="target-decoy-approach">Target Decoy Approach<a class="anchor" aria-label="anchor" href="#target-decoy-approach"></a>
+</h3>
 <p>A <strong>competitive</strong> target decoy search involves performing a search on a concatenated target and decoy database (as, for example, obtained from a reversed target database). Typically, one will ensure that there are as many targets as there are decoys. If the decoy hits are a good simulation of the bad target hits, it is equally likely that a bad hit will go to the targets as as it is to go to the decoys. With a competitive target decoy approach, it is therefore assumed that a bad hit matches a bad target equally likely as a decoy.</p>
 <p>The distribution of bad target hits (<span class="math inline">\(f_0(t)\)</span>) and the marginal distribution of all target hits (<span class="math inline">\(f(t)\)</span>) is empirically estimated using the decoy scores and all target scores respectively. With the TDA, the FDR of the set of returned PSMs with scores above a threshold t, is estimated by dividing the number of decoy hits with a score above t by the number of target PSMs with a score above t.</p>
 <p><span class="math display">\[
@@ -181,12 +182,12 @@
 <p>These assumptions can be checked using a histogram and a PP-plot.</p>
 </div>
 </div>
-<div class="section level1">
-<h1 id="diagnostic-plots">Diagnostic plots<a class="anchor" aria-label="anchor" href="#diagnostic-plots"></a>
-</h1>
 <div class="section level2">
-<h2 id="histogram">Histogram<a class="anchor" aria-label="anchor" href="#histogram"></a>
+<h2 id="diagnostic-plots">Diagnostic plots<a class="anchor" aria-label="anchor" href="#diagnostic-plots"></a>
 </h2>
+<div class="section level3">
+<h3 id="histogram">Histogram<a class="anchor" aria-label="anchor" href="#histogram"></a>
+</h3>
 <p>In the histogram the shape of the score distribution of the decoys (shown in blue in the figure below) should be equal to that of bad target hits (first mode in the target distribution indicated in red). Note that the height of the decoys can be slightly lower than the first mode in the target distribution because some good target hits also have a low score (e.g., because of poor quality observed spectra).</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"ModSwiss"</span><span class="op">)</span>
@@ -200,9 +201,9 @@ Histogram of the scores of targets and decoys.
 </p>
 </div>
 </div>
-<div class="section level2">
-<h2 id="ppplot">PPplot<a class="anchor" aria-label="anchor" href="#ppplot"></a>
-</h2>
+<div class="section level3">
+<h3 id="ppplot">PPplot<a class="anchor" aria-label="anchor" href="#ppplot"></a>
+</h3>
 <p>The figure below shows an example of a PP plot, the main diagnostic plot to evaluate the quality of the decoys.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/evalTargetDecoys.html">evalTargetDecoysPPPlot</a></span><span class="op">(</span><span class="va">ModSwiss</span>,
@@ -218,20 +219,20 @@ PP plot
 <p>When the assumptions of the TDA approach are violated, the dots in the PP-plot at lower percentiles will deviate from the <span class="math inline">\(\widehat{\pi}_0\)</span> line. In case the PP-plot is still a straight line at lower percentiles, then the shape of the decoy distribution is correct, but there are less (or more) decoys than expected under the concatenated TDA assumption, which could occur if the decoy database is different in size than the target database or when a bad hit is less likely to match to a decoy than to a bad target hit. This would also be visible in the histograms: the decoy histogram would be considerably lower (higher) than the first mode of the target distribution. When the PP-plot at lower percentiles deviates from a straight line, the distribution of decoys and the bad target PSMs is not equivalent, indicating that the decoys are not a good simulation of bad target hits. Either type of deviation should be of concern as each indicates that the FDR returned by the conventional concatenated TDA is incorrect.</p>
 </div>
 </div>
-<div class="section level1">
-<h1 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
-</h1>
 <div class="section level2">
-<h2 id="the-data">The data<a class="anchor" aria-label="anchor" href="#the-data"></a>
-</h2>
-<p>In this vignette we use data from a <em>Pyrococcus furiosis</em> sample run on a LTQ-Orbitrap Velos mass spectrometer. The data can be found in the PRIDE repository with identifier PXD001077. The <em>Pyrococcus furiosis</em> reference proteome fasta files were downloaded from UniProtKB and UniProtKB/Swiss-Prot on April 22, 2016. The <em>Pyrococcus</em> data was searched against all Pyrococcus proteins with multiple search engines using either the reference proteome from UniProtKB or the reference proteome from UniProtKB/Swiss-Prot.</p>
-</div>
-<div class="section level2">
-<h2 id="example1">Example 1: One file and one search engine<a class="anchor" aria-label="anchor" href="#example1"></a>
+<h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
 </h2>
 <div class="section level3">
-<h3 id="example-1-1-msgf-search-engine">Example 1.1: MSGF+ search engine<a class="anchor" aria-label="anchor" href="#example-1-1-msgf-search-engine"></a>
+<h3 id="the-data">The data<a class="anchor" aria-label="anchor" href="#the-data"></a>
 </h3>
+<p>In this vignette we use data from a <em>Pyrococcus furiosis</em> sample run on a LTQ-Orbitrap Velos mass spectrometer. The data can be found in the PRIDE repository with identifier PXD001077. The <em>Pyrococcus furiosis</em> reference proteome fasta files were downloaded from UniProtKB and UniProtKB/Swiss-Prot on April 22, 2016. The <em>Pyrococcus</em> data was searched against all Pyrococcus proteins with multiple search engines using either the reference proteome from UniProtKB or the reference proteome from UniProtKB/Swiss-Prot.</p>
+</div>
+<div class="section level3">
+<h3 id="example1">Example 1: One file and one search engine<a class="anchor" aria-label="anchor" href="#example1"></a>
+</h3>
+<div class="section level4">
+<h4 id="example-1-1-msgf-search-engine">Example 1.1: MSGF+ search engine<a class="anchor" aria-label="anchor" href="#example-1-1-msgf-search-engine"></a>
+</h4>
 <p>In the next example MS-GF+ was used as the database search engine and SwissProt was used as protein sequence database. The MS-GF+ search provided an mzid file.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Load the example SwissProt dataset</span>
@@ -298,16 +299,16 @@ Zoom of the first part of the PP plot
 </p>
 </div>
 </div>
-<div class="section level3">
-<h3 id="interpretation">Interpretation<a class="anchor" aria-label="anchor" href="#interpretation"></a>
-</h3>
+<div class="section level4">
+<h4 id="interpretation">Interpretation<a class="anchor" aria-label="anchor" href="#interpretation"></a>
+</h4>
 <p>The histogram shows that the shape of the distribution of the decoys (shown in blue) is approximately equal to that of the bad target hits (first mode in the target distribution indicated in red). The height of the decoys is slightly lower than the first mode in the target distribution, which is due to the fact that some good target hits also have a low score. This indicates that the form is good which is also confirmed in the PP-plot.</p>
 <p>Moreover, the first part of the PP-plot is linear with a slope that is about equal to <span class="math inline">\(\hat{\pi}_0\)</span> line. This indicates that the decoy distribution and the mixture component for incorrect PSMs of the target mixture distribution (= distribution of the bad target hits) coincide more or less. This profile in the PP-plot indicates that the set of decoys from the complete search is representative for the bad target hits. Hence, the assumptions of the concatenated TDA approach are not violated for this Pyrococcus example, assumption 2 is also fulfilled.</p>
 <p>Overall we can conclude that in this example the assumptions for the TDA are met.</p>
 </div>
-<div class="section level3">
-<h3 id="example-1-2-xtandem-search-engine">Example 1.2: X!Tandem search engine<a class="anchor" aria-label="anchor" href="#example-1-2-xtandem-search-engine"></a>
-</h3>
+<div class="section level4">
+<h4 id="example-1-2-xtandem-search-engine">Example 1.2: X!Tandem search engine<a class="anchor" aria-label="anchor" href="#example-1-2-xtandem-search-engine"></a>
+</h4>
 <p>In the next example, X!Tandem was used as the database search engine and SwissProt was used as protein sequence database. The X!Tandem search provided an mzid file.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Load X!Tandem example data</span>
@@ -326,9 +327,9 @@ Histogram and PP plot, each with a zoom level.
 <p>The shape of the decoy distribution seems to be fine, i.e. the first part of the PP-plot lies on a straight line. But, the histogram and the PP-plot show issues with the estimation of pi0. The total number of decoys does not seem to be a good estimate for the total number of bad target PSM hits. Indeed, it seems to be more likely that a bad match is a target than a decoy! This is due to the two pass search strategy that is performed by X!tandem. In the first phase a rapid search is performed, which does not allow for modifications nor for miss cleavages. In a second phase, a new search is conducted solely against the identified peptides in the first phase, but now by using a more complex strategy that allows for missed cleavages and post translational modifications. Performing the refined search against the smaller population of candidate peptides from the first phase greatly reduces the computational complexity, however, it comes at the cost that the TDA assumptions are violated. Indeed, in the second pass low scoring PSMs can switch to a modified PSM, which seems to be the case for many decoy hits from the first phase. Many of these switched to modified target PSMs, however, remain to have a relative low score and are likely to be bad target PSMs. The number of decoy matches is no longer representative for the number of bad target matches. This example shows that the use of a second pass strategy can be very detrimental for the FDR estimation using the TDA approach.</p>
 </div>
 </div>
-<div class="section level2">
-<h2 id="example2">Example 2: One file and search performed by an engine that combines different search engines<a class="anchor" aria-label="anchor" href="#example2"></a>
-</h2>
+<div class="section level3">
+<h3 id="example2">Example 2: One file and search performed by an engine that combines different search engines<a class="anchor" aria-label="anchor" href="#example2"></a>
+</h3>
 <p>In the following example multiple database search engines where used to process the same mzID file and both Swissprot and Uniprot were used as protein sequence database. Three search engines – MS-GF+, OMSSA and X!Tandem – and a combination of these 3 (by using PeptideShaker) were used to search against both protein sequence databases. <code><a href="../reference/createPPlotScores.html">createPPlotScores()</a></code> provides the possibility to evaluate each of the sub-engines and the overall itself. Two PP plots are created to evaluate the quality of the TDA.</p>
 <p>Provide following arguments in the function. When one are more are missing, also here a GUI pops up.</p>
 <ul>
@@ -358,16 +359,16 @@ Histogram and PP plot, each with a zoom level.
 PP plot and standardized PP plot
 </p>
 </div>
-<div class="section level3">
-<h3 id="interpretation-of-the-plots">Interpretation of the plots<a class="anchor" aria-label="anchor" href="#interpretation-of-the-plots"></a>
-</h3>
+<div class="section level4">
+<h4 id="interpretation-of-the-plots">Interpretation of the plots<a class="anchor" aria-label="anchor" href="#interpretation-of-the-plots"></a>
+</h4>
 <p>For files with results for multiple search engines, a “standardized” PP-plot is also included. In this plot the estimated <span class="math inline">\(\pi_0\)</span> is removed from the PP-plot. In the standardized PP-plot deviations in the first part have to be compared to the 0 line, which allows the user to quickly spot issues when the results of multiple search engines is visualised. The standardized plots show that the TDA assumptions hold for both MSGF+ and OMSSA. For X!tandem, however, we again see issues for the Swissprot search and these also seem to affect the combined peptide shaker search engine score that relies on all three searches.</p>
 <p>From these plots we can deduce that combined search engines are useful. However, it is crucial to assess the TDA assumptions, otherwise the FDR control can be dramatically compromised and our tool can help data analysts to choose the engines that they include in combined search engines, carefully.</p>
 </div>
 </div>
-<div class="section level2">
-<h2 id="example3">Example 3: Check the assumptions for multiple searches/runs<a class="anchor" aria-label="anchor" href="#example3"></a>
-</h2>
+<div class="section level3">
+<h3 id="example3">Example 3: Check the assumptions for multiple searches/runs<a class="anchor" aria-label="anchor" href="#example3"></a>
+</h3>
 <p>When you have to evaluate the quality of the TDA for different runs, it can be useful to see at a glance which runs have problems with these assumptions. The function <code><a href="../reference/createPPlotObjects.html">createPPlotObjects()</a></code> generated multiple files at once and two PP plots to check the necessary assumptions. A first plot with the original PP plots and pi0 lines. A second “standardized” plot where the reference <span class="math inline">\(\pi_O\)</span> line is at 0. An overview in one figure ensures a quick evaluation of a large number of files. Based on this plot a more detailed analysis of the ‘anomalous’ runs can be done with <code><a href="../reference/evalTargetDecoys.html">evalTargetDecoys()</a></code>.</p>
 <p>The function <code><a href="../reference/createPPlotObjects.html">createPPlotObjects()</a></code> has four arguments:</p>
 <ul>
@@ -381,14 +382,14 @@ PP plot and standardized PP plot
 <code>log10</code>: Vector. Should the score be log10 transformed? Typically used when the score is an e-value.</li>
 </ul>
 <p>Again, when all of these arguments are given correctly, the function will be executed and the desired plots will be created. However, if the user forgets to provide one of the arguments, or gives an incorrect variable that does not belong to the desired class, a shiny app is launched to select the variables for each input object given in <code>object_list</code>.</p>
-<div class="section level3">
-<h3 id="provide-a-list-with-all-objects">Provide a list with all objects<a class="anchor" aria-label="anchor" href="#provide-a-list-with-all-objects"></a>
-</h3>
+<div class="section level4">
+<h4 id="provide-a-list-with-all-objects">Provide a list with all objects<a class="anchor" aria-label="anchor" href="#provide-a-list-with-all-objects"></a>
+</h4>
 <p>We will reuse the data sets from the previous examples and store them in a list.</p>
 </div>
-<div class="section level3">
-<h3 id="example-3-1-two-data-sets-with-the-same-search-engine">Example 3.1: Two data sets with the same search engine<a class="anchor" aria-label="anchor" href="#example-3-1-two-data-sets-with-the-same-search-engine"></a>
-</h3>
+<div class="section level4">
+<h4 id="example-3-1-two-data-sets-with-the-same-search-engine">Example 3.1: Two data sets with the same search engine<a class="anchor" aria-label="anchor" href="#example-3-1-two-data-sets-with-the-same-search-engine"></a>
+</h4>
 <p>In this example scores come from the same search engine, MS-GF+, and thus are indicated by the same variable name <code>"ms-gf:specevalue"</code>.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Create list of input objects, list names will be reused in the plots</span>
@@ -407,9 +408,9 @@ PP plot and standardized PP plot for two searches (same search engine)
 </p>
 </div>
 </div>
-<div class="section level3">
-<h3 id="example-3-2-two-objects-with-different-search-engines">Example 3.2: Two objects with different search engines<a class="anchor" aria-label="anchor" href="#example-3-2-two-objects-with-different-search-engines"></a>
-</h3>
+<div class="section level4">
+<h4 id="example-3-2-two-objects-with-different-search-engines">Example 3.2: Two objects with different search engines<a class="anchor" aria-label="anchor" href="#example-3-2-two-objects-with-different-search-engines"></a>
+</h4>
 <p>In this last example, different variable names for score are given as a vector, because two different search engines, MS-GF+ and X!tandem, were used.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Create list of input objects, list names will be reused in the plots</span>
@@ -451,121 +452,109 @@ Histogram and PP plot, each with a zoom level.
 </div>
 </div>
 </div>
-<div class="section level1">
-<h1 id="reproducibility">Reproducibility<a class="anchor" aria-label="anchor" href="#reproducibility"></a>
-</h1>
+<div class="section level2">
+<h2 id="reproducibility">Reproducibility<a class="anchor" aria-label="anchor" href="#reproducibility"></a>
+</h2>
 <details><summary><code>R</code> session information.
-</summary><pre><code><span class="co">#&gt; ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────</span>
-<span class="co">#&gt;  setting  value                       </span>
-<span class="co">#&gt;  version  R version 4.1.2 (2021-11-01)</span>
-<span class="co">#&gt;  os       macOS Big Sur 10.16         </span>
-<span class="co">#&gt;  system   x86_64, darwin17.0          </span>
-<span class="co">#&gt;  ui       X11                         </span>
-<span class="co">#&gt;  language en                          </span>
-<span class="co">#&gt;  collate  en_US.UTF-8                 </span>
-<span class="co">#&gt;  ctype    en_US.UTF-8                 </span>
-<span class="co">#&gt;  tz       Europe/Brussels             </span>
-<span class="co">#&gt;  date     2022-01-12                  </span>
+</summary><pre><code><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────</span></span>
+<span class="co">#&gt;  <span style="color: #555555; font-style: italic;">setting </span> <span style="color: #555555; font-style: italic;">value</span></span>
+<span class="co">#&gt;  version  R Under development (unstable) (2022-01-07 r81454)</span>
+<span class="co">#&gt;  os       Ubuntu 20.04.3 LTS</span>
+<span class="co">#&gt;  system   x86_64, linux-gnu</span>
+<span class="co">#&gt;  ui       X11</span>
+<span class="co">#&gt;  language en</span>
+<span class="co">#&gt;  collate  en_US.UTF-8</span>
+<span class="co">#&gt;  ctype    en_US.UTF-8</span>
+<span class="co">#&gt;  tz       UTC</span>
+<span class="co">#&gt;  date     2022-01-12</span>
+<span class="co">#&gt;  pandoc   2.14.0.3 @ /usr/local/bin/ (via rmarkdown)</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────</span>
-<span class="co">#&gt;  ! package      * version  date       lib source           </span>
-<span class="co">#&gt;    abind          1.4-5    2016-07-21 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    backports      1.2.1    2020-12-09 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    Biobase        2.53.0   2021-05-19 [1] Bioconductor     </span>
-<span class="co">#&gt;    BiocGenerics   0.39.2   2021-08-18 [1] Bioconductor     </span>
-<span class="co">#&gt;    BiocManager    1.30.16  2021-06-15 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    BiocStyle    * 2.21.4   2021-10-12 [1] Bioconductor     </span>
-<span class="co">#&gt;    bookdown       0.24     2021-09-02 [1] CRAN (R 4.1.1)   </span>
-<span class="co">#&gt;    broom          0.7.9    2021-07-27 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    bslib          0.3.1    2021-10-06 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    cachem         1.0.6    2021-08-19 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    car            3.0-11   2021-06-27 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    carData        3.0-4    2020-05-22 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    cellranger     1.1.0    2016-07-27 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    cli            3.0.1    2021-07-17 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;  P codetools      0.2-18   2020-11-04 [?] CRAN (R 4.1.2)   </span>
-<span class="co">#&gt;    colorspace     2.0-2    2021-06-24 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    cowplot        1.1.1    2020-12-30 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    crayon         1.4.1    2021-02-08 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    curl           4.3.2    2021-06-23 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    data.table     1.14.2   2021-09-27 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    desc           1.4.0    2021-09-28 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    digest         0.6.28   2021-09-23 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    doParallel     1.0.16   2020-10-16 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    dplyr          1.0.7    2021-06-18 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    ellipsis       0.3.2    2021-04-29 [1] standard (@0.3.2)</span>
-<span class="co">#&gt;    evaluate       0.14     2019-05-28 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    fansi          0.5.0    2021-05-25 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    farver         2.1.0    2021-02-28 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    fastmap        1.1.0    2021-01-25 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    forcats        0.5.1    2021-01-27 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    foreach        1.5.1    2020-10-15 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;  P foreign        0.8-81   2020-12-22 [?] CRAN (R 4.1.2)   </span>
-<span class="co">#&gt;    fs             1.5.0    2020-07-31 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    generics       0.1.0    2020-10-31 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    ggplot2      * 3.3.5    2021-06-25 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    ggpubr         0.4.0    2020-06-27 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    ggsignif       0.6.3    2021-09-09 [1] CRAN (R 4.1.1)   </span>
-<span class="co">#&gt;    glue           1.4.2    2020-08-27 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    gtable         0.3.0    2019-03-25 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    haven          2.4.3    2021-08-04 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    highr          0.9      2021-04-16 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    hms            1.1.1    2021-09-26 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    htmltools      0.5.2    2021-08-25 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    iterators      1.0.13   2020-10-15 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    jquerylib      0.1.4    2021-04-26 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    jsonlite       1.7.2    2020-12-09 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    knitr        * 1.36     2021-09-29 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    labeling       0.4.2    2020-10-20 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    lifecycle      1.0.1    2021-09-24 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    magrittr       2.0.1    2020-11-17 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    memoise        2.0.0    2021-01-26 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    munsell        0.5.0    2018-06-12 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    mzID           1.31.0   2021-05-19 [1] Bioconductor     </span>
-<span class="co">#&gt;    mzR            2.27.1   2021-06-18 [1] Bioconductor     </span>
-<span class="co">#&gt;    ncdf4          1.17     2019-10-23 [1] standard (@1.17) </span>
-<span class="co">#&gt;    openxlsx       4.2.4    2021-06-16 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    pillar         1.6.4    2021-10-18 [1] CRAN (R 4.1.1)   </span>
-<span class="co">#&gt;    pkgconfig      2.0.3    2019-09-22 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;  P pkgdown        2.0.1    2021-12-03 [?] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    plyr           1.8.6    2020-03-03 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    ProtGenerics   1.25.1   2021-07-02 [1] Bioconductor     </span>
-<span class="co">#&gt;    purrr          0.3.4    2020-04-17 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    R6             2.5.1    2021-08-19 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;  P ragg           1.2.1    2021-12-06 [?] CRAN (R 4.1.2)   </span>
-<span class="co">#&gt;    Rcpp           1.0.7    2021-07-07 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    readxl         1.3.1    2019-03-13 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    renv           0.14.0   2021-07-21 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    rio            0.5.27   2021-06-21 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    rlang          0.4.12   2021-10-18 [1] CRAN (R 4.1.1)   </span>
-<span class="co">#&gt;    rmarkdown      2.11     2021-09-14 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    rprojroot      2.0.2    2020-11-15 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    rstatix        0.7.0    2021-02-13 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    rstudioapi     0.13     2020-11-12 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    sass           0.4.0    2021-05-12 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    scales         1.1.1    2020-05-11 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    sessioninfo    1.1.1    2018-11-05 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    stringi        1.7.5    2021-10-04 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    stringr        1.4.0    2019-02-10 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;  P systemfonts    1.0.3    2021-10-13 [?] CRAN (R 4.1.2)   </span>
-<span class="co">#&gt;    TargetDecoy  * 1.1.0    2021-10-29 [1] Bioconductor     </span>
-<span class="co">#&gt;  P textshaping    0.3.6    2021-10-13 [?] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    tibble         3.1.5    2021-09-30 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    tidyr          1.1.4    2021-09-27 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    tidyselect     1.1.1    2021-04-30 [1] standard (@1.1.1)</span>
-<span class="co">#&gt;    utf8           1.2.2    2021-07-24 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    vctrs          0.3.8    2021-04-29 [1] standard (@0.3.8)</span>
-<span class="co">#&gt;    withr          2.4.2    2021-04-18 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    xfun           0.27     2021-10-18 [1] CRAN (R 4.1.1)   </span>
-<span class="co">#&gt;    XML            3.99-0.8 2021-09-17 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    yaml           2.2.1    2020-02-01 [1] CRAN (R 4.1.0)   </span>
-<span class="co">#&gt;    zip            2.2.0    2021-05-31 [1] CRAN (R 4.1.0)   </span>
+<span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span>
+<span class="co">#&gt;  <span style="color: #555555; font-style: italic;">package     </span> <span style="color: #555555; font-style: italic;">*</span> <span style="color: #555555; font-style: italic;">version   </span> <span style="color: #555555; font-style: italic;">date (UTC)</span> <span style="color: #555555; font-style: italic;">lib</span> <span style="color: #555555; font-style: italic;">source</span></span>
+<span class="co">#&gt;  abind          1.4-5      <span style="color: #555555;">2016-07-21</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.1.0)</span></span>
+<span class="co">#&gt;  backports      1.4.1      <span style="color: #555555;">2021-12-13</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  Biobase        2.55.0     <span style="color: #555555;">2021-10-26</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span>
+<span class="co">#&gt;  BiocGenerics   0.41.2     <span style="color: #555555;">2021-11-15</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span>
+<span class="co">#&gt;  BiocManager    1.30.16    <span style="color: #555555;">2021-06-15</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  BiocStyle    * 2.23.1     <span style="color: #555555;">2021-12-17</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span>
+<span class="co">#&gt;  bookdown       0.24       <span style="color: #555555;">2021-09-02</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  broom          0.7.11     <span style="color: #555555;">2022-01-03</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  bslib          0.3.1      <span style="color: #555555;">2021-10-06</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  cachem         1.0.6      <span style="color: #555555;">2021-08-19</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  car            3.0-12     <span style="color: #555555;">2021-11-06</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  carData        3.0-5      <span style="color: #555555;">2022-01-06</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  cli            3.1.0      <span style="color: #555555;">2021-10-27</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  codetools      0.2-18     <span style="color: #555555;">2020-11-04</span> <span style="color: #555555;">[3]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  colorspace     2.0-2      <span style="color: #555555;">2021-06-24</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.1.0)</span></span>
+<span class="co">#&gt;  cowplot        1.1.1      <span style="color: #555555;">2020-12-30</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.1.0)</span></span>
+<span class="co">#&gt;  crayon         1.4.2      <span style="color: #555555;">2021-10-29</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  desc           1.4.0      <span style="color: #555555;">2021-09-28</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  digest         0.6.29     <span style="color: #555555;">2021-12-01</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  doParallel     1.0.16     <span style="color: #555555;">2020-10-16</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.1.0)</span></span>
+<span class="co">#&gt;  dplyr          1.0.7      <span style="color: #555555;">2021-06-18</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  ellipsis       0.3.2      <span style="color: #555555;">2021-04-29</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  evaluate       0.14       <span style="color: #555555;">2019-05-28</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  fansi          1.0.0      <span style="color: #555555;">2022-01-10</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  farver         2.1.0      <span style="color: #555555;">2021-02-28</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.1.0)</span></span>
+<span class="co">#&gt;  fastmap        1.1.0      <span style="color: #555555;">2021-01-25</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  foreach        1.5.1      <span style="color: #555555;">2020-10-15</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.1.0)</span></span>
+<span class="co">#&gt;  fs             1.5.2      <span style="color: #555555;">2021-12-08</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  generics       0.1.1      <span style="color: #555555;">2021-10-25</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  ggplot2      * 3.3.5      <span style="color: #555555;">2021-06-25</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.1.0)</span></span>
+<span class="co">#&gt;  ggpubr         0.4.0      <span style="color: #555555;">2020-06-27</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.1.0)</span></span>
+<span class="co">#&gt;  ggsignif       0.6.3      <span style="color: #555555;">2021-09-09</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  glue           1.6.0      <span style="color: #555555;">2021-12-17</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  gtable         0.3.0      <span style="color: #555555;">2019-03-25</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.1.0)</span></span>
+<span class="co">#&gt;  highr          0.9        <span style="color: #555555;">2021-04-16</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  htmltools      0.5.2      <span style="color: #555555;">2021-08-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  iterators      1.0.13     <span style="color: #555555;">2020-10-15</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.1.0)</span></span>
+<span class="co">#&gt;  jquerylib      0.1.4      <span style="color: #555555;">2021-04-26</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.1.0)</span></span>
+<span class="co">#&gt;  jsonlite       1.7.2      <span style="color: #555555;">2020-12-09</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  knitr        * 1.37       <span style="color: #555555;">2021-12-16</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  labeling       0.4.2      <span style="color: #555555;">2020-10-20</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.1.0)</span></span>
+<span class="co">#&gt;  lifecycle      1.0.1      <span style="color: #555555;">2021-09-24</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  magrittr       2.0.1      <span style="color: #555555;">2020-11-17</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  memoise        2.0.1      <span style="color: #555555;">2021-11-26</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  munsell        0.5.0      <span style="color: #555555;">2018-06-12</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.1.0)</span></span>
+<span class="co">#&gt;  mzID           1.33.0     <span style="color: #555555;">2021-10-26</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span>
+<span class="co">#&gt;  mzR            2.29.1     <span style="color: #555555;">2021-11-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span>
+<span class="co">#&gt;  ncdf4          1.19       <span style="color: #555555;">2021-12-15</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  pillar         1.6.4      <span style="color: #555555;">2021-10-18</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  pkgconfig      2.0.3      <span style="color: #555555;">2019-09-22</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  pkgdown        <span style="color: #BB00BB; font-weight: bold;">2.0.1.9000</span> <span style="color: #555555;">2022-01-12</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Github (r-lib/pkgdown@3fdbaf3)</span></span>
+<span class="co">#&gt;  plyr           1.8.6      <span style="color: #555555;">2020-03-03</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.1.0)</span></span>
+<span class="co">#&gt;  ProtGenerics   1.27.2     <span style="color: #555555;">2022-01-04</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span>
+<span class="co">#&gt;  purrr          0.3.4      <span style="color: #555555;">2020-04-17</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  R6             2.5.1      <span style="color: #555555;">2021-08-19</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  ragg           1.2.1      <span style="color: #555555;">2021-12-06</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  Rcpp           1.0.7      <span style="color: #555555;">2021-07-07</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.1.0)</span></span>
+<span class="co">#&gt;  rlang          0.4.12     <span style="color: #555555;">2021-10-18</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  rmarkdown      2.11       <span style="color: #555555;">2021-09-14</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  rprojroot      2.0.2      <span style="color: #555555;">2020-11-15</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  rstatix        0.7.0      <span style="color: #555555;">2021-02-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.1.0)</span></span>
+<span class="co">#&gt;  sass           0.4.0      <span style="color: #555555;">2021-05-12</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  scales         1.1.1      <span style="color: #555555;">2020-05-11</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.1.0)</span></span>
+<span class="co">#&gt;  sessioninfo    1.2.2      <span style="color: #555555;">2021-12-06</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  stringi        1.7.6      <span style="color: #555555;">2021-11-29</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  stringr        1.4.0      <span style="color: #555555;">2019-02-10</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  systemfonts    1.0.3      <span style="color: #555555;">2021-10-13</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  TargetDecoy  * 1.1.0      <span style="color: #555555;">2022-01-12</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span>
+<span class="co">#&gt;  textshaping    0.3.6      <span style="color: #555555;">2021-10-13</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  tibble         3.1.6      <span style="color: #555555;">2021-11-07</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  tidyr          1.1.4      <span style="color: #555555;">2021-09-27</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  tidyselect     1.1.1      <span style="color: #555555;">2021-04-30</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  utf8           1.2.2      <span style="color: #555555;">2021-07-24</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  vctrs          0.3.8      <span style="color: #555555;">2021-04-29</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  withr          2.4.3      <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  xfun           0.29       <span style="color: #555555;">2021-12-14</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  XML            3.99-0.8   <span style="color: #555555;">2021-09-17</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  yaml           2.2.1      <span style="color: #555555;">2020-02-01</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; [1] /Users/milan/R-packages/TargetDecoy/renv/library/R-4.1/x86_64-apple-darwin17.0</span>
-<span class="co">#&gt; [2] /private/var/folders/z4/xzg_j1jd3pj130bk246ly0s80000gn/T/RtmpXpXfjH/renv-system-library</span>
-<span class="co">#&gt; [3] /private/var/folders/z4/xzg_j1jd3pj130bk246ly0s80000gn/T/RtmpHaYfU8/renv-system-library</span>
+<span class="co">#&gt; <span style="color: #555555;"> [1] /__w/_temp/Library</span></span>
+<span class="co">#&gt; <span style="color: #555555;"> [2] /usr/local/lib/R/site-library</span></span>
+<span class="co">#&gt; <span style="color: #555555;"> [3] /usr/local/lib/R/library</span></span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt;  P ── Loaded and on-disk path mismatch.</span></code></pre>
+<span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span></code></pre>
 </details>
 </div>
   </div>
@@ -587,7 +576,7 @@ Histogram and PP plot, each with a zoom level.
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.9000.</p>
 </div>
 
       </footer>

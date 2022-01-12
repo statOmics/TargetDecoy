@@ -1,7 +1,7 @@
-pandoc: 2.14.2
-pkgdown: 2.0.1
-pkgdown_sha: ~
+pandoc: 2.14.0.3
+pkgdown: 2.0.1.9000
+pkgdown_sha: 3fdbaf3f40ee7c092e22aa75aeea8261107ba001
 articles:
   TargetDecoy: TargetDecoy.html
-last_built: 2022-01-12T10:09Z
+last_built: 2022-01-12T10:40Z
 
