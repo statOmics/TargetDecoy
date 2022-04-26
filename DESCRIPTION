@@ -1,6 +1,6 @@
 Package: TargetDecoy
 Title: Diagnostic Plots to Evaluate the Target Decoy Approach
-Version: 1.1.0
+Version: 1.2.0
 Date: 2021-10-19
 Authors@R: c(
     person(given = "Elke",
