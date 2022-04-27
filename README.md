@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![R-CMD-check-bioc](https://github.com/statOmics/TargetDecoy/workflows/R-CMD-check-bioc/badge.svg)](https://github.com/statOmics/TargetDecoy/actions)
 [![Codecov test
 coverage](https://codecov.io/gh/statOmics/TargetDecoy/branch/master/graph/badge.svg)](https://codecov.io/gh/statOmics/TargetDecoy?branch=master)
@@ -49,7 +49,7 @@ plots to evaluate the quality of the target decoy method.
 ## Installation
 
 You can install
-*[TargetDecoy](https://bioconductor.org/packages/3.14/TargetDecoy)* from
+*[TargetDecoy](https://bioconductor.org/packages/3.15/TargetDecoy)* from
 [*Bioconductor*](http://bioconductor.org/) using the following code:
 
 ``` r

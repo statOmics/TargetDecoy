@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 # TargetDecoy
 
 <!-- badges: start -->
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![R-CMD-check-bioc](https://github.com/statOmics/TargetDecoy/workflows/R-CMD-check-bioc/badge.svg)](https://github.com/statOmics/TargetDecoy/actions)
 [![Codecov test coverage](https://codecov.io/gh/statOmics/TargetDecoy/branch/master/graph/badge.svg)](https://codecov.io/gh/statOmics/TargetDecoy?branch=master)
 <!-- [![BioC status](http://www.bioconductor.org/shields/build/release/bioc/TargetDecoy.svg)](https://bioconductor.org/checkResults/release/bioc-LATEST/TargetDecoy) -->
