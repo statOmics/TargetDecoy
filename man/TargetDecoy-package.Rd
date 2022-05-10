@@ -11,7 +11,9 @@ A first step in the data analysis of Mass Spectrometry (MS) based proteomics dat
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/statOmics/TargetDecoy}
+  \item \url{https://www.bioconductor.org/packages/TargetDecoy}
+  \item \url{https://statomics.github.io/TargetDecoy/}
+  \item \url{https://github.com/statOmics/TargetDecoy/}
   \item Report bugs at \url{https://github.com/statOmics/TargetDecoy/issues}
 }
 
