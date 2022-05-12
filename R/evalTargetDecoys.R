@@ -77,9 +77,17 @@ NULL
 #' @export
 #' @rdname evalTargetDecoys
 evalTargetDecoys <- function(object,
-                             decoy, score,
-                             log10 = TRUE,
-                             nBins = 50) {
+                             decoy = NULL, score = NULL,
+                             log10 = TRUE, nBins = 50) {
+
+    vars <- list(decoy = decoy, score = score, log = log10, nBins = nBins)
+    if (any(vapply(vars, is.null, logical(1)))) {
+        vars <- .select_vars(object)
+        decoy <- vars$decoy
+        score <- vars$score
+        log10 <- vars$log
+        nBins <- vars$nBins
+    }
 
     # create PP-plot
     ppPlot <- evalTargetDecoysPPPlot(
@@ -120,9 +128,17 @@ evalTargetDecoys <- function(object,
 #' @rdname evalTargetDecoys
 #' @export
 evalTargetDecoysPPPlot <- function(object,
-                                   decoy, score,
-                                   log10 = TRUE,
-                                   zoom = FALSE) {
+                                   decoy = NULL, score = NULL,
+                                   log10 = TRUE, zoom = FALSE) {
+
+    vars <- list(decoy = decoy, score = score, log = log10)
+    if (any(vapply(vars, is.null, logical(1)))) {
+        vars <- .select_vars(object)
+        decoy <- vars$decoy
+        score <- vars$score
+        log10 <- vars$log
+    }
+
     ## Prepare score table
     data <- decoyScoreTable(
         object = object,
@@ -170,11 +186,19 @@ evalTargetDecoysPPPlot <- function(object,
 #' @rdname evalTargetDecoys
 #' @export
 evalTargetDecoysHist <- function(object,
-                                 decoy = NULL,
-                                 score = NULL,
-                                 log10 = NULL,
-                                 nBins = 50,
+                                 decoy = NULL, score = NULL,
+                                 log10 = TRUE, nBins = 50,
                                  zoom = FALSE) {
+
+    vars <- list(decoy = decoy, score = score, log = log10, nBins = nBins)
+    if (any(vapply(vars, is.null, logical(1)))) {
+        vars <- .select_vars(object)
+        decoy <- vars$decoy
+        score <- vars$score
+        log10 <- vars$log
+        nBins <- vars$nBins
+    }
+
     ## Prepare score table
     data <- decoyScoreTable(
         object = object,
