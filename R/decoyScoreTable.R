@@ -8,7 +8,7 @@
 #' @param score `numeric`, indicating the score of the peptide match, obtained
 #'   by the search engine.
 #' @param log10 `logical` to indicate if the score should be
-#'   `-log10`-transformed.
+#'   `-log10`-transformed. Default: `TRUE`.
 #'
 #' @return
 #' A `data.frame` with a logical `"decoy"` column and numeric `"scores"`.
@@ -65,5 +65,3 @@ decoyScoreTable <- function(object, decoy, score, log10 = TRUE) {
     }
     df
 }
-
-
