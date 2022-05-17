@@ -10,13 +10,16 @@ decoyScoreTable(object, decoy, score, log10 = TRUE)
 \item{object}{A \code{data.frame}, \linkS4class{mzID} or \linkS4class{mzRident} object.}
 
 \item{decoy}{\code{character}, name of the variable that indicates if the peptide
-matches to a target or to a decoy.}
+matches to a target or to a decoy. When this value is missing, a Shiny
+gadget is launched to select it interactively.}
 
 \item{score}{\code{numeric}, indicating the score of the peptide match, obtained
-by the search engine.}
+by the search engine. When this value is missing, a Shiny gadget is
+launched to select it interactively.}
 
 \item{log10}{\code{logical} to indicate if the score should be
-\code{-log10}-transformed. Default: \code{TRUE}.}
+\code{-log10}-transformed. Default: \code{TRUE}. When this value is missing, a Shiny
+gadget is launched to select it interactively.}
 }
 \value{
 A \code{data.frame} with a logical \code{"decoy"} column and numeric \code{"scores"}.

@@ -6,15 +6,21 @@
 \alias{evalTargetDecoysHist}
 \title{Evaluate assumptions of the Target Decoys approach}
 \usage{
-evalTargetDecoys(object, decoy, score, log10 = TRUE, nBins = 50)
+evalTargetDecoys(object, decoy = NULL, score = NULL, log10 = TRUE, nBins = 50)
 
-evalTargetDecoysPPPlot(object, decoy, score, log10 = TRUE, zoom = FALSE)
+evalTargetDecoysPPPlot(
+  object,
+  decoy = NULL,
+  score = NULL,
+  log10 = TRUE,
+  zoom = FALSE
+)
 
 evalTargetDecoysHist(
   object,
   decoy = NULL,
   score = NULL,
-  log10 = NULL,
+  log10 = TRUE,
   nBins = 50,
   zoom = FALSE
 )
@@ -23,15 +29,20 @@ evalTargetDecoysHist(
 \item{object}{A \code{data.frame}, \linkS4class{mzID} or \linkS4class{mzRident} object.}
 
 \item{decoy}{\code{character}, name of the variable that indicates if the peptide
-matches to a target or to a decoy.}
+matches to a target or to a decoy. When this value is missing, a Shiny
+gadget is launched to select it interactively.}
 
 \item{score}{\code{numeric}, indicating the score of the peptide match, obtained
-by the search engine.}
+by the search engine. When this value is missing, a Shiny gadget is
+launched to select it interactively.}
 
 \item{log10}{\code{logical} to indicate if the score should be
-\code{-log10}-transformed. Default: \code{TRUE}.}
+\code{-log10}-transformed. Default: \code{TRUE}. When this value is missing, a Shiny
+gadget is launched to select it interactively.}
 
-\item{nBins}{\code{numeric} indicating the number of bins in the histogram.}
+\item{nBins}{\code{numeric} indicating the number of bins in the histogram.
+When this value is missing, a Shiny gadget is launched to select it
+interactively.}
 
 \item{zoom}{Logical value indicating whether a zoomed version of the plot
 should be returned. Default: \code{FALSE}.}
@@ -56,6 +67,16 @@ version (4.) if \code{zoom = TRUE}.
 Create diagnostic plots to evaluate the TDA assumptions.
 A histogram and PP plot allow to check both necessary assumptions.
 }
+\section{The Shiny gadget}{
+
+
+Sometimes the variable names are not known up front. If this is the case, the
+\verb{evalTargetDecoys*()} functions can be called with only an input object. This
+launches a Shiny gadget that allows selecting the variables interactively. A
+histogram and PP-plot of the selected variables are created on the fly for
+previewing, together with a snapshot of the selected data.
+}
+
 \examples{
 library(mzID)
 

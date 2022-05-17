@@ -4,11 +4,14 @@
 #'
 #' @param object A `data.frame`, \linkS4class{mzID} or \linkS4class{mzRident} object.
 #' @param decoy `character`, name of the variable that indicates if the peptide
-#'   matches to a target or to a decoy.
+#'   matches to a target or to a decoy. When this value is missing, a Shiny
+#'   gadget is launched to select it interactively.
 #' @param score `numeric`, indicating the score of the peptide match, obtained
-#'   by the search engine.
+#'   by the search engine. When this value is missing, a Shiny gadget is
+#'   launched to select it interactively.
 #' @param log10 `logical` to indicate if the score should be
-#'   `-log10`-transformed. Default: `TRUE`.
+#'   `-log10`-transformed. Default: `TRUE`. When this value is missing, a Shiny
+#'   gadget is launched to select it interactively.
 #'
 #' @return
 #' A `data.frame` with a logical `"decoy"` column and numeric `"scores"`.

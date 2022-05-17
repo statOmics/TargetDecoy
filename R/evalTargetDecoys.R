@@ -5,6 +5,8 @@
 #'
 #' @inheritParams decoyScoreTable
 #' @param nBins `numeric` indicating the number of bins in the histogram.
+#'     When this value is missing, a Shiny gadget is launched to select it
+#'     interactively.
 #' @param zoom Logical value indicating whether a zoomed version of the plot
 #'     should be returned. Default: `FALSE`.
 #'
@@ -22,6 +24,14 @@
 #'
 #' `evalTargetDecoysHist` generates the histogram only (2.) or the zoomed
 #'  version (4.) if `zoom = TRUE`.
+
+#' @section The Shiny gadget:
+#'
+#' Sometimes the variable names are not known up front. If this is the case, the
+#' `evalTargetDecoys*()` functions can be called with only an input object. This
+#' launches a Shiny gadget that allows selecting the variables interactively. A
+#' histogram and PP-plot of the selected variables are created on the fly for
+#' previewing, together with a snapshot of the selected data.
 #'
 #' @author Elke Debrie, Lieven Clement, Milan Malfait
 #'

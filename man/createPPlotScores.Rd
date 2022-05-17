@@ -14,10 +14,12 @@ createPPlotScores(object, scores, decoy, log10 = TRUE)
 object. Typically from different search engines.}
 
 \item{decoy}{\code{character}, name of the variable that indicates if the peptide
-matches to a target or to a decoy.}
+matches to a target or to a decoy. When this value is missing, a Shiny
+gadget is launched to select it interactively.}
 
 \item{log10}{\code{logical} to indicate if the score should be
-\code{-log10}-transformed. Default: \code{TRUE}.}
+\code{-log10}-transformed. Default: \code{TRUE}. When this value is missing, a Shiny
+gadget is launched to select it interactively.}
 }
 \value{
 One PP plot with all original pi0, and a standardized / rescaled PP plot with
