@@ -17,7 +17,7 @@ object. Typically from different search engines.}
 matches to a target or to a decoy.}
 
 \item{log10}{\code{logical} to indicate if the score should be
-\code{-log10}-transformed.}
+\code{-log10}-transformed. Default: \code{TRUE}.}
 }
 \value{
 One PP plot with all original pi0, and a standardized / rescaled PP plot with
