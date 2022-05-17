@@ -77,9 +77,17 @@
             )
         })
 
-        ## FIXME: validate that at least some decoys are present
         output$PPplot <- renderPlot({
             vars <- vars()
+
+            decoys <- df[[vars$decoy]]
+            validate(
+                need(
+                    any(decoys) && !all(decoys),
+                    "Need at least some decoys and some non-decoys."
+                )
+            )
+
             evalTargetDecoysPPPlot(df,
                 decoy = vars$decoy, score = vars$score, log10 = vars$log
             )
