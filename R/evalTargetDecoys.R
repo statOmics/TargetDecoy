@@ -5,6 +5,8 @@
 #'
 #' @inheritParams decoyScoreTable
 #' @param nBins `numeric` indicating the number of bins in the histogram.
+#'     When this value is missing, a Shiny gadget is launched to select it
+#'     interactively.
 #' @param zoom Logical value indicating whether a zoomed version of the plot
 #'     should be returned. Default: `FALSE`.
 #'
@@ -22,6 +24,14 @@
 #'
 #' `evalTargetDecoysHist` generates the histogram only (2.) or the zoomed
 #'  version (4.) if `zoom = TRUE`.
+
+#' @section The Shiny gadget:
+#'
+#' Sometimes the variable names are not known up front. If this is the case, the
+#' `evalTargetDecoys*()` functions can be called with only an input object. This
+#' launches a Shiny gadget that allows selecting the variables interactively. A
+#' histogram and PP-plot of the selected variables are created on the fly for
+#' previewing, together with a snapshot of the selected data.
 #'
 #' @author Elke Debrie, Lieven Clement, Milan Malfait
 #'
@@ -77,9 +87,17 @@ NULL
 #' @export
 #' @rdname evalTargetDecoys
 evalTargetDecoys <- function(object,
-                             decoy, score,
-                             log10 = TRUE,
-                             nBins = 50) {
+                             decoy = NULL, score = NULL,
+                             log10 = TRUE, nBins = 50) {
+
+    vars <- list(decoy = decoy, score = score, log = log10, nBins = nBins)
+    if (any(vapply(vars, is.null, logical(1)))) {
+        vars <- .select_vars(object)
+        decoy <- vars$decoy
+        score <- vars$score
+        log10 <- vars$log
+        nBins <- vars$nBins
+    }
 
     # create PP-plot
     ppPlot <- evalTargetDecoysPPPlot(
@@ -120,9 +138,17 @@ evalTargetDecoys <- function(object,
 #' @rdname evalTargetDecoys
 #' @export
 evalTargetDecoysPPPlot <- function(object,
-                                   decoy, score,
-                                   log10 = TRUE,
-                                   zoom = FALSE) {
+                                   decoy = NULL, score = NULL,
+                                   log10 = TRUE, zoom = FALSE) {
+
+    vars <- list(decoy = decoy, score = score, log = log10)
+    if (any(vapply(vars, is.null, logical(1)))) {
+        vars <- .select_vars(object)
+        decoy <- vars$decoy
+        score <- vars$score
+        log10 <- vars$log
+    }
+
     ## Prepare score table
     data <- decoyScoreTable(
         object = object,
@@ -170,11 +196,19 @@ evalTargetDecoysPPPlot <- function(object,
 #' @rdname evalTargetDecoys
 #' @export
 evalTargetDecoysHist <- function(object,
-                                 decoy = NULL,
-                                 score = NULL,
-                                 log10 = NULL,
-                                 nBins = 50,
+                                 decoy = NULL, score = NULL,
+                                 log10 = TRUE, nBins = 50,
                                  zoom = FALSE) {
+
+    vars <- list(decoy = decoy, score = score, log = log10, nBins = nBins)
+    if (any(vapply(vars, is.null, logical(1)))) {
+        vars <- .select_vars(object)
+        decoy <- vars$decoy
+        score <- vars$score
+        log10 <- vars$log
+        nBins <- vars$nBins
+    }
+
     ## Prepare score table
     data <- decoyScoreTable(
         object = object,

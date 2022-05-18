@@ -54,8 +54,10 @@ Imports:
     ggplot2,
     ggpubr,
     methods,
+    miniUI,
     mzID,
     mzR,
+    shiny,
     stats
 Suggests:
     BiocStyle,
