@@ -715,6 +715,27 @@ is due to the second pass strategy that is performed by X!tandem.</p>
 </div>
 </div>
 <div class="section level2">
+<h2 id="shiny-gadget">Shiny gadget<a class="anchor" aria-label="anchor" href="#shiny-gadget"></a>
+</h2>
+<p>Sometimes the variable names are not known up front. If this is the
+case, the <code>⁠evalTargetDecoys*(</code>)⁠ functions can be called
+with only an input object. This launches a Shiny gadget that allows
+selecting the variables interactively. A histogram and PP-plot of the
+selected variables are created on the fly for previewing, together with
+a snapshot of the selected data.</p>
+<p>When working in RStudio, the gadget opens in the “Viewer” pane by
+default, but it can also be opened in any browser window.</p>
+<div class="figure">
+<img src="img/gadget-screenshot.png" alt=""><p class="caption">The Shiny gadget opens after calling
+<code><a href="../reference/evalTargetDecoys.html">evalTargetDecoys()</a></code> with only an input object but no
+variables specified.</p>
+</div>
+<div class="figure">
+<img src="img/gadget-screenshot2.png" alt=""><p class="caption">A histogram and PP-plot can be previewed in the
+respective tabs.</p>
+</div>
+</div>
+<div class="section level2">
 <h2 id="reproducibility">Reproducibility<a class="anchor" aria-label="anchor" href="#reproducibility"></a>
 </h2>
 <details><summary><code>R</code> session information.
@@ -769,14 +790,18 @@ is due to the second pass strategy that is performed by X!tandem.</p>
 <span class="co">#&gt;  gtable         0.3.0      <span style="color: #555555;">2019-03-25</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  highr          0.9        <span style="color: #555555;">2021-04-16</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  htmltools      0.5.2      <span style="color: #555555;">2021-08-25</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
+<span class="co">#&gt;  httpuv         1.6.5      <span style="color: #555555;">2022-01-05</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  iterators      1.0.14     <span style="color: #555555;">2022-02-05</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  jquerylib      0.1.4      <span style="color: #555555;">2021-04-26</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  jsonlite       1.8.0      <span style="color: #555555;">2022-02-22</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  knitr        * 1.39       <span style="color: #555555;">2022-04-26</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  labeling       0.4.2      <span style="color: #555555;">2020-10-20</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
+<span class="co">#&gt;  later          1.3.0      <span style="color: #555555;">2021-08-18</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  lifecycle      1.0.1      <span style="color: #555555;">2021-09-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  magrittr       2.0.3      <span style="color: #555555;">2022-03-30</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  memoise        2.0.1      <span style="color: #555555;">2021-11-26</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
+<span class="co">#&gt;  mime           0.12       <span style="color: #555555;">2021-09-28</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
+<span class="co">#&gt;  miniUI         0.1.1.1    <span style="color: #555555;">2018-05-18</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  munsell        0.5.0      <span style="color: #555555;">2018-06-12</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  mzID           1.35.0     <span style="color: #555555;">2022-04-26</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span>
 <span class="co">#&gt;  mzR            2.31.0     <span style="color: #555555;">2022-04-26</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span>
@@ -785,6 +810,7 @@ is due to the second pass strategy that is performed by X!tandem.</p>
 <span class="co">#&gt;  pkgconfig      2.0.3      <span style="color: #555555;">2019-09-22</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  pkgdown        <span style="color: #BB00BB; font-weight: bold;">2.0.3.9000</span> <span style="color: #555555;">2022-05-18</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Github (r-lib/pkgdown@9dee019)</span></span>
 <span class="co">#&gt;  plyr           1.8.7      <span style="color: #555555;">2022-03-24</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
+<span class="co">#&gt;  promises       1.2.0.1    <span style="color: #555555;">2021-02-11</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  ProtGenerics   1.29.0     <span style="color: #555555;">2022-04-26</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span>
 <span class="co">#&gt;  purrr          0.3.4      <span style="color: #555555;">2020-04-17</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  R6             2.5.1      <span style="color: #555555;">2021-08-19</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
@@ -797,6 +823,7 @@ is due to the second pass strategy that is performed by X!tandem.</p>
 <span class="co">#&gt;  sass           0.4.1      <span style="color: #555555;">2022-03-23</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  scales         1.2.0      <span style="color: #555555;">2022-04-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  sessioninfo    1.2.2      <span style="color: #555555;">2021-12-06</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
+<span class="co">#&gt;  shiny          1.7.1      <span style="color: #555555;">2021-10-02</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  stringi        1.7.6      <span style="color: #555555;">2021-11-29</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  stringr        1.4.0      <span style="color: #555555;">2019-02-10</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  systemfonts    1.0.4      <span style="color: #555555;">2022-02-11</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
@@ -810,6 +837,7 @@ is due to the second pass strategy that is performed by X!tandem.</p>
 <span class="co">#&gt;  withr          2.5.0      <span style="color: #555555;">2022-03-03</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  xfun           0.31       <span style="color: #555555;">2022-05-10</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  XML            3.99-0.9   <span style="color: #555555;">2022-02-24</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
+<span class="co">#&gt;  xtable         1.8-4      <span style="color: #555555;">2019-04-21</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  yaml           2.3.5      <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #555555;"> [1] /__w/_temp/Library</span></span>
