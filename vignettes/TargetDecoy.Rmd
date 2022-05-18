@@ -500,23 +500,13 @@ previewing, together with a snapshot of the selected data.
 When working in RStudio, the gadget opens in the "Viewer" pane by default, but
 it can also be opened in any browser window.
 
-```{r, fig.width=8, echo=FALSE, fig.cap="The Shiny gadget opens after calling `evalTargetDecoys()` with only an input object but no variables specified."}
+```{r, echo=FALSE, fig.cap="The Shiny gadget opens after calling `evalTargetDecoys()` with only an input object but no variables specified."}
 include_graphics("img/gadget-screenshot.png")
 ```
 
-```{r, echo=FALSE, fig.width=8, fig.cap="A histogram and PP-plot can be previewed in the respective tabs."}
+```{r, echo=FALSE, fig.cap="A histogram and PP-plot can be previewed in the respective tabs."}
 include_graphics("img/gadget-screenshot2.png")
 ```
-
-After selecting the appropriate variables and clicking on "Done", the gadget
-passes the selected variables on to the calling function. In the example, the
-`evalTargetDecoys()` function was called, so after clicking "Done" and closing
-the gadget, the output of that function is shown.
-
-```{r, echo=FALSE, fig.width=8, fig.cap="After clicking 'Done', the app closes and the result of the calling function is shown."}
-include_graphics("img/gadget-result.png")
-```
-
 
 # Reproducibility
 
