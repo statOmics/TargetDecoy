@@ -204,11 +204,36 @@ Deviations from the assumptions of TDA can be best evaluated in the PP-plot. The
 
 When the assumptions of the TDA approach are violated, the dots in the PP-plot at lower percentiles will deviate from the $\widehat{\pi}_0$ line. In case the PP-plot is still a straight line at lower percentiles, then the shape of the decoy distribution is correct, but there are less (or more) decoys than expected under the concatenated TDA assumption, which could occur if the decoy database is different in size than the target database or when a bad hit is less likely to match to a decoy than to a bad target hit. This would also be visible in the histograms: the decoy histogram would be considerably lower (higher) than the first mode of the target distribution. When the PP-plot at lower percentiles deviates from a straight line, the distribution of decoys and the bad target PSMs is not equivalent, indicating that the decoys are not a good simulation of bad target hits. Either type of deviation should be of concern as each indicates that the FDR returned by the conventional concatenated TDA is incorrect.
 
+
+# Supported data formats
+
+*TargetDecoy* currently supports objects of class `mzID` or `mzRIdent` from the
+`r BiocStyle::Biocpkg("mzID")` and `r BiocStyle::Biocpkg("mzR")` packages,
+respectively.
+
+These datasets are typically loaded from an `.mzid` file as follows
+
+```{r data-loading-examples, warning=FALSE}
+filename <- system.file("extdata/55merge_omssa.mzid", package = "mzID")
+
+## mzID
+mzID_object <- mzID::mzID(filename)
+class(mzID_object)
+
+## mzRIdent
+mzR_object <- mzR::openIDfile(filename)
+class(mzR_object)
+```
+
+
+
 # Examples
 
 ## The data
 
 In this vignette we use data from a *Pyrococcus furiosis* sample run on a LTQ-Orbitrap Velos mass spectrometer. The data can be found in the PRIDE repository with identifier PXD001077. The *Pyrococcus furiosis* reference proteome fasta files were downloaded from UniProtKB and UniProtKB/Swiss-Prot on April 22, 2016. The *Pyrococcus* data was searched against all Pyrococcus proteins with multiple search engines using either the reference proteome from UniProtKB or the reference proteome from UniProtKB/Swiss-Prot. 
+
+This dataset is available in the *TargetDecoy* installation and can be loaded with `data("ModSwiss")`.
 
 ## Example 1: One file and one search engine {#example1}
 
