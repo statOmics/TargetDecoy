@@ -1,6 +1,8 @@
-# TargetDecoy 1.3.0
+# TargetDecoy 1.3.1 (2022-05-20)
 
 * Added a `NEWS.md` file to track changes to the package.
+* Added Shiny gadget to interactively select variable names (#7)
+* Moved `decoyScoreTable()` to its own file: `R/decoyScoreTable.R`
 
 # TargetDecoy 1.0.0 (2021-10-26)
 
