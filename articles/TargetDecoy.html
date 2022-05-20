@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">TargetDecoy</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.3.1</span>
       </span>
     </div>
 
@@ -44,6 +44,9 @@
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -82,7 +85,7 @@ Malfait</h4>
 University<br><h4 data-toc-skip class="author">Lieven
 Clement</h4>
             <address class="author_afil">
-      Ghent University<br><h4 data-toc-skip class="date">18 May 2022</h4>
+      Ghent University<br><h4 data-toc-skip class="date">20 May 2022</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/statOmics/TargetDecoy/blob/HEAD/vignettes/TargetDecoy.Rmd" class="external-link"><code>vignettes/TargetDecoy.Rmd</code></a></small>
       <div class="hidden name"><code>TargetDecoy.Rmd</code></div>
@@ -136,7 +139,7 @@ to cite the package and the overall approach. Thank you!</p>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; To cite package 'TargetDecoy' in publications use:</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt;   Debrie E, Clement L, Malfait M (2021). _TargetDecoy: Diagnostic Plots</span>
+<span class="co">#&gt;   Debrie E, Clement L, Malfait M (2022). _TargetDecoy: Diagnostic Plots</span>
 <span class="co">#&gt;   to Evaluate the Target Decoy Approach_.</span>
 <span class="co">#&gt;   https://www.bioconductor.org/packages/TargetDecoy,</span>
 <span class="co">#&gt;   https://statomics.github.io/TargetDecoy/,</span>
@@ -147,7 +150,7 @@ to cite the package and the overall approach. Thank you!</p>
 <span class="co">#&gt;   @Manual{,</span>
 <span class="co">#&gt;     title = {TargetDecoy: Diagnostic Plots to Evaluate the Target Decoy Approach},</span>
 <span class="co">#&gt;     author = {Elke Debrie and Lieven Clement and Milan Malfait},</span>
-<span class="co">#&gt;     year = {2021},</span>
+<span class="co">#&gt;     year = {2022},</span>
 <span class="co">#&gt;     note = {https://www.bioconductor.org/packages/TargetDecoy, https://statomics.github.io/TargetDecoy/, https://github.com/statOmics/TargetDecoy/},</span>
 <span class="co">#&gt;   }</span></code></pre></div>
 </div>
@@ -357,6 +360,33 @@ incorrect.</p>
 </div>
 </div>
 <div class="section level2">
+<h2 id="supported-data-formats">Supported data formats<a class="anchor" aria-label="anchor" href="#supported-data-formats"></a>
+</h2>
+<p><em>TargetDecoy</em> currently supports objects of class
+<code>mzID</code> or <code>mzRIdent</code> from the <em><a href="https://bioconductor.org/packages/3.16/mzID" class="external-link">mzID</a></em> and
+<em><a href="https://bioconductor.org/packages/3.16/mzR" class="external-link">mzR</a></em>
+packages, respectively.</p>
+<p>These datasets are typically loaded from an <code>.mzid</code> file
+as follows</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">filename</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/55merge_omssa.mzid"</span>, package <span class="op">=</span> <span class="st">"mzID"</span><span class="op">)</span>
+
+<span class="co">## mzID</span>
+<span class="va">mzID_object</span> <span class="op">&lt;-</span> <span class="fu">mzID</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/mzID/man/mzID.html" class="external-link">mzID</a></span><span class="op">(</span><span class="va">filename</span><span class="op">)</span>
+<span class="co">#&gt; reading 55merge_omssa.mzid... DONE!</span>
+<span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">mzID_object</span><span class="op">)</span>
+<span class="co">#&gt; [1] "mzID"</span>
+<span class="co">#&gt; attr(,"package")</span>
+<span class="co">#&gt; [1] "mzID"</span>
+
+<span class="co">## mzRIdent</span>
+<span class="va">mzR_object</span> <span class="op">&lt;-</span> <span class="fu">mzR</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/mzR/man/openMSfile.html" class="external-link">openIDfile</a></span><span class="op">(</span><span class="va">filename</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">mzR_object</span><span class="op">)</span>
+<span class="co">#&gt; [1] "mzRident"</span>
+<span class="co">#&gt; attr(,"package")</span>
+<span class="co">#&gt; [1] "mzR"</span></code></pre></div>
+</div>
+<div class="section level2">
 <h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
 </h2>
 <div class="section level3">
@@ -371,6 +401,8 @@ The <em>Pyrococcus</em> data was searched against all Pyrococcus
 proteins with multiple search engines using either the reference
 proteome from UniProtKB or the reference proteome from
 UniProtKB/Swiss-Prot.</p>
+<p>This dataset is available in the <em>TargetDecoy</em> installation
+and can be loaded with <code>data("ModSwiss")</code>.</p>
 </div>
 <div class="section level3">
 <h3 id="example1">Example 1: One file and one search engine<a class="anchor" aria-label="anchor" href="#example1"></a>
@@ -381,7 +413,7 @@ UniProtKB/Swiss-Prot.</p>
 <p>In the next example MS-GF+ was used as the database search engine and
 SwissProt was used as protein sequence database. The MS-GF+ search
 provided an mzid file.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Load the example SwissProt dataset</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"ModSwiss"</span><span class="op">)</span></code></pre></div>
 <p>We use the function <code><a href="../reference/evalTargetDecoys.html">evalTargetDecoys()</a></code>. This function
@@ -423,7 +455,7 @@ non-decoys</li>
 <li>A zoomed PP plot</li>
 <li>A zoomed histogram</li>
 </ol>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/evalTargetDecoys.html">evalTargetDecoys</a></span><span class="op">(</span><span class="va">ModSwiss</span>,
     decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"ms-gf:specevalue"</span>,
     log10 <span class="op">=</span> <span class="cn">TRUE</span>, nBins <span class="op">=</span> <span class="fl">50</span>
@@ -434,7 +466,7 @@ Histogram and PP plot, as well as a zoom for both plots.
 </p>
 </div>
 <p>The four plots can also be generated individually as follows:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">msgfSwiss_ppPlot</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/evalTargetDecoys.html">evalTargetDecoysPPPlot</a></span><span class="op">(</span><span class="va">ModSwiss</span>,
     decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"ms-gf:specevalue"</span>,
     log10 <span class="op">=</span> <span class="cn">TRUE</span>
@@ -453,7 +485,7 @@ Histogram and PP plot, as well as a zoom for both plots.
 <span class="op">)</span></code></pre></div>
 <p>All plots are <code>ggplot</code> objects, which means that one can
 zoom in on any part of the plot.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">msgfSwiss_ppPlot</span> <span class="op">+</span>
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html" class="external-link">coord_cartesian</a></span><span class="op">(</span>xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fl">0.25</span><span class="op">)</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fl">0.05</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; Coordinate system already present. Adding new coordinate system, which will replace the existing one.</span></code></pre></div>
@@ -491,12 +523,12 @@ TDA are met.</p>
 <p>In the next example, X!Tandem was used as the database search engine
 and SwissProt was used as protein sequence database. The X!Tandem search
 provided an mzid file.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Load X!Tandem example data</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"ModSwissXT"</span><span class="op">)</span></code></pre></div>
 <p>We run <code><a href="../reference/evalTargetDecoys.html">evalTargetDecoys()</a></code> with the necessary
 arguments.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/evalTargetDecoys.html">evalTargetDecoys</a></span><span class="op">(</span><span class="va">ModSwissXT</span>,
     decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"x!tandem:expect"</span>,
     log10 <span class="op">=</span> <span class="cn">TRUE</span>, nBins <span class="op">=</span> <span class="fl">50</span>
@@ -563,7 +595,7 @@ on the search engine.</li>
 Typically used when the score is an e-value.</li>
 </ul>
 <p>We will reuse the <code>ModSwissXT</code> object from before.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Run createPPlotScores with necessary arguments</span>
 <span class="co">## Omitting 'decoy', 'scores' or 'log10' will launch the Shiny app</span>
 <span class="fu"><a href="../reference/createPPlotScores.html">createPPlotScores</a></span><span class="op">(</span><span class="va">ModSwissXT</span>,
@@ -646,7 +678,7 @@ in a list.</p>
 <p>In this example scores come from the same search engine, MS-GF+, and
 thus are indicated by the same variable name
 <code>"ms-gf:specevalue"</code>.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Create list of input objects, list names will be reused in the plots</span>
 <span class="va">mzObjects</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>
     ModSwiss_data <span class="op">=</span> <span class="va">ModSwiss</span>,
@@ -669,7 +701,7 @@ PP plot and standardized PP plot for two searches (same search engine)
 <p>In this last example, different variable names for score are given as
 a vector, because two different search engines, MS-GF+ and X!tandem,
 were used.</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Create list of input objects, list names will be reused in the plots</span>
 <span class="va">mzObjects</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>
     ModSwiss_data <span class="op">=</span> <span class="va">ModSwiss</span>,
@@ -689,7 +721,7 @@ engine)
 </div>
 <p>Also here, it can be useful to zoom in on one specific part of the
 figure.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Zoom in on the relevant or desired part of the plot</span>
 <span class="va">plotZoom</span> <span class="op">&lt;-</span> <span class="va">plotDiffEngine</span> <span class="op">+</span>
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html" class="external-link">coord_cartesian</a></span><span class="op">(</span>xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fl">0.25</span><span class="op">)</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fl">0.05</span><span class="op">)</span><span class="op">)</span>
@@ -698,7 +730,7 @@ figure.</p>
 <p><img src="TargetDecoy_files/figure-html/unnamed-chunk-12-1.png" width="432"></p>
 <p>In a final step, we can investigate the anomalous plot in more detail
 using <code><a href="../reference/evalTargetDecoys.html">evalTargetDecoys()</a></code>.</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/evalTargetDecoys.html">evalTargetDecoys</a></span><span class="op">(</span><span class="va">mzObjects</span><span class="op">$</span><span class="va">ModSwissXT_data</span>,
     decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"x!tandem:expect"</span>,
     log10 <span class="op">=</span> <span class="cn">TRUE</span>, nBins <span class="op">=</span> <span class="fl">50</span>
@@ -749,7 +781,7 @@ respective tabs.</p>
 <span class="co">#&gt;  collate  en_US.UTF-8</span>
 <span class="co">#&gt;  ctype    en_US.UTF-8</span>
 <span class="co">#&gt;  tz       UTC</span>
-<span class="co">#&gt;  date     2022-05-18</span>
+<span class="co">#&gt;  date     2022-05-20</span>
 <span class="co">#&gt;  pandoc   2.17.1.1 @ /usr/local/bin/ (via rmarkdown)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span>
@@ -758,7 +790,7 @@ respective tabs.</p>
 <span class="co">#&gt;  backports      1.4.1      <span style="color: #555555;">2021-12-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  Biobase        2.57.0     <span style="color: #555555;">2022-04-26</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span>
 <span class="co">#&gt;  BiocGenerics   0.43.0     <span style="color: #555555;">2022-04-26</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span>
-<span class="co">#&gt;  BiocManager    1.30.17    <span style="color: #555555;">2022-04-22</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
+<span class="co">#&gt;  BiocManager    1.30.18    <span style="color: #555555;">2022-05-18</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  BiocStyle    * 2.25.0     <span style="color: #555555;">2022-04-26</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span>
 <span class="co">#&gt;  bookdown       0.26       <span style="color: #555555;">2022-04-15</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  broom          0.8.0      <span style="color: #555555;">2022-04-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
@@ -827,7 +859,7 @@ respective tabs.</p>
 <span class="co">#&gt;  stringi        1.7.6      <span style="color: #555555;">2021-11-29</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  stringr        1.4.0      <span style="color: #555555;">2019-02-10</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  systemfonts    1.0.4      <span style="color: #555555;">2022-02-11</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  TargetDecoy  * 1.3.0      <span style="color: #555555;">2022-05-18</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span>
+<span class="co">#&gt;  TargetDecoy  * 1.3.1      <span style="color: #555555;">2022-05-20</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span>
 <span class="co">#&gt;  textshaping    0.3.6      <span style="color: #555555;">2021-10-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  tibble         3.1.7      <span style="color: #555555;">2022-05-03</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
 <span class="co">#&gt;  tidyr          1.2.0      <span style="color: #555555;">2022-02-01</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
