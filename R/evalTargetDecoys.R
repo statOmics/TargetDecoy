@@ -230,6 +230,7 @@ evalTargetDecoysHist <- function(object,
             x = score, y = "",
             title = "Histogram of targets and decoys"
         ) +
+        scale_fill_manual(values = c("FALSE" = "#009900", "TRUE" = "#FF9900")) +
         theme_bw() +
         theme(
             plot.title = element_text(size = rel(1.5)),
