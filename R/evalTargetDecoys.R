@@ -92,7 +92,10 @@ evalTargetDecoys <- function(object,
 
     vars <- list(decoy = decoy, score = score, log = log10, nBins = nBins)
     if (any(vapply(vars, is.null, logical(1)))) {
-        vars <- .select_vars(object)
+        vars <- .select_vars(object,
+            decoy = decoy, score = score,
+            log10 = log10, nBins = nBins
+        )
         decoy <- vars$decoy
         score <- vars$score
         log10 <- vars$log
@@ -143,7 +146,9 @@ evalTargetDecoysPPPlot <- function(object,
 
     vars <- list(decoy = decoy, score = score, log = log10)
     if (any(vapply(vars, is.null, logical(1)))) {
-        vars <- .select_vars(object)
+        vars <- .select_vars(object,
+            decoy = decoy, score = score, log10 = log10
+        )
         decoy <- vars$decoy
         score <- vars$score
         log10 <- vars$log
@@ -202,7 +207,10 @@ evalTargetDecoysHist <- function(object,
 
     vars <- list(decoy = decoy, score = score, log = log10, nBins = nBins)
     if (any(vapply(vars, is.null, logical(1)))) {
-        vars <- .select_vars(object)
+        vars <- .select_vars(object,
+            decoy = decoy, score = score,
+            log10 = log10, nBins = nBins
+        )
         decoy <- vars$decoy
         score <- vars$score
         log10 <- vars$log
