@@ -1,7 +1,7 @@
 #' @import shiny
 #' @import miniUI
 .select_vars <- function(object, decoy = NULL, score = NULL,
-                         log = TRUE, nBins = 50) {
+                         log10 = TRUE, nBins = 50) {
 
     df <- .getDF(object)
 
@@ -14,7 +14,7 @@
             miniTabPanel("Variables", icon = icon("sliders-h"),
                 miniContentPanel(
                     checkboxInput("log", "-log10 transform variable?",
-                        value = log
+                        value = log10
                     ),
                     selectInput("decoyVar", "Select Decoy",
                         choices = decoy_choices,
