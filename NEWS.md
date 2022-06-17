@@ -1,3 +1,9 @@
+# TargetDecoy 1.3.2 (2022-06-17)
+
+* [Fix]: Pass initial argument choices to the gadget
+* [Fix]: Made argument name for the log10-transformation consistent (`log10`)
+* `evalTargetDecoysHist()`: Updated default colors of targets and decoys
+
 # TargetDecoy 1.3.1 (2022-05-20)
 
 * Added a `NEWS.md` file to track changes to the package.
