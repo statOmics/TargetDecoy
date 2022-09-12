@@ -5,7 +5,8 @@
 
     df <- .getDF(object)
 
-    score_choices <- .find_vars(df, is.numeric)
+    score_choices <- names(df)
+#    score_choices <- .find_vars(df, is.numeric)
     decoy_choices <- .find_vars(df, is.logical)
 
     ui <- miniPage(
@@ -52,9 +53,9 @@
         vars <- reactive({
             validate(
                 need(is.logical(df[[input$decoyVar]]),
-                    "`decoy` variable should be logical"),
-                need(is.numeric(df[[input$scoreVar]]),
-                    "`score` variable should be numeric.")
+                    "`decoy` variable should be logical")#,
+      #          need(is.numeric(df[[input$scoreVar]]),
+      #              "`score` variable should be numeric.")
             )
 
             list(
