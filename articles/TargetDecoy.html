@@ -85,7 +85,7 @@ Malfait</h4>
 University<br><h4 data-toc-skip class="author">Lieven
 Clement</h4>
             <address class="author_afil">
-      Ghent University<br><h4 data-toc-skip class="date">17 June 2022</h4>
+      Ghent University<br><h4 data-toc-skip class="date">12 September 2022</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/statOmics/TargetDecoy/blob/HEAD/vignettes/TargetDecoy.Rmd" class="external-link"><code>vignettes/TargetDecoy.Rmd</code></a></small>
       <div class="hidden name"><code>TargetDecoy.Rmd</code></div>
@@ -99,8 +99,8 @@ Clement</h4>
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://www.bioconductor.org/packages/TargetDecoy" class="external-link">TargetDecoy</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://www.bioconductor.org/packages/TargetDecoy" class="external-link">TargetDecoy</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="basics">Basics<a class="anchor" aria-label="anchor" href="#basics"></a>
 </h2>
@@ -113,19 +113,19 @@ is an <code>R</code> package available via the <a href="http://bioconductor.org"
 <em><a href="https://bioconductor.org/packages/3.16/TargetDecoy" class="external-link">TargetDecoy</a></em>
 by using the following commands in your <code>R</code> session:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"BiocManager"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-      <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span>
-  <span class="op">}</span>
-
-<span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html" class="external-link">install</a></span><span class="op">(</span><span class="st">"TargetDecoy"</span><span class="op">)</span>
-
-<span class="co">## Check that you have a valid Bioconductor installation</span>
-<span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/valid.html" class="external-link">valid</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"BiocManager"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span></span>
+<span><span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html" class="external-link">install</a></span><span class="op">(</span><span class="st">"TargetDecoy"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## Check that you have a valid Bioconductor installation</span></span>
+<span><span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/valid.html" class="external-link">valid</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>The latest development version of <code>TargetDecoy</code> can be
 installed from GitHub by running the following in an <code>R</code>
 session:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html" class="external-link">install</a></span><span class="op">(</span><span class="st">"statOmics/TargetDecoy"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html" class="external-link">install</a></span><span class="op">(</span><span class="st">"statOmics/TargetDecoy"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="citing-targetdecoy">Citing <code>TargetDecoy</code><a class="anchor" aria-label="anchor" href="#citing-targetdecoy"></a>
@@ -134,25 +134,25 @@ session:</p>
 will be useful for your research. Please use the following information
 to cite the package and the overall approach. Thank you!</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## Citation info</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation</a></span><span class="op">(</span><span class="st">"TargetDecoy"</span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; To cite package 'TargetDecoy' in publications use:</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;   Debrie E, Clement L, Malfait M (2022). _TargetDecoy: Diagnostic Plots</span>
-<span class="co">#&gt;   to Evaluate the Target Decoy Approach_.</span>
-<span class="co">#&gt;   https://www.bioconductor.org/packages/TargetDecoy,</span>
-<span class="co">#&gt;   https://statomics.github.io/TargetDecoy/,</span>
-<span class="co">#&gt;   https://github.com/statOmics/TargetDecoy/.</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; A BibTeX entry for LaTeX users is</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;   @Manual{,</span>
-<span class="co">#&gt;     title = {TargetDecoy: Diagnostic Plots to Evaluate the Target Decoy Approach},</span>
-<span class="co">#&gt;     author = {Elke Debrie and Lieven Clement and Milan Malfait},</span>
-<span class="co">#&gt;     year = {2022},</span>
-<span class="co">#&gt;     note = {https://www.bioconductor.org/packages/TargetDecoy, https://statomics.github.io/TargetDecoy/, https://github.com/statOmics/TargetDecoy/},</span>
-<span class="co">#&gt;   }</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">## Citation info</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation</a></span><span class="op">(</span><span class="st">"TargetDecoy"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; To cite package 'TargetDecoy' in publications use:</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   Debrie E, Clement L, Malfait M (2022). _TargetDecoy: Diagnostic Plots</span></span>
+<span><span class="co">#&gt;   to Evaluate the Target Decoy Approach_.</span></span>
+<span><span class="co">#&gt;   https://www.bioconductor.org/packages/TargetDecoy,</span></span>
+<span><span class="co">#&gt;   https://statomics.github.io/TargetDecoy/,</span></span>
+<span><span class="co">#&gt;   https://github.com/statOmics/TargetDecoy/.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; A BibTeX entry for LaTeX users is</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   @Manual{,</span></span>
+<span><span class="co">#&gt;     title = {TargetDecoy: Diagnostic Plots to Evaluate the Target Decoy Approach},</span></span>
+<span><span class="co">#&gt;     author = {Elke Debrie and Lieven Clement and Milan Malfait},</span></span>
+<span><span class="co">#&gt;     year = {2022},</span></span>
+<span><span class="co">#&gt;     note = {https://www.bioconductor.org/packages/TargetDecoy, https://statomics.github.io/TargetDecoy/, https://github.com/statOmics/TargetDecoy/},</span></span>
+<span><span class="co">#&gt;   }</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -299,11 +299,11 @@ Note that the height of the decoys can be slightly lower than the first
 mode in the target distribution because some good target hits also have
 a low score (e.g., because of poor quality observed spectra).</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"ModSwiss"</span><span class="op">)</span>
-<span class="fu"><a href="../reference/evalTargetDecoys.html">evalTargetDecoysHist</a></span><span class="op">(</span><span class="va">ModSwiss</span>,
-    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"ms-gf:specevalue"</span>,
-    log10 <span class="op">=</span> <span class="cn">TRUE</span>, nBins <span class="op">=</span> <span class="fl">50</span>
-<span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"ModSwiss"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/evalTargetDecoys.html">evalTargetDecoysHist</a></span><span class="op">(</span><span class="va">ModSwiss</span>,</span>
+<span>    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"ms-gf:specevalue"</span>,</span>
+<span>    log10 <span class="op">=</span> <span class="cn">TRUE</span>, nBins <span class="op">=</span> <span class="fl">50</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
 <img src="TargetDecoy_files/figure-html/unnamed-chunk-3-1.png" alt="Histogram of the scores of targets and decoys." width="432"><p class="caption">
 Histogram of the scores of targets and decoys.
@@ -316,10 +316,10 @@ Histogram of the scores of targets and decoys.
 <p>The figure below shows an example of a PP plot, the main diagnostic
 plot to evaluate the quality of the decoys.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/evalTargetDecoys.html">evalTargetDecoysPPPlot</a></span><span class="op">(</span><span class="va">ModSwiss</span>,
-    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"ms-gf:specevalue"</span>,
-    log10 <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/evalTargetDecoys.html">evalTargetDecoysPPPlot</a></span><span class="op">(</span><span class="va">ModSwiss</span>,</span>
+<span>    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"ms-gf:specevalue"</span>,</span>
+<span>    log10 <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
 <img src="TargetDecoy_files/figure-html/unnamed-chunk-4-1.png" alt="PP plot" width="432"><p class="caption">
 PP plot
@@ -369,22 +369,22 @@ packages, respectively.</p>
 <p>These datasets are typically loaded from an <code>.mzid</code> file
 as follows</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">filename</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/55merge_omssa.mzid"</span>, package <span class="op">=</span> <span class="st">"mzID"</span><span class="op">)</span>
-
-<span class="co">## mzID</span>
-<span class="va">mzID_object</span> <span class="op">&lt;-</span> <span class="fu">mzID</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/mzID/man/mzID.html" class="external-link">mzID</a></span><span class="op">(</span><span class="va">filename</span><span class="op">)</span>
-<span class="co">#&gt; reading 55merge_omssa.mzid... DONE!</span>
-<span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">mzID_object</span><span class="op">)</span>
-<span class="co">#&gt; [1] "mzID"</span>
-<span class="co">#&gt; attr(,"package")</span>
-<span class="co">#&gt; [1] "mzID"</span>
-
-<span class="co">## mzRIdent</span>
-<span class="va">mzR_object</span> <span class="op">&lt;-</span> <span class="fu">mzR</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/mzR/man/openMSfile.html" class="external-link">openIDfile</a></span><span class="op">(</span><span class="va">filename</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">mzR_object</span><span class="op">)</span>
-<span class="co">#&gt; [1] "mzRident"</span>
-<span class="co">#&gt; attr(,"package")</span>
-<span class="co">#&gt; [1] "mzR"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">filename</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/55merge_omssa.mzid"</span>, package <span class="op">=</span> <span class="st">"mzID"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## mzID</span></span>
+<span><span class="va">mzID_object</span> <span class="op">&lt;-</span> <span class="fu">mzID</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/mzID/man/mzID.html" class="external-link">mzID</a></span><span class="op">(</span><span class="va">filename</span><span class="op">)</span></span>
+<span><span class="co">#&gt; reading 55merge_omssa.mzid... DONE!</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">mzID_object</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "mzID"</span></span>
+<span><span class="co">#&gt; attr(,"package")</span></span>
+<span><span class="co">#&gt; [1] "mzID"</span></span>
+<span></span>
+<span><span class="co">## mzRIdent</span></span>
+<span><span class="va">mzR_object</span> <span class="op">&lt;-</span> <span class="fu">mzR</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/mzR/man/openMSfile.html" class="external-link">openIDfile</a></span><span class="op">(</span><span class="va">filename</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">mzR_object</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "mzRident"</span></span>
+<span><span class="co">#&gt; attr(,"package")</span></span>
+<span><span class="co">#&gt; [1] "mzR"</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
@@ -414,8 +414,8 @@ and can be loaded with <code>data("ModSwiss")</code>.</p>
 SwissProt was used as protein sequence database. The MS-GF+ search
 provided an mzid file.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## Load the example SwissProt dataset</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"ModSwiss"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">## Load the example SwissProt dataset</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"ModSwiss"</span><span class="op">)</span></span></code></pre></div>
 <p>We use the function <code><a href="../reference/evalTargetDecoys.html">evalTargetDecoys()</a></code>. This function
 creates two diagnostic plots, i.e. a histogram and a PP plot. It can be
 used to evaluate the quality of the target decoy approach, i.e. to check
@@ -456,10 +456,10 @@ non-decoys</li>
 <li>A zoomed histogram</li>
 </ol>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/evalTargetDecoys.html">evalTargetDecoys</a></span><span class="op">(</span><span class="va">ModSwiss</span>,
-    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"ms-gf:specevalue"</span>,
-    log10 <span class="op">=</span> <span class="cn">TRUE</span>, nBins <span class="op">=</span> <span class="fl">50</span>
-<span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/evalTargetDecoys.html">evalTargetDecoys</a></span><span class="op">(</span><span class="va">ModSwiss</span>,</span>
+<span>    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"ms-gf:specevalue"</span>,</span>
+<span>    log10 <span class="op">=</span> <span class="cn">TRUE</span>, nBins <span class="op">=</span> <span class="fl">50</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
 <img src="TargetDecoy_files/figure-html/evalTargetDecoys-plot-1.png" alt="Histogram and PP plot, as well as a zoom for both plots." width="432"><p class="caption">
 Histogram and PP plot, as well as a zoom for both plots.
@@ -467,28 +467,28 @@ Histogram and PP plot, as well as a zoom for both plots.
 </div>
 <p>The four plots can also be generated individually as follows:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">msgfSwiss_ppPlot</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/evalTargetDecoys.html">evalTargetDecoysPPPlot</a></span><span class="op">(</span><span class="va">ModSwiss</span>,
-    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"ms-gf:specevalue"</span>,
-    log10 <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span>
-<span class="va">msgfSwiss_ppPlot_zoomed</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/evalTargetDecoys.html">evalTargetDecoysPPPlot</a></span><span class="op">(</span><span class="va">ModSwiss</span>,
-    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"ms-gf:specevalue"</span>,
-    log10 <span class="op">=</span> <span class="cn">TRUE</span>, zoom <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span>
-<span class="va">msgfSwiss_hist</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/evalTargetDecoys.html">evalTargetDecoysHist</a></span><span class="op">(</span><span class="va">ModSwiss</span>,
-    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"ms-gf:specevalue"</span>,
-    log10 <span class="op">=</span> <span class="cn">TRUE</span>, nBins <span class="op">=</span> <span class="fl">50</span>
-<span class="op">)</span>
-<span class="va">msgfSwiss_hist_zoomed</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/evalTargetDecoys.html">evalTargetDecoysHist</a></span><span class="op">(</span><span class="va">ModSwiss</span>,
-    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"ms-gf:specevalue"</span>,
-    log10 <span class="op">=</span> <span class="cn">TRUE</span>, nBins <span class="op">=</span> <span class="fl">50</span>, zoom <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">msgfSwiss_ppPlot</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/evalTargetDecoys.html">evalTargetDecoysPPPlot</a></span><span class="op">(</span><span class="va">ModSwiss</span>,</span>
+<span>    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"ms-gf:specevalue"</span>,</span>
+<span>    log10 <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">msgfSwiss_ppPlot_zoomed</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/evalTargetDecoys.html">evalTargetDecoysPPPlot</a></span><span class="op">(</span><span class="va">ModSwiss</span>,</span>
+<span>    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"ms-gf:specevalue"</span>,</span>
+<span>    log10 <span class="op">=</span> <span class="cn">TRUE</span>, zoom <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">msgfSwiss_hist</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/evalTargetDecoys.html">evalTargetDecoysHist</a></span><span class="op">(</span><span class="va">ModSwiss</span>,</span>
+<span>    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"ms-gf:specevalue"</span>,</span>
+<span>    log10 <span class="op">=</span> <span class="cn">TRUE</span>, nBins <span class="op">=</span> <span class="fl">50</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">msgfSwiss_hist_zoomed</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/evalTargetDecoys.html">evalTargetDecoysHist</a></span><span class="op">(</span><span class="va">ModSwiss</span>,</span>
+<span>    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"ms-gf:specevalue"</span>,</span>
+<span>    log10 <span class="op">=</span> <span class="cn">TRUE</span>, nBins <span class="op">=</span> <span class="fl">50</span>, zoom <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p>All plots are <code>ggplot</code> objects, which means that one can
 zoom in on any part of the plot.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">msgfSwiss_ppPlot</span> <span class="op">+</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html" class="external-link">coord_cartesian</a></span><span class="op">(</span>xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fl">0.25</span><span class="op">)</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fl">0.05</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; Coordinate system already present. Adding new coordinate system, which will replace the existing one.</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">msgfSwiss_ppPlot</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html" class="external-link">coord_cartesian</a></span><span class="op">(</span>xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fl">0.25</span><span class="op">)</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fl">0.05</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Coordinate system already present. Adding new coordinate system, which will replace the existing one.</span></span></code></pre></div>
 <div class="figure">
 <img src="TargetDecoy_files/figure-html/unnamed-chunk-6-1.png" alt="Zoom of the first part of the PP plot" width="432"><p class="caption">
 Zoom of the first part of the PP plot
@@ -524,15 +524,15 @@ TDA are met.</p>
 and SwissProt was used as protein sequence database. The X!Tandem search
 provided an mzid file.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## Load X!Tandem example data</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"ModSwissXT"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">## Load X!Tandem example data</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"ModSwissXT"</span><span class="op">)</span></span></code></pre></div>
 <p>We run <code><a href="../reference/evalTargetDecoys.html">evalTargetDecoys()</a></code> with the necessary
 arguments.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/evalTargetDecoys.html">evalTargetDecoys</a></span><span class="op">(</span><span class="va">ModSwissXT</span>,
-    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"x!tandem:expect"</span>,
-    log10 <span class="op">=</span> <span class="cn">TRUE</span>, nBins <span class="op">=</span> <span class="fl">50</span>
-<span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/evalTargetDecoys.html">evalTargetDecoys</a></span><span class="op">(</span><span class="va">ModSwissXT</span>,</span>
+<span>    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"x!tandem:expect"</span>,</span>
+<span>    log10 <span class="op">=</span> <span class="cn">TRUE</span>, nBins <span class="op">=</span> <span class="fl">50</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
 <img src="TargetDecoy_files/figure-html/unnamed-chunk-8-1.png" alt="Histogram and PP plot, each with a zoom level." width="432"><p class="caption">
 Histogram and PP plot, each with a zoom level.
@@ -596,15 +596,15 @@ Typically used when the score is an e-value.</li>
 </ul>
 <p>We will reuse the <code>ModSwissXT</code> object from before.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## Run createPPlotScores with necessary arguments</span>
-<span class="co">## Omitting 'decoy', 'scores' or 'log10' will launch the Shiny app</span>
-<span class="fu"><a href="../reference/createPPlotScores.html">createPPlotScores</a></span><span class="op">(</span><span class="va">ModSwissXT</span>,
-    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>,
-    scores <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"omssa:evalue"</span>, <span class="st">"ms-gf:specevalue"</span>,
-               <span class="st">"x!tandem:expect"</span>, <span class="st">"peptideshaker psm score"</span><span class="op">)</span>,
-    <span class="co">## We can choose to log-transform some scores but not others</span>
-    log10 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span>
-<span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">## Run createPPlotScores with necessary arguments</span></span>
+<span><span class="co">## Omitting 'decoy', 'scores' or 'log10' will launch the Shiny app</span></span>
+<span><span class="fu"><a href="../reference/createPPlotScores.html">createPPlotScores</a></span><span class="op">(</span><span class="va">ModSwissXT</span>,</span>
+<span>    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>,</span>
+<span>    scores <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"omssa:evalue"</span>, <span class="st">"ms-gf:specevalue"</span>,</span>
+<span>               <span class="st">"x!tandem:expect"</span>, <span class="st">"peptideshaker psm score"</span><span class="op">)</span>,</span>
+<span>    <span class="co">## We can choose to log-transform some scores but not others</span></span>
+<span>    log10 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
 <img src="TargetDecoy_files/figure-html/unnamed-chunk-9-1.png" alt="PP plot and standardized PP plot" width="432"><p class="caption">
 PP plot and standardized PP plot
@@ -679,16 +679,16 @@ in a list.</p>
 thus are indicated by the same variable name
 <code>"ms-gf:specevalue"</code>.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## Create list of input objects, list names will be reused in the plots</span>
-<span class="va">mzObjects</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>
-    ModSwiss_data <span class="op">=</span> <span class="va">ModSwiss</span>,
-    pyroSwissprot_data <span class="op">=</span> <span class="va">ModSwissXT</span>
-<span class="op">)</span>
-
-<span class="fu"><a href="../reference/createPPlotObjects.html">createPPlotObjects</a></span><span class="op">(</span>
-    <span class="va">mzObjects</span>, decoy <span class="op">=</span> <span class="st">"isdecoy"</span>,
-    score <span class="op">=</span> <span class="st">"ms-gf:specevalue"</span>
-<span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">## Create list of input objects, list names will be reused in the plots</span></span>
+<span><span class="va">mzObjects</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    ModSwiss_data <span class="op">=</span> <span class="va">ModSwiss</span>,</span>
+<span>    pyroSwissprot_data <span class="op">=</span> <span class="va">ModSwissXT</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/createPPlotObjects.html">createPPlotObjects</a></span><span class="op">(</span></span>
+<span>    <span class="va">mzObjects</span>, decoy <span class="op">=</span> <span class="st">"isdecoy"</span>,</span>
+<span>    score <span class="op">=</span> <span class="st">"ms-gf:specevalue"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
 <img src="TargetDecoy_files/figure-html/unnamed-chunk-10-1.png" alt="PP plot and standardized PP plot for two searches (same search engine)" width="432"><p class="caption">
 PP plot and standardized PP plot for two searches (same search engine)
@@ -702,17 +702,17 @@ PP plot and standardized PP plot for two searches (same search engine)
 a vector, because two different search engines, MS-GF+ and X!tandem,
 were used.</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## Create list of input objects, list names will be reused in the plots</span>
-<span class="va">mzObjects</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>
-    ModSwiss_data <span class="op">=</span> <span class="va">ModSwiss</span>,
-    ModSwissXT_data <span class="op">=</span> <span class="va">ModSwissXT</span>
-<span class="op">)</span>
-
-<span class="va">plotDiffEngine</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/createPPlotObjects.html">createPPlotObjects</a></span><span class="op">(</span><span class="va">mzObjects</span>,
-    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>,
-    score <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ms-gf:specevalue"</span>, <span class="st">"x!tandem:expect"</span><span class="op">)</span>
-<span class="op">)</span>
-<span class="va">plotDiffEngine</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">## Create list of input objects, list names will be reused in the plots</span></span>
+<span><span class="va">mzObjects</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    ModSwiss_data <span class="op">=</span> <span class="va">ModSwiss</span>,</span>
+<span>    ModSwissXT_data <span class="op">=</span> <span class="va">ModSwissXT</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">plotDiffEngine</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/createPPlotObjects.html">createPPlotObjects</a></span><span class="op">(</span><span class="va">mzObjects</span>,</span>
+<span>    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>,</span>
+<span>    score <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ms-gf:specevalue"</span>, <span class="st">"x!tandem:expect"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">plotDiffEngine</span></span></code></pre></div>
 <div class="figure">
 <img src="TargetDecoy_files/figure-html/unnamed-chunk-11-1.png" alt="PP plot and standardized PP plot for two searches (different search engine)" width="432"><p class="caption">
 PP plot and standardized PP plot for two searches (different search
@@ -722,19 +722,19 @@ engine)
 <p>Also here, it can be useful to zoom in on one specific part of the
 figure.</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Zoom in on the relevant or desired part of the plot</span>
-<span class="va">plotZoom</span> <span class="op">&lt;-</span> <span class="va">plotDiffEngine</span> <span class="op">+</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html" class="external-link">coord_cartesian</a></span><span class="op">(</span>xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fl">0.25</span><span class="op">)</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fl">0.05</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; Coordinate system already present. Adding new coordinate system, which will replace the existing one.</span>
-<span class="va">plotZoom</span> </code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Zoom in on the relevant or desired part of the plot</span></span>
+<span><span class="va">plotZoom</span> <span class="op">&lt;-</span> <span class="va">plotDiffEngine</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html" class="external-link">coord_cartesian</a></span><span class="op">(</span>xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fl">0.25</span><span class="op">)</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fl">0.05</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Coordinate system already present. Adding new coordinate system, which will replace the existing one.</span></span>
+<span><span class="va">plotZoom</span> </span></code></pre></div>
 <p><img src="TargetDecoy_files/figure-html/unnamed-chunk-12-1.png" width="432"></p>
 <p>In a final step, we can investigate the anomalous plot in more detail
 using <code><a href="../reference/evalTargetDecoys.html">evalTargetDecoys()</a></code>.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/evalTargetDecoys.html">evalTargetDecoys</a></span><span class="op">(</span><span class="va">mzObjects</span><span class="op">$</span><span class="va">ModSwissXT_data</span>,
-    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"x!tandem:expect"</span>,
-    log10 <span class="op">=</span> <span class="cn">TRUE</span>, nBins <span class="op">=</span> <span class="fl">50</span>
-<span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/evalTargetDecoys.html">evalTargetDecoys</a></span><span class="op">(</span><span class="va">mzObjects</span><span class="op">$</span><span class="va">ModSwissXT_data</span>,</span>
+<span>    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"x!tandem:expect"</span>,</span>
+<span>    log10 <span class="op">=</span> <span class="cn">TRUE</span>, nBins <span class="op">=</span> <span class="fl">50</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
 <img src="TargetDecoy_files/figure-html/unnamed-chunk-13-1.png" alt="Histogram and PP plot, each with a zoom level." width="432"><p class="caption">
 Histogram and PP plot, each with a zoom level.
@@ -750,11 +750,11 @@ is due to the second pass strategy that is performed by X!tandem.</p>
 <h2 id="shiny-gadget">Shiny gadget<a class="anchor" aria-label="anchor" href="#shiny-gadget"></a>
 </h2>
 <p>Sometimes the variable names are not known up front. If this is the
-case, the <code>⁠evalTargetDecoys*(</code>)⁠ functions can be called
-with only an input object. This launches a Shiny gadget that allows
-selecting the variables interactively. A histogram and PP-plot of the
-selected variables are created on the fly for previewing, together with
-a snapshot of the selected data.</p>
+case, the <code>⁠evalTargetDecoys*(</code>)⁠ functions can be called with
+only an input object. This launches a Shiny gadget that allows selecting
+the variables interactively. A histogram and PP-plot of the selected
+variables are created on the fly for previewing, together with a
+snapshot of the selected data.</p>
 <p>When working in RStudio, the gadget opens in the “Viewer” pane by
 default, but it can also be opened in any browser window.</p>
 <div class="figure">
@@ -771,112 +771,111 @@ respective tabs.</p>
 <h2 id="reproducibility">Reproducibility<a class="anchor" aria-label="anchor" href="#reproducibility"></a>
 </h2>
 <details><summary><code>R</code> session information.
-</summary><pre><code><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────</span></span>
-<span class="co">#&gt;  <span style="color: #555555; font-style: italic;">setting </span> <span style="color: #555555; font-style: italic;">value</span></span>
-<span class="co">#&gt;  version  R version 4.2.0 (2022-04-22)</span>
-<span class="co">#&gt;  os       Ubuntu 20.04.4 LTS</span>
-<span class="co">#&gt;  system   x86_64, linux-gnu</span>
-<span class="co">#&gt;  ui       X11</span>
-<span class="co">#&gt;  language en</span>
-<span class="co">#&gt;  collate  en_US.UTF-8</span>
-<span class="co">#&gt;  ctype    en_US.UTF-8</span>
-<span class="co">#&gt;  tz       UTC</span>
-<span class="co">#&gt;  date     2022-06-17</span>
-<span class="co">#&gt;  pandoc   2.17.1.1 @ /usr/local/bin/ (via rmarkdown)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span>
-<span class="co">#&gt;  <span style="color: #555555; font-style: italic;">package     </span> <span style="color: #555555; font-style: italic;">*</span> <span style="color: #555555; font-style: italic;">version   </span> <span style="color: #555555; font-style: italic;">date (UTC)</span> <span style="color: #555555; font-style: italic;">lib</span> <span style="color: #555555; font-style: italic;">source</span></span>
-<span class="co">#&gt;  abind          1.4-5      <span style="color: #555555;">2016-07-21</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  backports      1.4.1      <span style="color: #555555;">2021-12-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  Biobase        2.57.1     <span style="color: #555555;">2022-05-19</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span>
-<span class="co">#&gt;  BiocGenerics   0.43.0     <span style="color: #555555;">2022-04-26</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span>
-<span class="co">#&gt;  BiocManager    1.30.18    <span style="color: #555555;">2022-05-18</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
-<span class="co">#&gt;  BiocStyle    * 2.25.0     <span style="color: #555555;">2022-04-26</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span>
-<span class="co">#&gt;  bookdown       0.27       <span style="color: #555555;">2022-06-14</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  broom          0.8.0      <span style="color: #555555;">2022-04-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  bslib          0.3.1      <span style="color: #555555;">2021-10-06</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  cachem         1.0.6      <span style="color: #555555;">2021-08-19</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  car            3.1-0      <span style="color: #555555;">2022-06-15</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  carData        3.0-5      <span style="color: #555555;">2022-01-06</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  cli            3.3.0      <span style="color: #555555;">2022-04-25</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  codetools      0.2-18     <span style="color: #555555;">2020-11-04</span> <span style="color: #555555;">[3]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
-<span class="co">#&gt;  colorspace     2.0-3      <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  cowplot        1.1.1      <span style="color: #555555;">2020-12-30</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  crayon         1.5.1      <span style="color: #555555;">2022-03-26</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  desc           1.4.1      <span style="color: #555555;">2022-03-06</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  digest         0.6.29     <span style="color: #555555;">2021-12-01</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  doParallel     1.0.17     <span style="color: #555555;">2022-02-07</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  dplyr          1.0.9      <span style="color: #555555;">2022-04-28</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  ellipsis       0.3.2      <span style="color: #555555;">2021-04-29</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  evaluate       0.15       <span style="color: #555555;">2022-02-18</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  fansi          1.0.3      <span style="color: #555555;">2022-03-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  farver         2.1.0      <span style="color: #555555;">2021-02-28</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  fastmap        1.1.0      <span style="color: #555555;">2021-01-25</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  foreach        1.5.2      <span style="color: #555555;">2022-02-02</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  fs             1.5.2      <span style="color: #555555;">2021-12-08</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  generics       0.1.2      <span style="color: #555555;">2022-01-31</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  ggplot2      * 3.3.6      <span style="color: #555555;">2022-05-03</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  ggpubr         0.4.0      <span style="color: #555555;">2020-06-27</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  ggsignif       0.6.3      <span style="color: #555555;">2021-09-09</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  glue           1.6.2      <span style="color: #555555;">2022-02-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  gtable         0.3.0      <span style="color: #555555;">2019-03-25</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  highr          0.9        <span style="color: #555555;">2021-04-16</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  htmltools      0.5.2      <span style="color: #555555;">2021-08-25</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  httpuv         1.6.5      <span style="color: #555555;">2022-01-05</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  iterators      1.0.14     <span style="color: #555555;">2022-02-05</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  jquerylib      0.1.4      <span style="color: #555555;">2021-04-26</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  jsonlite       1.8.0      <span style="color: #555555;">2022-02-22</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  knitr        * 1.39       <span style="color: #555555;">2022-04-26</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  labeling       0.4.2      <span style="color: #555555;">2020-10-20</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  later          1.3.0      <span style="color: #555555;">2021-08-18</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  lifecycle      1.0.1      <span style="color: #555555;">2021-09-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  magrittr       2.0.3      <span style="color: #555555;">2022-03-30</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  memoise        2.0.1      <span style="color: #555555;">2021-11-26</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  mime           0.12       <span style="color: #555555;">2021-09-28</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  miniUI         0.1.1.1    <span style="color: #555555;">2018-05-18</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  munsell        0.5.0      <span style="color: #555555;">2018-06-12</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  mzID           1.35.0     <span style="color: #555555;">2022-04-26</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span>
-<span class="co">#&gt;  mzR            2.31.1     <span style="color: #555555;">2022-05-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span>
-<span class="co">#&gt;  ncdf4          1.19       <span style="color: #555555;">2021-12-15</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  pillar         1.7.0      <span style="color: #555555;">2022-02-01</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  pkgconfig      2.0.3      <span style="color: #555555;">2019-09-22</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  pkgdown        <span style="color: #BB00BB; font-weight: bold;">2.0.4.9000</span> <span style="color: #555555;">2022-06-17</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Github (r-lib/pkgdown@5203a63)</span></span>
-<span class="co">#&gt;  plyr           1.8.7      <span style="color: #555555;">2022-03-24</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  promises       1.2.0.1    <span style="color: #555555;">2021-02-11</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  ProtGenerics   1.29.0     <span style="color: #555555;">2022-04-26</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span>
-<span class="co">#&gt;  purrr          0.3.4      <span style="color: #555555;">2020-04-17</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  R6             2.5.1      <span style="color: #555555;">2021-08-19</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  ragg           1.2.2      <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  Rcpp           1.0.8.3    <span style="color: #555555;">2022-03-17</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  rlang          1.0.2      <span style="color: #555555;">2022-03-04</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  rmarkdown      2.14       <span style="color: #555555;">2022-04-25</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  rprojroot      2.0.3      <span style="color: #555555;">2022-04-02</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  rstatix        0.7.0      <span style="color: #555555;">2021-02-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  sass           0.4.1      <span style="color: #555555;">2022-03-23</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  scales         1.2.0      <span style="color: #555555;">2022-04-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  sessioninfo    1.2.2      <span style="color: #555555;">2021-12-06</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  shiny          1.7.1      <span style="color: #555555;">2021-10-02</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  stringi        1.7.6      <span style="color: #555555;">2021-11-29</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  stringr        1.4.0      <span style="color: #555555;">2019-02-10</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  systemfonts    1.0.4      <span style="color: #555555;">2022-02-11</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  TargetDecoy  * 1.3.2      <span style="color: #555555;">2022-06-17</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span>
-<span class="co">#&gt;  textshaping    0.3.6      <span style="color: #555555;">2021-10-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  tibble         3.1.7      <span style="color: #555555;">2022-05-03</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  tidyr          1.2.0      <span style="color: #555555;">2022-02-01</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  tidyselect     1.1.2      <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  utf8           1.2.2      <span style="color: #555555;">2021-07-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  vctrs          0.4.1      <span style="color: #555555;">2022-04-13</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  withr          2.5.0      <span style="color: #555555;">2022-03-03</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  xfun           0.31       <span style="color: #555555;">2022-05-10</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  XML            3.99-0.10  <span style="color: #555555;">2022-06-09</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  xtable         1.8-4      <span style="color: #555555;">2019-04-21</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt;  yaml           2.3.5      <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; <span style="color: #555555;"> [1] /__w/_temp/Library</span></span>
-<span class="co">#&gt; <span style="color: #555555;"> [2] /usr/local/lib/R/site-library</span></span>
-<span class="co">#&gt; <span style="color: #555555;"> [3] /usr/local/lib/R/library</span></span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span></code></pre>
+</summary><pre><code><span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────</span></span></span>
+<span><span class="co">#&gt;  <span style="color: #555555; font-style: italic;">setting </span> <span style="color: #555555; font-style: italic;">value</span></span></span>
+<span><span class="co">#&gt;  version  R version 4.2.1 (2022-06-23)</span></span>
+<span><span class="co">#&gt;  os       Ubuntu 20.04.5 LTS</span></span>
+<span><span class="co">#&gt;  system   x86_64, linux-gnu</span></span>
+<span><span class="co">#&gt;  ui       X11</span></span>
+<span><span class="co">#&gt;  language en</span></span>
+<span><span class="co">#&gt;  collate  en_US.UTF-8</span></span>
+<span><span class="co">#&gt;  ctype    en_US.UTF-8</span></span>
+<span><span class="co">#&gt;  tz       UTC</span></span>
+<span><span class="co">#&gt;  date     2022-09-12</span></span>
+<span><span class="co">#&gt;  pandoc   2.18 @ /usr/local/bin/ (via rmarkdown)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span></span>
+<span><span class="co">#&gt;  <span style="color: #555555; font-style: italic;">package     </span> <span style="color: #555555; font-style: italic;">*</span> <span style="color: #555555; font-style: italic;">version   </span> <span style="color: #555555; font-style: italic;">date (UTC)</span> <span style="color: #555555; font-style: italic;">lib</span> <span style="color: #555555; font-style: italic;">source</span></span></span>
+<span><span class="co">#&gt;  abind          1.4-5      <span style="color: #555555;">2016-07-21</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  backports      1.4.1      <span style="color: #555555;">2021-12-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  Biobase        2.57.1     <span style="color: #555555;">2022-05-19</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span></span>
+<span><span class="co">#&gt;  BiocGenerics   0.43.3     <span style="color: #555555;">2022-09-08</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span></span>
+<span><span class="co">#&gt;  BiocManager    1.30.18    <span style="color: #555555;">2022-05-18</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.1)</span></span></span>
+<span><span class="co">#&gt;  BiocStyle    * 2.25.0     <span style="color: #555555;">2022-04-26</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span></span>
+<span><span class="co">#&gt;  bookdown       0.28       <span style="color: #555555;">2022-08-09</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  broom          1.0.1      <span style="color: #555555;">2022-08-29</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  bslib          0.4.0      <span style="color: #555555;">2022-07-16</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  cachem         1.0.6      <span style="color: #555555;">2021-08-19</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  car            3.1-0      <span style="color: #555555;">2022-06-15</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  carData        3.0-5      <span style="color: #555555;">2022-01-06</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  cli            3.4.0      <span style="color: #555555;">2022-09-08</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  codetools      0.2-18     <span style="color: #555555;">2020-11-04</span> <span style="color: #555555;">[3]</span> <span style="color: #555555;">CRAN (R 4.2.1)</span></span></span>
+<span><span class="co">#&gt;  colorspace     2.0-3      <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  cowplot        1.1.1      <span style="color: #555555;">2020-12-30</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  desc           1.4.2      <span style="color: #555555;">2022-09-08</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  digest         0.6.29     <span style="color: #555555;">2021-12-01</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  doParallel     1.0.17     <span style="color: #555555;">2022-02-07</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  dplyr          1.0.10     <span style="color: #555555;">2022-09-01</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  ellipsis       0.3.2      <span style="color: #555555;">2021-04-29</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  evaluate       0.16       <span style="color: #555555;">2022-08-09</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  fansi          1.0.3      <span style="color: #555555;">2022-03-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  farver         2.1.1      <span style="color: #555555;">2022-07-06</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  fastmap        1.1.0      <span style="color: #555555;">2021-01-25</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  foreach        1.5.2      <span style="color: #555555;">2022-02-02</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  fs             1.5.2      <span style="color: #555555;">2021-12-08</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  generics       0.1.3      <span style="color: #555555;">2022-07-05</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  ggplot2      * 3.3.6      <span style="color: #555555;">2022-05-03</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  ggpubr         0.4.0      <span style="color: #555555;">2020-06-27</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  ggsignif       0.6.3      <span style="color: #555555;">2021-09-09</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  glue           1.6.2      <span style="color: #555555;">2022-02-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  gtable         0.3.1      <span style="color: #555555;">2022-09-01</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  highr          0.9        <span style="color: #555555;">2021-04-16</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  htmltools      0.5.3      <span style="color: #555555;">2022-07-18</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  httpuv         1.6.6      <span style="color: #555555;">2022-09-08</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  iterators      1.0.14     <span style="color: #555555;">2022-02-05</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  jquerylib      0.1.4      <span style="color: #555555;">2021-04-26</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  jsonlite       1.8.0      <span style="color: #555555;">2022-02-22</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  knitr        * 1.40       <span style="color: #555555;">2022-08-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  labeling       0.4.2      <span style="color: #555555;">2020-10-20</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  later          1.3.0      <span style="color: #555555;">2021-08-18</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  lifecycle      1.0.1      <span style="color: #555555;">2021-09-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  magrittr       2.0.3      <span style="color: #555555;">2022-03-30</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  memoise        2.0.1      <span style="color: #555555;">2021-11-26</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  mime           0.12       <span style="color: #555555;">2021-09-28</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  miniUI         0.1.1.1    <span style="color: #555555;">2018-05-18</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  munsell        0.5.0      <span style="color: #555555;">2018-06-12</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  mzID           1.35.0     <span style="color: #555555;">2022-04-26</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span></span>
+<span><span class="co">#&gt;  mzR            2.31.1     <span style="color: #555555;">2022-05-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span></span>
+<span><span class="co">#&gt;  ncdf4          1.19       <span style="color: #555555;">2021-12-15</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  pillar         1.8.1      <span style="color: #555555;">2022-08-19</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  pkgconfig      2.0.3      <span style="color: #555555;">2019-09-22</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  pkgdown        <span style="color: #BB00BB; font-weight: bold;">2.0.6.9000</span> <span style="color: #555555;">2022-09-12</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Github (r-lib/pkgdown@956f076)</span></span></span>
+<span><span class="co">#&gt;  plyr           1.8.7      <span style="color: #555555;">2022-03-24</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  promises       1.2.0.1    <span style="color: #555555;">2021-02-11</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  ProtGenerics   1.29.0     <span style="color: #555555;">2022-04-26</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span></span>
+<span><span class="co">#&gt;  purrr          0.3.4      <span style="color: #555555;">2020-04-17</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  R6             2.5.1      <span style="color: #555555;">2021-08-19</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  ragg           1.2.2      <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  Rcpp           1.0.9      <span style="color: #555555;">2022-07-08</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  rlang          1.0.5      <span style="color: #555555;">2022-08-31</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  rmarkdown      2.16       <span style="color: #555555;">2022-08-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  rprojroot      2.0.3      <span style="color: #555555;">2022-04-02</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  rstatix        0.7.0      <span style="color: #555555;">2021-02-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  sass           0.4.2      <span style="color: #555555;">2022-07-16</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  scales         1.2.1      <span style="color: #555555;">2022-08-20</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  sessioninfo    1.2.2      <span style="color: #555555;">2021-12-06</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  shiny          1.7.2      <span style="color: #555555;">2022-07-19</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  stringi        1.7.8      <span style="color: #555555;">2022-07-11</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  stringr        1.4.1      <span style="color: #555555;">2022-08-20</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  systemfonts    1.0.4      <span style="color: #555555;">2022-02-11</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  TargetDecoy  * 1.3.2      <span style="color: #555555;">2022-09-12</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span></span>
+<span><span class="co">#&gt;  textshaping    0.3.6      <span style="color: #555555;">2021-10-13</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  tibble         3.1.8      <span style="color: #555555;">2022-07-22</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  tidyr          1.2.1      <span style="color: #555555;">2022-09-08</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  tidyselect     1.1.2      <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  utf8           1.2.2      <span style="color: #555555;">2021-07-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  vctrs          0.4.1      <span style="color: #555555;">2022-04-13</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  withr          2.5.0      <span style="color: #555555;">2022-03-03</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  xfun           0.32       <span style="color: #555555;">2022-08-10</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  XML            3.99-0.10  <span style="color: #555555;">2022-06-09</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  xtable         1.8-4      <span style="color: #555555;">2019-04-21</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  yaml           2.3.5      <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; <span style="color: #555555;"> [1] /__w/_temp/Library</span></span></span>
+<span><span class="co">#&gt; <span style="color: #555555;"> [2] /usr/local/lib/R/site-library</span></span></span>
+<span><span class="co">#&gt; <span style="color: #555555;"> [3] /usr/local/lib/R/library</span></span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span></span></code></pre>
 </details>
 </div>
   </div>
@@ -898,7 +897,7 @@ respective tabs.</p>
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.9000.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
 </div>
 
       </footer>

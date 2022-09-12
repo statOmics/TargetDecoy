@@ -58,24 +58,24 @@ A histogram and PP plot allow to check both necessary assumptions.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">evalTargetDecoys</span><span class="op">(</span><span class="va">object</span>, decoy <span class="op">=</span> <span class="cn">NULL</span>, score <span class="op">=</span> <span class="cn">NULL</span>, log10 <span class="op">=</span> <span class="cn">TRUE</span>, nBins <span class="op">=</span> <span class="fl">50</span><span class="op">)</span>
-
-<span class="fu">evalTargetDecoysPPPlot</span><span class="op">(</span>
-  <span class="va">object</span>,
-  decoy <span class="op">=</span> <span class="cn">NULL</span>,
-  score <span class="op">=</span> <span class="cn">NULL</span>,
-  log10 <span class="op">=</span> <span class="cn">TRUE</span>,
-  zoom <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span>
-
-<span class="fu">evalTargetDecoysHist</span><span class="op">(</span>
-  <span class="va">object</span>,
-  decoy <span class="op">=</span> <span class="cn">NULL</span>,
-  score <span class="op">=</span> <span class="cn">NULL</span>,
-  log10 <span class="op">=</span> <span class="cn">TRUE</span>,
-  nBins <span class="op">=</span> <span class="fl">50</span>,
-  zoom <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">evalTargetDecoys</span><span class="op">(</span><span class="va">object</span>, decoy <span class="op">=</span> <span class="cn">NULL</span>, score <span class="op">=</span> <span class="cn">NULL</span>, log10 <span class="op">=</span> <span class="cn">TRUE</span>, nBins <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">evalTargetDecoysPPPlot</span><span class="op">(</span></span>
+<span>  <span class="va">object</span>,</span>
+<span>  decoy <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  score <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  log10 <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  zoom <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">evalTargetDecoysHist</span><span class="op">(</span></span>
+<span>  <span class="va">object</span>,</span>
+<span>  decoy <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  score <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  log10 <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  nBins <span class="op">=</span> <span class="fl">50</span>,</span>
+<span>  zoom <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -147,57 +147,57 @@ previewing, together with a snapshot of the selected data.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">mzID</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Use one of the example files in the mzID package</span></span>
-<span class="r-in"><span class="va">exampleFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"55merge_tandem.mzid"</span>, package <span class="op">=</span> <span class="st">"mzID"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">mzIDexample</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/mzID/man/mzID.html" class="external-link">mzID</a></span><span class="op">(</span><span class="va">exampleFile</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">mzID</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Use one of the example files in the mzID package</span></span></span>
+<span class="r-in"><span><span class="va">exampleFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"55merge_tandem.mzid"</span>, package <span class="op">=</span> <span class="st">"mzID"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">mzIDexample</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/mzID/man/mzID.html" class="external-link">mzID</a></span><span class="op">(</span><span class="va">exampleFile</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> reading 55merge_tandem.mzid... DONE!</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># Plot the overview of the four plots</span></span>
-<span class="r-in"><span class="fu">evalTargetDecoys</span><span class="op">(</span><span class="va">mzIDexample</span>,</span>
-<span class="r-in">    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"x\\!tandem:expect"</span>, log10 <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span class="r-in"><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Plot the overview of the four plots</span></span></span>
+<span class="r-in"><span><span class="fu">evalTargetDecoys</span><span class="op">(</span><span class="va">mzIDexample</span>,</span></span>
+<span class="r-in"><span>    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"x\\!tandem:expect"</span>, log10 <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="evalTargetDecoys-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># Plot the PP plot only</span></span>
-<span class="r-in"><span class="fu">evalTargetDecoysPPPlot</span><span class="op">(</span><span class="va">mzIDexample</span>,</span>
-<span class="r-in">    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"x\\!tandem:expect"</span>, log10 <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span class="r-in"><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Plot the PP plot only</span></span></span>
+<span class="r-in"><span><span class="fu">evalTargetDecoysPPPlot</span><span class="op">(</span><span class="va">mzIDexample</span>,</span></span>
+<span class="r-in"><span>    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"x\\!tandem:expect"</span>, log10 <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="evalTargetDecoys-2.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># Plot the zoomed PP plot only</span></span>
-<span class="r-in"><span class="fu">evalTargetDecoysPPPlot</span><span class="op">(</span><span class="va">mzIDexample</span>,</span>
-<span class="r-in">    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"x\\!tandem:expect"</span>, log10 <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span class="r-in">    zoom <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span class="r-in"><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Plot the zoomed PP plot only</span></span></span>
+<span class="r-in"><span><span class="fu">evalTargetDecoysPPPlot</span><span class="op">(</span><span class="va">mzIDexample</span>,</span></span>
+<span class="r-in"><span>    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"x\\!tandem:expect"</span>, log10 <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
+<span class="r-in"><span>    zoom <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="evalTargetDecoys-3.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># Plot the histogram only</span></span>
-<span class="r-in"><span class="fu">evalTargetDecoysHist</span><span class="op">(</span><span class="va">mzIDexample</span>,</span>
-<span class="r-in">    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"x\\!tandem:expect"</span>, log10 <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span class="r-in"><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Plot the histogram only</span></span></span>
+<span class="r-in"><span><span class="fu">evalTargetDecoysHist</span><span class="op">(</span><span class="va">mzIDexample</span>,</span></span>
+<span class="r-in"><span>    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"x\\!tandem:expect"</span>, log10 <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="evalTargetDecoys-4.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># Plot the zoomed histogram only</span></span>
-<span class="r-in"><span class="fu">evalTargetDecoysHist</span><span class="op">(</span><span class="va">mzIDexample</span>,</span>
-<span class="r-in">    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"x\\!tandem:expect"</span>, log10 <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span class="r-in">    zoom <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span class="r-in"><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Plot the zoomed histogram only</span></span></span>
+<span class="r-in"><span><span class="fu">evalTargetDecoysHist</span><span class="op">(</span><span class="va">mzIDexample</span>,</span></span>
+<span class="r-in"><span>    decoy <span class="op">=</span> <span class="st">"isdecoy"</span>, score <span class="op">=</span> <span class="st">"x\\!tandem:expect"</span>, log10 <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
+<span class="r-in"><span>    zoom <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="evalTargetDecoys-5.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## mzRident objects can also be used</span></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sneumann/mzR/" class="external-link">mzR</a></span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## mzRident objects can also be used</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sneumann/mzR/" class="external-link">mzR</a></span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: Rcpp</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"msdata"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in">    <span class="co">## Using example file from msdata</span></span>
-<span class="r-in">    <span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"mzid"</span>, <span class="st">"Tandem.mzid.gz"</span>, package <span class="op">=</span> <span class="st">"msdata"</span><span class="op">)</span></span>
-<span class="r-in">    <span class="va">mzid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/mzR/man/openMSfile.html" class="external-link">openIDfile</a></span><span class="op">(</span><span class="va">file</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"><span class="fu">evalTargetDecoys</span><span class="op">(</span><span class="va">mzid</span>,</span>
-<span class="r-in">    decoy <span class="op">=</span> <span class="st">"isDecoy"</span>, score <span class="op">=</span> <span class="st">"X.Tandem.expect"</span>, log10 <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span class="r-in"><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"msdata"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>    <span class="co">## Using example file from msdata</span></span></span>
+<span class="r-in"><span>    <span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"mzid"</span>, <span class="st">"Tandem.mzid.gz"</span>, package <span class="op">=</span> <span class="st">"msdata"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>    <span class="va">mzid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/mzR/man/openMSfile.html" class="external-link">openIDfile</a></span><span class="op">(</span><span class="va">file</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="fu">evalTargetDecoys</span><span class="op">(</span><span class="va">mzid</span>,</span></span>
+<span class="r-in"><span>    decoy <span class="op">=</span> <span class="st">"isDecoy"</span>, score <span class="op">=</span> <span class="st">"X.Tandem.expect"</span>, log10 <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="evalTargetDecoys-6.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>
@@ -213,7 +213,7 @@ previewing, together with a snapshot of the selected data.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
 </div>
 
       </footer></div>
