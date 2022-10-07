@@ -1,3 +1,7 @@
+# TargetDecoy 1.3.3 (2022-09-12)
+
+* Shiny gadget: allow non-numerical variables for `Score` input
+
 # TargetDecoy 1.3.2 (2022-06-17)
 
 * [Fix]: Pass initial argument choices to the gadget
