@@ -31,14 +31,14 @@
 
 ## Helper to compute data for PP-plot
 #' @importFrom stats ecdf
-.ppData <- function(data, maxLength=1000) {
+.ppData <- function(data, maxPoints=1000) {
     pi0 <- sum(data$decoy) / sum(!data$decoy)
 
     x <- data$score[!data$decoy]
     Ft <- ecdf(x)
     Fd <- ecdf(data$score[data$decoy])
-    if (length(x) > maxLength) {
-      x <- quantile(x,seq(0,1,length=maxLength))
+    if (length(x) > maxPoints) {
+      x <- quantile(x,seq(0,1,length=maxPoints))
     }
     z <- Ft(x) - pi0 * Fd(x)
     df <- data.frame(Fdp = Fd(x), Ftp = Ft(x), z = z)

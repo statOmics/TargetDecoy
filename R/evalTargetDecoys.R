@@ -7,7 +7,7 @@
 #' @param nBins `numeric` indicating the number of bins in the histogram.
 #'     When this value is missing, a Shiny gadget is launched to select it
 #'     interactively.
-#' @param maxLength `numeric` indicating the maximum number of dots shown in the PP plot. If `maxLength` is larger than the number of target scores, a dot in the PP plot corresponds with each target score in the object. 
+#' @param maxPoints `numeric` indicating the maximum number of dots shown in the PP plot. If `maxPoints` is larger than the number of target scores, a dot in the PP plot corresponds with each target score in the object. The default is 1000 points. 
 #' @param zoom Logical value indicating whether a zoomed version of the plot
 #'     should be returned. Default: `FALSE`.
 #'
@@ -89,7 +89,7 @@ NULL
 #' @rdname evalTargetDecoys
 evalTargetDecoys <- function(object,
                              decoy = NULL, score = NULL,
-                             log10 = TRUE, nBins = 50, maxLength = 1000) {
+                             log10 = TRUE, nBins = 50, maxPoints = 1000) {
 
     vars <- list(decoy = decoy, score = score, log = log10, nBins = nBins)
     if (any(vapply(vars, is.null, logical(1)))) {
@@ -108,7 +108,7 @@ evalTargetDecoys <- function(object,
         object = object,
         decoy = decoy, score = score,
         log10 = log10, zoom = FALSE,
-        maxLength = maxLength
+        maxPoints = maxPoints
     )
 
     # create histogram
@@ -124,7 +124,7 @@ evalTargetDecoys <- function(object,
         object = object,
         decoy = decoy, score = score,
         log10 = log10, zoom = TRUE,
-        maxLength = maxLength
+        maxPoints = maxPoints
     )
 
     # create zoomed histogram
@@ -146,7 +146,7 @@ evalTargetDecoys <- function(object,
 evalTargetDecoysPPPlot <- function(object,
                                    decoy = NULL, score = NULL,
                                    log10 = TRUE, zoom = FALSE,
-                                   maxLength = 1000) {
+                                   maxPoints = 1000) {
 
     vars <- list(decoy = decoy, score = score, log = log10)
     if (any(vapply(vars, is.null, logical(1)))) {
@@ -165,7 +165,7 @@ evalTargetDecoysPPPlot <- function(object,
     )
 
     # create PP-plot
-    p <- .ppPlot(data, maxLength = maxLength)
+    p <- .ppPlot(data, maxPoints = maxPoints)
 
     if (zoom) {
         out <- p$ppPlot + ylim(p$yLim[1], p$yLim[2])
@@ -176,8 +176,8 @@ evalTargetDecoysPPPlot <- function(object,
 }
 
 ## Helper to create PP-plot
-.ppPlot <- function(data, ylim = NULL, maxLength=1000) {
-    ppData <- .ppData(data, maxLength=maxLength)
+.ppPlot <- function(data, ylim = NULL, maxPoints=1000) {
+    ppData <- .ppData(data, maxPoints=maxPoints)
     df <- ppData$df
     pi0 <- ppData$pi0
     ylimHlp <- ppData$ylimHlp
