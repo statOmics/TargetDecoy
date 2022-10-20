@@ -120,18 +120,19 @@ evalTargetDecoys <- function(object,
     )
 
     # create zoomed PP-plot
-    FtmaxDecoy <- mean(na.exclude(data$score[!data$decoy]) <= max(data$score[data$decoy], na.rm=TRUE))
-    ppPlotZoom <- ppPlot + ylim(0, FtmaxDecoy)
+    ppPlotZoom <- evalTargetDecoysPPPlot(
+        object = object,
+        decoy = decoy, score = score,
+        log10 = log10, zoom = TRUE,
+        maxLength = maxLength
+    )
 
     # create zoomed histogram
-    rangeHist <- c(
-      min(data$score,na.rm=TRUE), 
-      max(data$score[data$decoy], na.rm=TRUE)
-      )
-    
-    histogramZoom <- ppHist + coord_cartesian(
-      xlim = rangeHist,
-      expand = TRUE
+    histogramZoom <- evalTargetDecoysHist(
+        object = object,
+        decoy = decoy, score = score,
+        log10 = log10, nBins = nBins,
+        zoom = TRUE
     )
 
     ggpubr::ggarrange(
