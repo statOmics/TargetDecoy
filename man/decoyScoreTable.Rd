@@ -27,7 +27,15 @@ A \code{data.frame} with a logical \code{"decoy"} column and numeric \code{"scor
 \description{
 Takes an input object and returns a score table for the decoys.
 }
+\examples{
+library(mzID)
+
+## Use one of the example files in the mzID package
+exampleFile <- system.file("extdata", "55merge_tandem.mzid", package = "mzID")
+mzIDexample <- mzID(exampleFile)
+
+decoyScoreTable(mzIDexample, decoy = "isdecoy", score = "x\\\\!tandem:expect")
+}
 \author{
 Elke Debrie, Lieven Clement
 }
-\keyword{internal}
