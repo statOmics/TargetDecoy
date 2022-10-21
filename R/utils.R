@@ -30,7 +30,7 @@
 }
 
 ## Helper to compute data for PP-plot
-#' @importFrom stats ecdf
+#' @importFrom stats ecdf quantile
 .ppData <- function(data, maxPoints=1000) {
     pi0 <- sum(data$decoy) / sum(!data$decoy)
 
