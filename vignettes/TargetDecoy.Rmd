@@ -42,7 +42,6 @@ opts_chunk$set(
 ```{r "libraries", message=FALSE, warning=FALSE}
 library(TargetDecoy)
 library(ggplot2)
-library(tidyverse)
 ```
 
 
@@ -155,24 +154,27 @@ that the decoy scores provide a good simulation of the bad target scores.
 
 ```{r, echo=FALSE, fig.cap="Illustration of the target and decoy distributions. The green bars are the histogram of the target PSM scores. The orange bars are the histogram of the decoy PSM scores. We see that the decoy PSMs match well with the incorrect target hits that are more likely to occur at low scores.", warning=FALSE}
 data(ModSwiss)
-hlp <- TargetDecoy:::decoyScoreTable(ModSwiss,"isdecoy","ms-gf:specevalue",TRUE)
-xrange <- range(hlp$score)
+hlp <- decoyScoreTable(ModSwiss, "isdecoy", "ms-gf:specevalue", TRUE)
 
-hlp <- hlp %>% 
-    arrange(desc(score)) %>% 
-    mutate(FP = cumsum(decoy), nTar = cumsum(!decoy)) %>%
-    mutate(FDR = FP/nTar)
+hlp_scores <- sort(hlp$score, decreasing = TRUE)
+FP <- cumsum(hlp$decoy)
+nTar <- cumsum(!hlp$decoy)
+FDR  <- FP / nTar
 
-thresh <- hlp %>% filter(FDR <= 0.01) %>% pull(score) %>% min
-nTarFdrThresh <- hlp %>% filter(FDR <= 0.01) %>% pull(nTar) %>% max
-nTar <- sum(!hlp$decoy)
+thresh <- min(hlp_scores[FDR <= 0.01])
+nTarFdrThresh <- max(nTar[FDR <= 0.01])
 
-evalTargetDecoysHist(ModSwiss,"isdecoy","ms-gf:specevalue",TRUE) +
-  annotate("rect", xmin = 5, xmax = 35, ymin = -10, ymax = 1000, alpha = .2) + 
-    xlim(c(0,35)) +
-    annotate(geom="text", x=thresh, y=990, label="x > t",
-              color="black",hjust=0) +
-    ggtitle(paste("Histogram of Targets and Decoys\n",nTarFdrThresh,"PSMs significant at the 1% FDR level"))
+evalTargetDecoysHist(ModSwiss, "isdecoy", "ms-gf:specevalue", TRUE) +
+  annotate("rect", xmin = 5, xmax = 35, ymin = -10, ymax = 1000, alpha = .2) +
+  xlim(c(0, 35)) +
+  annotate(
+    geom = "text", x = thresh, y = 990, label = "x > t",
+    color = "black", hjust = 0
+  ) +
+  ggtitle(
+    "Histogram of Targets and Decoys",
+    subtitle = paste(nTarFdrThresh, "PSMs significant at the 1% FDR level")
+  )
 ```
 
 
@@ -290,11 +292,10 @@ the score is an e-value. The default is `TRUE`.
 4. A zoomed histogram
 
 ```{r evalTargetDecoys-plot, fig.cap="Histogram and PP plot, as well as a zoom for both plots."}
-#evalTargetDecoys(ModSwiss,
-#    decoy = "isdecoy", score = "ms-gf:specevalue",
-#    log10 = TRUE, nBins = 50
-#)
-evalTargetDecoys(ModSwiss,decoy = "isdecoy",score = "ms-gf:specevalue", log10 = TRUE)
+evalTargetDecoys(ModSwiss,
+    decoy = "isdecoy", score = "ms-gf:specevalue",
+    log10 = TRUE, nBins = 50
+)
 ```
 
 The four plots can also be generated individually as follows:
