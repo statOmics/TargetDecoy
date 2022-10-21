@@ -1,3 +1,11 @@
+# TargetDecoy 1.3.4 (2022-10-21)
+
+* [Feature]: add `maxPoints` argument to plotting function to allow limiting the number of dots
+      drawn in the PP-plots (#8, @lievenclement)
+* [Fix]: change y-limit in zoomed plots to the ECP of the target with largest decoy score (#8, @lievenclement)
+* Vignette: generate Figure 1 from code instead of image file (#8, @lievenclement)
+* Update gadget screenshots with new color code (#8, @lievenclement)
+
 # TargetDecoy 1.3.3 (2022-09-12)
 
 * Shiny gadget: allow non-numerical variables for `Score` input
