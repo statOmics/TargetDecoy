@@ -17,7 +17,7 @@
 #' A `data.frame` with a logical `"decoy"` column and numeric `"scores"`.
 #'
 #' @author Elke Debrie, Lieven Clement
-#' @keywords internal
+#' @export
 decoyScoreTable <- function(object, decoy, score, log10 = TRUE) {
     stopifnot(is.logical(log10))
 
