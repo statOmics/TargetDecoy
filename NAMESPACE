@@ -2,6 +2,7 @@
 
 export(createPPlotObjects)
 export(createPPlotScores)
+export(decoyScoreTable)
 export(evalTargetDecoys)
 export(evalTargetDecoysHist)
 export(evalTargetDecoysPPPlot)
@@ -13,3 +14,4 @@ importFrom(mzID,flatten)
 importFrom(mzR,psms)
 importFrom(mzR,score)
 importFrom(stats,ecdf)
+importFrom(stats,quantile)

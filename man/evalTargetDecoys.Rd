@@ -6,14 +6,22 @@
 \alias{evalTargetDecoysHist}
 \title{Evaluate assumptions of the Target Decoys approach}
 \usage{
-evalTargetDecoys(object, decoy = NULL, score = NULL, log10 = TRUE, nBins = 50)
+evalTargetDecoys(
+  object,
+  decoy = NULL,
+  score = NULL,
+  log10 = TRUE,
+  nBins = 50,
+  maxPoints = 1000
+)
 
 evalTargetDecoysPPPlot(
   object,
   decoy = NULL,
   score = NULL,
   log10 = TRUE,
-  zoom = FALSE
+  zoom = FALSE,
+  maxPoints = 1000
 )
 
 evalTargetDecoysHist(
@@ -43,6 +51,8 @@ gadget is launched to select it interactively.}
 \item{nBins}{\code{numeric} indicating the number of bins in the histogram.
 When this value is missing, a Shiny gadget is launched to select it
 interactively.}
+
+\item{maxPoints}{\code{numeric} indicating the maximum number of dots shown in the PP plot. If \code{maxPoints} is larger than the number of target scores, a dot in the PP plot corresponds with each target score in the object. The default is 1000 points.}
 
 \item{zoom}{Logical value indicating whether a zoomed version of the plot
 should be returned. Default: \code{FALSE}.}

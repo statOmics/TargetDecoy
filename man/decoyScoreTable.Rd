@@ -30,4 +30,3 @@ Takes an input object and returns a score table for the decoys.
 \author{
 Elke Debrie, Lieven Clement
 }
-\keyword{internal}
