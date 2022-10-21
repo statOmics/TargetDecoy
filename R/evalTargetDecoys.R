@@ -177,7 +177,7 @@ evalTargetDecoysPPPlot <- function(object,
 
 ## Helper to create PP-plot
 .ppPlot <- function(data, ylim = NULL, maxPoints=1000) {
-    ppData <- .ppData(data, maxPoints=maxPoints)
+    ppData <- .ppData(data, maxPoints = maxPoints)
     df <- ppData$df
     pi0 <- ppData$pi0
     ylimHlp <- ppData$ylimHlp

@@ -38,11 +38,10 @@
     Ft <- ecdf(x)
     Fd <- ecdf(data$score[data$decoy])
     if (length(x) > maxPoints) {
-      x <- quantile(x,seq(0,1,length=maxPoints))
+      x <- quantile(x, seq(0, 1, length = maxPoints))
     }
     z <- Ft(x) - pi0 * Fd(x)
     df <- data.frame(Fdp = Fd(x), Ftp = Ft(x), z = z)
-    #ylimHlp <- mean(Fd(x) == 1)
     ylimHlp <- Ft(max(data$score[data$decoy]))
     list(df = df, pi0 = pi0, ylimHlp = ylimHlp)
 }
