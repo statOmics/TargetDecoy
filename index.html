@@ -11,7 +11,8 @@
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="Diagnostic Plots to Evaluate the Target Decoy Approach">
+<script src="pkgdown.js"></script><link href="extra.css" rel="stylesheet">
+<meta property="og:title" content="Diagnostic Plots to Evaluate the Target Decoy Approach">
 <meta property="og:description" content="
     A first step in the data analysis of Mass Spectrometry (MS) based proteomics
     data is to identify peptides and proteins. With this respect the huge number of
@@ -56,7 +57,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">TargetDecoy</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.3.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.5.0</span>
       </span>
     </div>
 
@@ -101,7 +102,7 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install <em><a href="https://bioconductor.org/packages/3.15/TargetDecoy" class="external-link">TargetDecoy</a></em> from <a href="http://bioconductor.org/" class="external-link"><em>Bioconductor</em></a> using the following code:</p>
+<p>You can install <em><a href="https://bioconductor.org/packages/3.16/TargetDecoy" class="external-link">TargetDecoy</a></em> from <a href="http://bioconductor.org/" class="external-link"><em>Bioconductor</em></a> using the following code:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"BiocManager"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span></span>
@@ -159,8 +160,13 @@
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html#stable" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></li>
 <li><a href="https://github.com/statOmics/TargetDecoy/actions" class="external-link"><img src="https://github.com/statOmics/TargetDecoy/workflows/R-CMD-check-bioc/badge.svg" alt="R-CMD-check-bioc"></a></li>
 <li><a href="https://codecov.io/gh/statOmics/TargetDecoy?branch=master" class="external-link"><img src="https://codecov.io/gh/statOmics/TargetDecoy/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
-<li><a href="https://bioconductor.org/checkResults/release/bioc-LATEST/TargetDecoy" class="external-link"><img src="http://www.bioconductor.org/shields/build/release/bioc/TargetDecoy.svg" alt="BioC status release"></a></li>
-<li><a href="https://bioconductor.org/checkResults/devel/bioc-LATEST/TargetDecoy" class="external-link"><img src="http://www.bioconductor.org/shields/build/devel/bioc/TargetDecoy.svg" alt="BioC status devel"></a></li>
+<li><a href="https://bioconductor.org/checkResults/release/bioc-LATEST/TargetDecoy" class="external-link"><img src="http://www.bioconductor.org/shields/build/release/bioc/TargetDecoy.svg" alt="Bioc release status"></a></li>
+<li><a href="https://bioconductor.org/checkResults/devel/bioc-LATEST/TargetDecoy" class="external-link"><img src="http://www.bioconductor.org/shields/build/devel/bioc/TargetDecoy.svg" alt="Bioc devel status"></a></li>
+<li><a href="http://bioconductor.org/packages/stats/bioc/TargetDecoy/" class="external-link"><img src="https://bioconductor.org/shields/downloads/release/TargetDecoy.svg" alt="Bioc downloads rank"></a></li>
+<li><a href="https://support.bioconductor.org/tag/TargetDecoy" class="external-link"><img src="https://bioconductor.org/shields/posts/TargetDecoy.svg" alt="Bioc support"></a></li>
+<li><a href="https://bioconductor.org/packages/release/bioc/html/TargetDecoy.html#since" class="external-link"><img src="https://bioconductor.org/shields/years-in-bioc/TargetDecoy.svg" alt="Bioc history"></a></li>
+<li><a href="http://bioconductor.org/checkResults/devel/bioc-LATEST/TargetDecoy/" class="external-link"><img src="https://bioconductor.org/shields/lastcommit/devel/bioc/TargetDecoy.svg" alt="Bioc last commit"></a></li>
+<li><a href="https://bioconductor.org/packages/release/bioc/html/TargetDecoy.html#since" class="external-link"><img src="https://bioconductor.org/shields/dependencies/release/TargetDecoy.svg" alt="Bioc dependencies"></a></li>
 </ul>
 </div>
 
@@ -175,7 +181,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>
