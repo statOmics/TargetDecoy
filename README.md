@@ -10,11 +10,20 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 [![R-CMD-check-bioc](https://github.com/statOmics/TargetDecoy/workflows/R-CMD-check-bioc/badge.svg)](https://github.com/statOmics/TargetDecoy/actions)
 [![Codecov test
 coverage](https://codecov.io/gh/statOmics/TargetDecoy/branch/master/graph/badge.svg)](https://codecov.io/gh/statOmics/TargetDecoy?branch=master)
-<!-- [![BioC status](http://www.bioconductor.org/shields/build/release/bioc/TargetDecoy.svg)](https://bioconductor.org/checkResults/release/bioc-LATEST/TargetDecoy) -->
-[![BioC status
-release](http://www.bioconductor.org/shields/build/release/bioc/TargetDecoy.svg)](https://bioconductor.org/checkResults/release/bioc-LATEST/TargetDecoy)
-[![BioC status
-devel](http://www.bioconductor.org/shields/build/devel/bioc/TargetDecoy.svg)](https://bioconductor.org/checkResults/devel/bioc-LATEST/TargetDecoy)
+[![Bioc release
+status](http://www.bioconductor.org/shields/build/release/bioc/TargetDecoy.svg)](https://bioconductor.org/checkResults/release/bioc-LATEST/TargetDecoy)
+[![Bioc devel
+status](http://www.bioconductor.org/shields/build/devel/bioc/TargetDecoy.svg)](https://bioconductor.org/checkResults/devel/bioc-LATEST/TargetDecoy)
+[![Bioc downloads
+rank](https://bioconductor.org/shields/downloads/release/TargetDecoy.svg)](http://bioconductor.org/packages/stats/bioc/TargetDecoy/)
+[![Bioc
+support](https://bioconductor.org/shields/posts/TargetDecoy.svg)](https://support.bioconductor.org/tag/TargetDecoy)
+[![Bioc
+history](https://bioconductor.org/shields/years-in-bioc/TargetDecoy.svg)](https://bioconductor.org/packages/release/bioc/html/TargetDecoy.html#since)
+[![Bioc last
+commit](https://bioconductor.org/shields/lastcommit/devel/bioc/TargetDecoy.svg)](http://bioconductor.org/checkResults/devel/bioc-LATEST/TargetDecoy/)
+[![Bioc
+dependencies](https://bioconductor.org/shields/dependencies/release/TargetDecoy.svg)](https://bioconductor.org/packages/release/bioc/html/TargetDecoy.html#since)
 <!-- badges: end -->
 
 The goal of **TargetDecoy** is to to generate diagnostic plots to
@@ -49,7 +58,7 @@ plots to evaluate the quality of the target decoy method.
 ## Installation
 
 You can install
-*[TargetDecoy](https://bioconductor.org/packages/3.15/TargetDecoy)* from
+*[TargetDecoy](https://bioconductor.org/packages/3.16/TargetDecoy)* from
 [*Bioconductor*](http://bioconductor.org/) using the following code:
 
 ``` r
